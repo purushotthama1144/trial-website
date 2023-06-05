@@ -1,0 +1,39 @@
+::ng-deep {
+    .landing-page {
+        .image-block {
+            padding: 50px 50px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        table {
+            margin-bottom: 20px;
+        }
+        .cont_cnt_block {
+            text-align: justify;
+        }
+        ul {
+            margin-left: 20px;
+            ul {
+                margin-left: 20px;
+            }
+        }
+        p {
+            margin-bottom: 0;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+        .e-rte-image.e-imginline {
+            width: 50%;
+        }
+    }
+    @media(max-width : 820px) {
+        .landing-page {
+            .e-rte-image.e-imginline {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,274 @@
+<div class="main-content"> 
+    <div class="location-us">
+        <div class="supage-banner bg-light-blue" id="open-account">
+            <div class="container">
+                <div class="fl-bx align-items-center justify-content-center">
+                    <div class="w-50">
+                        <div class="content-block">
+                            <h1>
+                                {{locationData.main_heading}}
+                            </h1>
+                            <p>{{locationData.sub_heading}}</p>
+                        </div>
+                    </div>
+                    <div class="w-50">
+                        <div class="partner_form">
+                            <div class="form_subhdr_top text-center">Open An Account Now</div>
+                            <div class="form_subhdr_bottom text-center">Trade in NSE, BSE, MCX in a Single Margin</div>
+                            <form class="form" [formGroup]="accountopenForm">
+                                <mat-form-field class="formEmail forminr" appearance="outline">
+                                    <mat-label>Name</mat-label>
+                                    <input type="text" matInput formControlName="firstName" placeholder="First Name">
+                                    <mat-error>Name is Required</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="formEmail forminr" appearance="outline">
+                                    <mat-label>Email</mat-label>
+                                    <input type="text" matInput formControlName="emailId" placeholder="Eamil">
+                                    <mat-error>Enter valid Email Id</mat-error>
+                                </mat-form-field>
+    
+                                <mat-form-field class="formMobile forminr" appearance="outline">
+                                    <mat-label>Mobile</mat-label>
+                                    <input type="tel" matInput id="mobile" minlength="10" maxlength="10" (keypress)="keyPress($event)" placeholder="Mobile" formControlName="Mobile">
+                                    <mat-error>Please enter 10 digit mobile number</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="formEmail forminr" appearance="outline">
+                                    <mat-label>Select State</mat-label>
+                                    <mat-select formControlName="State" matNativeControl name="state" (selectionChange)="getCitiesofstate()">
+            
+                                        <mat-option *ngFor="let state of states" [value]="state">
+                                            {{state}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>Please select the state</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="formEmail forminr" appearance="outline" *ngIf="accountopenForm.value.State == 'Tamil Nadu' || accountopenForm.value.State == 'Maharashtra'">
+                                    <mat-label>Select City</mat-label>
+                                    <mat-select formControlName="City" matNativeControl name="city">
+            
+                                        <mat-option *ngFor="let city of displayCities" [value]="city.city">
+                                            {{city.city}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>Please select the City</mat-error>
+                                </mat-form-field>
+                                <div class="checkBox">
+                                    <mat-checkbox class="example-margin" formControlName="check">I authorize Alice Blue to communicate with me through multiple channels, regading thier new product updates and lauch. </mat-checkbox>
+                                </div>
+                                <div class="btn-block" style="display: flex;flex-flow: column;margin-top: 15px;align-items: center;justify-content: center;width: 100%;">
+                                    <button class="btn btn-green" style="margin-bottom: 10px; margin-right: 0;" type="submit" [disabled]="accountopenForm.invalid && (accountopenForm.value.State == 'Tamil Nadu' || accountopenForm.value.State == 'Maharashtra' && accountopenForm.value.City == '')" (click)="onSubmit()">Open an Account</button>
+                                    <button style="margin-top: 0px; font-size: 12px;" type="submit" (click)="onSubmit()" class="btn btn-blue">Continue Application</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="know-us text-center frame ">
+            <div class="container container-medium-width">
+                <div class="section-header">
+                    <h2>{{locationData.para_title}}</h2>
+                </div>
+                <p class="text-center" [innerHTML]="locationData.para_body"></p>
+                <div class="btn-block" style="margin-top: 30px;">
+                    <a routerLink="/about-us-best-brokerage-firm" class="btn btn-green">Get to Know Us!</a>
+                </div>
+            </div>
+        </div>
+        <div class="account-opening-steps frame bg-grey">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Paperless Account Opening in 6 Easy Steps</h2>
+                </div>
+                <div class="fl-bx align-items-center fl-jst-center">
+                    <div class="image-with-text w-100">
+                        <div class="3-col fl-bx align-items-center text-center fl-jst-center">
+                            <div class="col-three w-30">
+                                <div class="icon-text bg-box-one">
+                                    <div class="sr-no">01</div>
+                                    <h4>Client Details</h4>
+                                    <p>Fill your contact info + update <br />PAN and DOB</p>
+                                </div>
+                            </div>
+    
+                            <div class="col-three w-30">
+                                <div class="icon-text bg-box-one">
+                                    <div class="sr-no">02</div>
+                                    <h4>Product Selection</h4>
+                                    <p>Select the product you are interested in.</p>
+                                </div>
+                            </div>
+    
+                            <div class="col-three w-30">
+                                <div class="icon-text bg-box-one">
+                                    <div class="sr-no">03</div>
+                                    <h4>Address Details</h4>
+                                    <p>Update Adhaar and Address Details</p>
+                                </div>
+                            </div>
+    
+                            <div class="col-three w-30">
+                                <div class="icon-text bg-box-one">
+                                    <div class="sr-no">04</div>
+                                    <h4>Bank Details</h4>
+                                    <p>Link Bank A/C to Demat A/C</p>
+                                </div>
+                            </div>
+    
+                            <div class="col-three w-30">
+                                <div class="icon-text bg-box-one">
+                                    <div class="sr-no">05</div>
+                                    <h4>Personal Details</h4>
+                                    <p>Update Your Personal Details.</p>
+                                </div>
+                            </div>
+    
+                            <div class="col-three w-30">
+                                <div class="icon-text bg-box-one">
+                                    <div class="sr-no">06</div>
+                                    <h4>Document Upload</h4>
+                                    <p>Upload your Documents and Receive Client ID.</p>
+                                    <span class="docs-req" (click)="openDialog()">View Documents Required ></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="map_block frame">
+            <div class="container container-medium-width">
+                <div class="fl-bx align-items-center fl-jst-center">
+                    <div class="w-40 pos-rel bg-light-blue" style="overflow: visible;">
+                        <div class="bg-box-one address_block">
+                            <div class="branch_details">
+                                <div class="branch_header">
+                                    {{locationData.branch_name}}
+                                </div>
+                                <div class="subbranch_details">
+                                    <!-- <mat-tab-group mat-align-tabs="center" animationDuration="0ms"> -->
+                                        <!-- <mat-tab class="subBranch_name" [label]="detail" *ngFor="let detail of objectKeys(activeBranchDetail)"> -->
+                                            <div class="branch_address">
+                                                <div class="title pos-rel fl-bx">
+                                                    <div class="icon" style="margin-right: 10px;">
+                                                        <img src="assets/images/google-icons/location.svg" alt="edit" width="20" height="28">
+                                                    </div> Alice Blue Financial Services
+                                                </div>
+                                                <div class="details">
+                                                    {{ locationData.branch_address}}
+                                                </div>
+                                            </div>
+                                            <div class="branch_contact">
+                                                <div class="title pos-rel fl-bx">
+                                                    <div class="icon" style="margin-right: 10px;">
+                                                        <img src="assets/images/google-icons/smartphone.svg" alt="edit" width="20" height="28">
+                                                    </div> Contact us at
+                                                </div>
+                                                <div class="details">
+                                                    <div *ngIf="branch_contact_number_one">
+                                                        {{branch_contact_name_one}} <a href="tel:{{branch_contact_number_one}}">{{branch_contact_number_one}}</a>
+                                                    </div>
+                                                    <div *ngIf="branch_contact_number_two">
+                                                        {{branch_contact_name_two}} <a href="tel:{{branch_contact_number_two}}">{{branch_contact_number_two}}</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="branch_mail">
+                                                <div class="title pos-rel  fl-bx">
+                                                    <div class="icon" style="margin-right: 10px;">
+                                                        <img src="assets/images/google-icons/email.svg" alt="edit" width="20" height="28">
+                                                    </div> Mail us at
+                                                </div>
+                                                <div class="details">
+                                                    <a href = "mailto: {{locationData.branch_mail}}">{{ locationData.branch_mail}}</a>
+                                                </div>
+                                            </div>
+                                        <!-- </mat-tab> -->
+                                    <!-- </mat-tab-group> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-60" *ngIf="locationData">
+                        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+                            <agm-marker 
+                                [latitude]="lat" 
+                                [longitude]="lng" 
+                                [label]="locationData.branch_name">
+                            </agm-marker>
+                        </agm-map>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="faqs frame" *ngIf="faqs.length > 0">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <!-- <div class="fl-bx">
+                    <div class="AccWrap" *ngFor="let faq of faqs">
+                        <div class="AccWrapInr">
+                            <div class="AccHdr bg-box-one">
+                                {{faq.question}}
+                            </div>
+                            <div class="AccCont" [innerHTML]="faq.answer"></div>
+                        </div>
+                    </div>
+                </div> -->
+                <div id="accordion" class="accordion">
+                    <div *ngFor="let menu of faqs; let i = index" class="acc_outer" [class.active]="menu.active">
+                        <div class="menu" (click)="toggle(i)">
+                            <span class="before"></span>
+                                {{ menu.question }}
+                            <span class="plus"></span>
+                        </div>
+                        <div class="submenu" #submenu [style.height.px]="menu.active ? submenu.scrollHeight : 0" >
+                            <div class="accContent" [innerHTML]="menu.answer">
+                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="more_questions">
+                    More Questions? <span routerLink="/support" style="color:#276ba4;cursor: pointer;">Visit our support center</span>
+                </div>
+            </div>
+        </div>
+        <div class="contact-us frame bg-light-blue">
+            <div class="container container-medium-width">
+                <div class="fl-bx align-items-center fl-jst-center">
+                    <div class="w-50">
+                        <div class="gif_block">
+                            <img class="img-responsive" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/locate-gif.gif" alt="test">
+                        </div>
+                    </div>
+                    <div class="w-50">
+                        <div class="installs text-center">
+                            <div class="install_title ">
+                                "<span class="yellow">10 LAKH+</span> Installs"
+                            </div>
+                            <div class="download-app-block">
+                                <app-download-app></app-download-app>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

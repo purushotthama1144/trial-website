@@ -1,0 +1,128 @@
+<div class="main-content">
+
+    <div class="ebook_podcast help-desk">
+        <div class="subPageBanner pos-rel">
+            <div class="bgImage"
+                style="background-image: url('https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/fund+transfer+upi.png');">
+            </div>
+            <div class="overlay"></div>
+            <div class="subPage_content">
+                <div class="section-header">
+                    <h2>
+                        FUND TRANSFER UPI
+                    </h2>
+                    <p>Transferring Funds With Alice Blue’s UPI</p>
+                </div>
+            </div>
+        </div>
+        <div class="trade-with-ease frame bg-grey">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>What is UPI</h2>
+                </div>
+                <div class="image-left-text-right-block" *ngIf="imageleftTextright">
+                        <div class="image-text-inner fl-bx align-items-center">
+                            <div class="image-block w-50">
+                                <img [src]="imageleftTextright.image" width="500" height="350" alt="test" class="img-responsive">
+                            </div>
+                            <div class="text-block w-50">
+                                <div class="section-header">
+                                    <h2>{{heading}}</h2>
+                                </div>
+                                <div>
+                                    <div [innerHtml]="imageleftTextright.list"></div>
+                                </div>
+                                <div class="fl-bx align-items-center">
+                                    <div class="btn-block">
+                                        <a [href]="imageleftTextright.webLink" target="_blank" class="btn btn-blue" style="border-radius: 40px;">{{imageleftTextright.webbutton}}</a>
+                                    </div>
+                                    <div class="btn-block">
+                                        <a [href]="imageleftTextright.botLink" target="_blank" class="btn btn-blue" style="border-radius: 40px;">{{imageleftTextright.botbutton}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="digilink-client digipromo-page frame">
+            <div class="container container-medium-width">
+                <div class="image-text-inner fl-bx align-items-center">
+                    <div class="w-100 section-header text-center">
+                        <h2>STEPS TO FOLLOW</h2>
+                    </div>
+                    <div class="text-block w-50">
+                        <div class="content">
+                            <div class="section-header">
+                                <h4>Following are the steps to start using UPI payment method for fund transfer on
+                                    Aliceblue:</h4>
+                            </div>
+                            <div class="steps">
+                                <ul>
+                                    <li>Login to the Client Back Office through your web browser or through the BOT
+                                        mobile app</li>
+                                    <li>Select the menu button – “Online Payment” and click on “UPI Option”.</li>
+                                    <li>Click on “Update UPI ID” and add your UPI ID which is linked to your Trading
+                                        Bank Account.</li>
+                                    <li>After adding the UPI ID, you can make your fund transfer by selecting the
+                                        segment to which you want to add your funds and entering the amount you prefer.
+                                    </li>
+                                    <li>Go to your preferred UPI mobile app and authorise your payments.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-50">
+                        <div class="iframe pos-rel">
+                            <div class="iframe-bg"></div>
+                            <div class="iframe-inr">
+                                <iframe [src]="safeSrc" width="100%" height="100%" frameborder="0" webkitallowfullscreen
+                                    mozallowfullscreen allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100">
+                        <div class="note" style="color: #44B749;"><span
+                                style="font-weight: bold;">NOTE:</span><br><br>Please use the UPI ID that is
+                            specifically linked to the already linked Trading Bank Account. Any other UPI ID used will
+                            just cause failed transactions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="business-partner-benefits frame bg-grey">
+            <div class="container container-medium-width">
+                <div class="fl-bx text-center">
+                    <div class="section-header text-center w-100">
+                        <h2>Benefits of fund transfer using the UPI payment method:</h2>
+                    </div>
+                    <ul class="list">
+                        <li>This is the cheapest way out of every way. Since NEFT is very cheap compared to IMPS
+                            methods. It is also a very cheap against the POS machine.</li>
+                        <li>This payment method does not require cash in hand because it is a digital transaction.</li>
+                        <li>Its a secure method of transfer. The UPI payment process does not require a lot of details
+                            for making payments. You just need a virtual payment address and can use this to transfer
+                            money. This virtual address is similar to an email address.<br> For ex: raj123@paytm</li>
+                        <li>It is a very safe way to transfer money because we do not give any details to anyone other
+                            than the payment ID. And this transfer happens instantaneously.</li>
+                        <li>For making UPI payments you can link any bank account to a UPI mobile app. And you can use
+                            any UPI app, it doesn’t specifically have to be your bank’s UPI app – you can also use
+                            Google Pay or PayTm or BHIM UPI.</li>
+                        <li>It is also convenient. It is easy to register and use.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

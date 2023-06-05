@@ -1,0 +1,228 @@
+<div class="blog_detail_view post-box-circular-block">
+    <!-- Youtube -->
+    <div class="frame-top" *ngIf="element?.circular_type == 'youtube'">
+        <div class="post-box-circular">
+            <div class="container container-small-width">
+                <div class="blog_banner_inner">
+                    <div class="fl-bx align-item-center justify-content-center">
+                        <div class="blog_detail_header text-center w-100">
+                            <h2> {{element?.circular_name}}</h2>
+                            <h4 *ngIf="element?.circular_sub_title">{{element?.circular_sub_title}}</h4>
+                        </div>
+                        <div class="blo_detail_aut_date text-center w-100">
+                            <span class="date">{{element?.date | date}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame-medium blog_detail_block">
+            <div class="container container-small-width">
+                <div class="fl-bx">
+                    <div class="w-100 left_block">
+                        <div class="blog-detail-left-outer">
+                            <div class="blog-detail-left">
+                                <div class="hdr_cnt_block">
+                                    <div class="cont_cnt_block" [innerHTML]="element?.circular_details">
+    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="t-c frame-medium text-left" *ngIf="element?.terms_conditions != '' ">
+                    <div class="" style="cursor: pointer; color: #276AB4;" (click)="openDialog(element?.terms_conditions)">Terms and Conditions</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="digipromo-page digilink-client frame">
+            <div class="container container-medium-width">
+                <div class="image-text-inner fl-bx align-items-center">
+                    <div class="text-block w-50">
+                        <div class="content">
+                            <div class="section-header">
+                                <p>To Know More,</p>
+                                <h2>Watch the Video for Reference</h2>
+                            </div>
+                            <button class="btn btn-blue">{{element?.button_label}} </button>
+                        </div>
+                    </div>
+                    <div class="w-50">
+                        <div class="iframe pos-rel">
+                            <div class="iframe-bg"></div>
+                            <div class="iframe-inr">
+                                <iframe [src]="element?.youtube_url | safe" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Redirect -->
+    <div class="frame-top" *ngIf="element?.circular_type == 'redirect-url'">
+        <div class="post-box-circular">
+            <div class="container container-small-width">
+                <div class="blog_banner_inner">
+                    <div class="fl-bx align-item-center justify-content-center">
+                        <div class="blog_detail_header text-center w-100">
+                            <h2> {{element?.circular_name}}</h2>
+                            <h4 *ngIf="element?.circular_sub_title">{{element?.circular_sub_title}}</h4>
+                        </div>
+                        <div class="blo_detail_aut_date text-center w-100">
+                            <span class="date">{{element?.date | date}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame-medium blog_detail_block">
+            <div class="container container-small-width">
+                <div class="fl-bx">
+                    <div class="w-100 left_block">
+                        <div class="blog-detail-left-outer">
+                            <div class="blog-detail-left">
+                                <div class="hdr_cnt_block">
+                                    <div class="cont_cnt_block" [innerHTML]="element?.circular_details">
+    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="t-c frame-medium text-left" *ngIf="element?.terms_conditions != '' ">
+                    <div class="" style="cursor: pointer; color: #276AB4;" (click)="openDialog(element?.terms_conditions)">Terms and Conditions</div>
+                </div>
+            </div>
+        </div>
+        <div class="digipromo-page digilink-client frame">
+            <div class="container container-medium-width">
+                <div class="image-text-inner fl-bx align-items-center text-center">
+                    <div class="text-block w-100">
+                        <div class="content">
+                            <div class="section-header">
+                                <p>To Know More,</p>
+                                <h2>Click Below</h2>
+                            </div>
+                            <a [href]="element?.redirect_url" target="_blank" class="btn btn-blue">{{element?.button_label}} </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- If File Download -->
+    <div class="frame-top" *ngIf="element?.circular_type == 'file'">
+        <div class="post-box-circular">
+            <div class="container container-small-width">
+                <div class="blog_banner_inner">
+                    <div class="fl-bx align-item-center justify-content-center">
+                        <div class="blog_detail_header text-center w-100">
+                            <h2> {{element?.circular_name}}</h2>
+                            <h4 *ngIf="element?.circular_sub_title">{{element?.circular_sub_title}}</h4>
+                        </div>
+                        <div class="blo_detail_aut_date text-center w-100">
+                            <span class="date">{{element?.date | date}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame-medium blog_detail_block">
+            <div class="container container-small-width">
+                <div class="fl-bx">
+                    <div class="w-100 left_block">
+                        <div class="blog-detail-left-outer">
+                            <div class="blog-detail-left">
+                                <div class="hdr_cnt_block">
+                                    <div class="cont_cnt_block" [innerHTML]="element?.circular_details">
+    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="t-c frame-medium text-left" *ngIf="element?.terms_conditions != '' ">
+                    <div class="" style="cursor: pointer; color: #276AB4;" (click)="openDialog(element?.terms_conditions)">Terms and Conditions</div>
+                </div>
+            </div>
+        </div>
+        <div class="digipromo-page digilink-client frame">
+            <div class="container container-medium-width">
+                <div class="image-text-inner fl-bx align-items-center text-center">
+                    <div class="text-block w-100">
+                        <div class="content">
+                            <div class="section-header">
+                                <p>To Know More,</p>
+                                <h2>For Downloading the file click below</h2>
+                            </div>
+                            <a [href]="element?.file_path" class="btn btn-blue">{{element?.button_label}} </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Plain -->
+    <div class="frame-top" *ngIf="element?.circular_type == 'plain-circular'">
+        <div class="post-box-circular">
+            <div class="container container-small-width">
+                <div class="blog_banner_inner">
+                    <div class="fl-bx align-item-center justify-content-center">
+                        <div class="blog_detail_header text-center w-100">
+                            <h2> {{element?.circular_name}}</h2>
+                            <h4 *ngIf="element?.circular_sub_title">{{element?.circular_sub_title}}</h4>
+                        </div>
+                        <div class="blo_detail_aut_date text-center w-100">
+                            <span class="date">{{element?.date | date}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame-medium blog_detail_block">
+            <div class="container container-small-width">
+                <div class="fl-bx">
+                    <div class="w-100 left_block">
+                        <div class="blog-detail-left-outer">
+                            <div class="blog-detail-left">
+                                <div class="hdr_cnt_block">
+                                    <div class="cont_cnt_block" [innerHTML]="element?.circular_details">
+    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="t-c frame-medium text-left" *ngIf="element?.terms_conditions != '' ">
+                    <div class="" style="cursor: pointer; color: #276AB4;" (click)="openDialog(element?.terms_conditions)">Terms and Conditions</div>
+                </div>
+            </div>
+        </div>
+    
+    </div>    
+    <div id="share" [ngClass]="{ scrolled : scrolled}">
+        <div class="cs-social-share clearfix">
+            <div class="cs-share-this-product whatsapp ">
+                <share-button [theme]="'modern-dark'" [button]="'whatsapp'" [showText]="true" [autoSetMeta]="false"></share-button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

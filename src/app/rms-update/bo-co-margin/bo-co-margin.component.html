@@ -1,0 +1,28 @@
+<div class="newsList ban-symbol bo-co-margin frame-top">
+    <div class="news-list-header">
+        <div class="scrip">
+            SCRIP
+        </div>
+        <div class="serial-number">
+            BO MARGIN
+        </div>
+        <div class="description">
+            CO MARGIN
+        </div>
+    </div>
+    <div class="table_cont" *ngFor="let bocomargin of bocomargin ; let i=index">
+        <div class="AccWrapInr">
+            <div class="newslistinr fl-bx align-items-center">
+                <div class="scrip">
+                    {{bocomargin.script}}
+                </div>
+                <div class="serial-number">
+                    {{bocomargin.bo}}
+                </div>
+                <div class="description">
+                    {{bocomargin.co}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

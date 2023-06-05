@@ -1,0 +1,189 @@
+<div class="bank-details-page">
+    <div class="blog_list_banner bg-grey frame">
+        <div class="container container-medium-width">
+            <div class="blog_banner_inner image-right-text-left-block">
+                <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                    <div class="image-block w-50">
+                        <img class="img-responsive" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/Payin+payout.png" alt="Bank details fund tranfer">
+                    </div>
+                    <div class="text-block w-50">
+                        <div class="section-header text-center">
+                            <h1>Bank Details</h1>
+                            <p>Payin, Payout Through Fund Transfer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="transfer_fund frame pos-rel">
+        <div class="container container-medium-width">
+            <div class="section-header text-center">
+                <h2>Transfer Your Fund</h2>
+            </div>
+            <div class="directors_cont fl-bx align-items-center">
+                <div class="w-30 directors-single-block" *ngFor="let fund of funds">
+                    <div class="img-block">
+                        <img [src]="fund.img" [alt]="fund.alt" class="img-responsive">
+                    </div>
+                    <div class="content-block">
+                        <div class="title" [innerHTML]="fund.desc"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bank_detail frame">
+        <div class="container container-medium-width">
+            <div class="blog_banner_inner image-left-text-right-block">
+                <div class="image-text-inner fl-bx justify-content-center">
+                    <div class="w-50">
+                        <div class="section-header">
+                            <h3>Atom Fund Transfer Linked Banks</h3>
+                        </div>
+                        <img class="img-responsive" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/bank-names.png" alt="Banks">
+                    </div>
+                    <div class="w-50">
+                        <div class="section-header">
+                            <h3>Bank Details</h3>
+                        </div>
+                        <div class="more-detals-table">
+                            <div class="table-responsive wprt_style_display">
+                                <table class="tg table">
+                                    <tbody>
+                                        <tr>
+                                            <th class="tg-cly1" colspan="2"><span style="font-weight: bold;">For – NEFT / IMPS / RTGS</span></th>
+                                        </tr>
+                                        <tr>
+                                            <td class="tg-cly1-2" colspan="2">Segments – NSE: EQ/ FNO/ BSE EQ/ CURRENCY</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tg-cly1">Beneficiary Name</td>
+                                            <td class="tg-qw54">Alice Blue Financial Services Pvt Ltd</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tg-0lax">Bank Name</td>
+                                            <td class="tg-7dnc">HDFC Bank</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tg-0lax">IFSC Code</td>
+                                            <td class="tg-7dnc">HDFC 000 0232</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tg-0lax">Branch</td>
+                                            <td class="tg-7dnc">Sathy Road branch, Erode</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tg-0lax">Virtual Account Number</td>
+                                            <td class="tg-hmp3">
+                                                <p style="font-weight: bold;">
+                                                    {{clientId}}
+                                                </p>
+                                                <input class="digilink" name="name" size="20" type="text" placeholder="Enter Client Code" [(ngModel)]="clientCode" required="">
+
+                                                <button class="btn-blue btn" style="padding: 4px; border-radius: 2px;font-weight: 500;font-size: 12px;" (click)="generateLink()">Generate</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tg-0lax">Your Virtual Account Number</td>
+                                            <td class="tg-hmp3"><input id="digi_url" readonly [(ngModel)]="copyLink" type="text"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="frame">
+        <div class="payment_accepted subPageBanner pos-rel">
+            <div class="bgImage" style="background-image: url(https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/bank-detail-bg.png);"></div>
+            <div class="overlay"></div>
+            <div class="payment_inner image-left-text-right-block">
+                <div class="container container-medium-width">
+                    <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                        <div class="image-block w-50">
+                            <img class="img-responsive" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/payment.png" alt="Payment" >
+                        </div>
+                        <div class="text-block w-50">
+                            <div class="section-header">
+                                <h2>Fastest Way to make your payments is now here</h2>
+                            </div>
+                            <div class="section-header">
+                                <h3 class="yellow">Pay using UPI while you trade</h3>
+                            </div>
+                            <div class="section-header">
+                                <button routerLink="/fund-transfer-upi" class="btn btn-yellow">Check out for UPI process!</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="frame">
+        <div class="subPageBanner pos-rel">
+            <div class="bgImage" style="background-image: url(https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/bg-bank-detail.png);"></div>
+            <div class="overlay"></div>
+            <div class="payment_inner image-left-text-right-block">
+                <div class="container container-medium-width">
+                    <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                        <div class="text-block w-30">
+                            <div class="section-header">
+                                <h2>PAY OUT TIMINGS</h2>
+                                <p>Monday and Friday</p>
+                            </div>
+                        </div>
+                        <div class="text-block padding-left-50 w-70">
+                            <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/timing.png" class="img-responsive" alt="timings">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="frame text-center">
+        <a rel="noreferrer" href="" class="btn btn-green">FAQ For Bank Details >></a>
+    </div> -->
+    <!-- <div class="more_details frame">
+        <div class="container container-medium-width">
+            <div class="section-header text-center">
+                <h2>More Details</h2>
+            </div>
+            <div class="more-detals-table bank_detail">
+                <div class="table-responsive wprt_style_display">
+                    <table class="tg table">
+                        <tbody>
+                            <tr>
+                                <th class="tg-cly1"><span style="font-weight: bold;">Mode of Transfer</span></th>
+                                <th class="tg-cly1"><span style="font-weight: bold;">Reflection</span></th>
+                                <th class="tg-cly1"><span style="font-weight: bold;">Proof Required</span></th>
+                                <th class="tg-cly1"><span style="font-weight: bold;">TAT</span></th>
+                            </tr>
+                            <tr *ngFor="let detail of moreDetail">
+                                <td class="tg-cly1">{{detail.mode}}</td>
+                                <td class="tg-qw54">{{detail.reflection}}</td>
+                                <td class="tg-qw54">{{detail.proof}}</td>
+                                <td class="tg-qw54">{{detail.tat}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

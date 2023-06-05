@@ -1,0 +1,314 @@
+<div class="main-content">
+  
+    <div class="partner-page">
+        <div id="partner" class="banner pos-rel bg-light-blue">
+            <div class="container z-index pos-rel">
+                <div class="subpage-banner">
+                    <div class="subpage-banner-inner">
+                        <div class="blog_banner_inner image-left-text-right-block">
+                            <div class="image-text-inner fl-bx align-items-center ">
+                                <div class="image-block w-50">
+                                    <h1>Connect. Scale. Grow</h1>
+                                    <img class="img-responsive" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/Partner/join-us-and-grow-multifold.png" alt="Alice Blue Sub Broker / Trading Partner Program" />
+                                </div>
+
+                                <div class="text-block w-50" >
+                                   
+                                    <div class="partner_form pos-rel">
+                                        <div class="spinner" *ngIf="formSubmitted" style="border-radius: 20px;">
+                                            <div class="spinner-inner fl-bx align-items-center justify-content">
+                                                <mat-spinner></mat-spinner>
+                                            </div>
+                                        </div>
+                                        <div class="form_subhdr_top text-center">Ready to be a Partner?</div>
+                                        <div class="form_subhdr_bottom text-center">Join Us & Grow Multifold</div>
+                                        <form #target class="partner" [formGroup]="partnerForm">
+                                            <mat-form-field class="forminr" appearance="outline">
+                                                <mat-label>Name</mat-label>
+                                                <input type="text" matInput formControlName="name" placeholder="Name">
+                                                <mat-error>Name is Required</mat-error>
+                                            </mat-form-field>
+                                            <mat-form-field class="forminr" appearance="outline">
+                                                <mat-label>Email</mat-label>
+                                                <input type="text" matInput formControlName="emailId" placeholder="Email">
+                                                <mat-error>Enter valid Email Id</mat-error>
+                                            </mat-form-field>
+    
+                                            <mat-form-field class="formMobile forminr" appearance="outline">
+                                                <mat-label>Mobile</mat-label>
+                                                <input (keypress)="keyPress($event)" type="text" matInput id="mobile" minlength="10" maxlength="10" placeholder="Mobile" formControlName="Mobile">
+                                                <mat-error>Please enter 10 digit mobile number</mat-error>
+                                            </mat-form-field>
+    
+                                            <mat-form-field class="formEmail forminr" appearance="outline">
+                                                <mat-label>Select State</mat-label>
+                                                <mat-select formControlName="State" matNativeControl name="state">
+    
+                                                    <mat-option *ngFor="let state of states" [value]="state.value">
+                                                        {{state.value}}
+                                                    </mat-option>
+                                                </mat-select>
+                                                <mat-error>Please select the state</mat-error>
+                                            </mat-form-field>
+    
+                                            <mat-radio-group formControlName="knowledge">
+                                                <div class="radio_text">Do you have any prior knowledge or exposure to the stock market?</div>
+                                                <mat-radio-button value="Yes">Yes</mat-radio-button>
+                                                <mat-radio-button value="No">No</mat-radio-button>
+                                            </mat-radio-group>
+                                            <div class="checkBox">
+                                                <mat-checkbox class="example-margin" formControlName="check">I authorize Alice Blue to communicate with me through multiple channels, regading thier new product updates and lauch. </mat-checkbox>
+                                            </div>
+                                            <div class="btn-block">
+                                                <button class="btn btn-green" type="submit" [disabled]="partnerForm.invalid" (click)="onSubmit()">Become a Partner</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="business-partner-benefits frame">
+            <div class="container container-medium-width">
+                <div class="fl-bx text-center">
+                    <div class="section-header text-center w-100">
+                        <h2>Alice Blue Sub Broker Benefits</h2>
+                        <p>Partner with Alice Blue to Earn, Scale & Grow your Stock Market Business</p>
+                    </div>
+                    <ul class="list">
+                        <li>Zero Initial Investment</li>
+                        <li>High Revenue Sharing</li>
+                        <li>Single Margin Trading (Any Segment)</li>
+                        <li>Exclusive Tools to Scale your Business</li>
+                        <li>Free Access to API's</li>
+                        <li>Marketing & Branding Support</li>
+                        <li>Multi-lingual Support Team</li>
+                        <li>Regular Training from Industry Experts</li>
+                        <li>Timely Monthly Payouts</li>
+                        <li>Transparent Business Process & Ethics</li>
+                        <li>Optimum Margin Trading Facility</li>
+                        <li>Attractive Incentives & Bonuses</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="partnership_model frame bg-grey">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Business Partnership Models</h2>
+                    <p>Create Multiple Revenue Streams with just one Account.</p>
+                </div>
+                <div class="feature_cont fl-bx align-items-center">
+                    <div class="w-50 feature-single-block"  *ngFor="let partner of partners">
+                        <div class="img-block" style="margin-bottom:20px" *ngIf="partner.img">
+                            <img [src]="partner.img" [alt]="partner.alt" class="img-responsive bg-box-one">
+                        </div>
+                        <div class="content-block text-left" *ngIf="partner.title">
+                            <h4>{{partner.title}}</h4>
+                            <p *ngIf="partner.description">{{partner.description}}</p>
+                            <button (click)="scrollToTop(target)" class="btn btn-green" *ngIf="pageYoffset > 0">Request a Callback</button>
+                        </div>
+                        <div class="single_image" *ngIf="partner.image">
+                            <img [src]="partner.image" [alt]="partner.alt" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame bg-light-blue">
+            <div class="container container-medium-width">
+                <div class="fl-bx align-items-center fl-jst-center">
+                    <div class="w-100">
+                        <div class="text-center">
+                            <div class="section-header">
+                                <h2>Grow your Business with Alice Blue</h2>
+                            </div>
+                            <p>Take your first step towards becoming a Business Partner. Speak to our relationship manager today to know more.</p>
+                            <button (click)="scrollToTop(target)" *ngIf="pageYoffset > 0" class="btn btn-yellow">Join Us</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="partner-slider about_us frame">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Multiple Earning Modes</h2>
+                    <p>As a partner of Alice Blue, you stand to benefit from multiple earning modes mentioned below</p>
+                </div>
+                <owl-carousel-o [options]="customServeOptions" (dragging)="isDragging = $event.dragging">
+                    <ng-container *ngFor="let item of partnerData">
+                        <ng-template carouselSlide>
+                            <div class="single-block single-product text-center">
+    
+                                <div class="partner-block bg-box-one">
+                                    <h4>{{item.header}} 
+                                    <span *ngIf="item.header == 'Clients Traded Incentive'" class="rating_star star">
+                                        <img src="assets/images/google-icons/star.svg" alt="star" width="20" height="20">
+                                    </span>
+                                    </h4>
+                                    <p class="small-text">{{item.content}}</p>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+                <div class="tnc" >
+                    <span  style="color: #286ab4; cursor: pointer;display: flex;" (click)="openTnc(tnc)">
+                        <span class="rating_star star">
+                            <img src="assets/images/google-icons/star-yellow.svg" alt="star" width="20" height="20">
+                        </span> Terms & Conditions
+                    </span>
+                </div>
+                <div class="partner_calculator text-center">
+                    <button mat-button class="btn btn-blue" (click)="openDialog()">Calculate Your Potential Earning</button>
+                </div>
+            </div>
+        </div>
+        <div class="set_up_growth frame bg-light-black">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2> Our Setup for your Growth</h2>
+                </div>
+                <div class="image_bottom_text_top feature_cont fl-bx align-items-center">
+                    <div class="w-50 feature-single-block" *ngFor="let partner of growth">
+                        <div class="bg-box-one stylish_block" >
+                            <div class="stylish_block_inr">
+                                <div class="content-block" *ngIf="partner.title">
+                                    <h4>{{partner.title}}</h4>
+                                    <p *ngIf="partner.description" style="min-height:75px;">{{partner.description}}</p>
+                                </div>
+                                <div class="img-block" *ngIf="partner.img">
+                                    <img [src]="partner.img" alt="test" class="img-responsive bg-box-one">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame dashboard_slider pos-rel">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>DigiLink Partner Dashboard</h2>
+                    <p>Track, monitor & analyze your performance using a single dashboard</p>
+                </div>
+           
+                <owl-carousel-o [options]="customServeOptions" (dragging)="isDragging = $event.dragging">
+                    <ng-container *ngFor="let item of sliders">
+                        <ng-template carouselSlide>
+                            <div class="slider-wrap pos-rel slider-partner-dash-board ">
+    
+                                <div class="serving_image cover bg-box-one" style="background-image: url('{{item.img}}');"></div>
+                                <div class="caption">
+                                    <div class="cap-cont">
+                                        {{item.content}}
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+            </div>
+            
+        </div>
+        <div class="partner-slider about_us testimonials frame bg-light-blue pos-rel">
+            <div class="container container-medium-width">
+    
+                <div class="section-header text-center">
+                    <div class="client-detail">
+                        <div class="partner-served pos-rel">
+                            <!-- <div class="horn">
+                                <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/horn.png" alt="test" class="img-responsive">
+                            </div>
+                            <div class="horn horn-left">
+                                <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/horn.png" alt="test" class="img-responsive">
+                            </div> -->
+                            <div class="join">
+                                Join Over
+                            </div>
+                            <span class='numscroller'>12,000</span>+
+                            <div class="prtnr join">
+                                Alice Blue Partners
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <owl-carousel-o [options]="testimonialOptions" (dragging)="isDragging = $event.dragging">
+                    <ng-container *ngFor="let item of testimonialData">
+                        <ng-template carouselSlide>
+                            <div class="single-block single-product text-center">
+    
+                                <div class="partner-block">
+                                    <p class="small-text" [innerHTML]="item.content"></p>
+                                    <div class="rating fl-bx justify-content-center align-items-center">
+                                        <div class="rating_star star" *ngFor="let i of item.rating | enumerate">
+                                            <img src="assets/images/google-icons/star-yellow.svg" alt="star" width="20" height="20">
+                                        </div>
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+                <div class="text-center frame-small">
+                    <button (click)="scrollToTop(target)" *ngIf="pageYoffset > 0" class="btn btn-yellow">Join Us</button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="faqs frame" *ngIf="faqs.length > 0">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2> FAQs</h2>
+                </div>
+                <!-- <div class="fl-bx align-items-center">
+                    <div class="AccWrap" *ngFor="let faq of faqs">
+                        <div class="AccWrapInr">
+                            <div class="AccHdr bg-box-one">
+                                {{faq.question}}
+                            </div>
+                            <div class="AccCont" [innerHTML]="faq.answer">
+    
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div id="accordion" class="accordion">
+                    <div *ngFor="let menu of faqs; let i = index" class="acc_outer" [class.active]="menu.active">
+                        <div class="menu" (click)="toggle(i)">
+                            <span class="before"></span>
+                                {{ menu.question }}
+                            <span class="plus"></span>
+                        </div>
+                        <div class="submenu" #submenu [style.height.px]="menu.active ? submenu.scrollHeight : 0" >
+                            <div class="accContent" [innerHTML]="menu.answer">
+                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="view_more">
+                    More Questions? <span routerLink="/support" style="color:#276ba4;cursor: pointer;">Visit our support center</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div id="header" *ngIf="!removeHeaderFooter">
+    <app-header *ngIf="lazyLoadHeader"></app-header>
+</div>
+<div id="nk-content">
+    <div class="nk-outer pos-rel">
+        <router-outlet></router-outlet>
+    </div>
+    <app-contact *ngIf="hideOpenAccount"></app-contact>
+    <div class="move-to-top" [ngClass]="{ show: scrolled }" (click)="scrollToTop()">
+        <img width="20" height="12" src="assets/images/home/right-arrow.webp" alt="up arrow" loading="lazy" style="transform: rotate(-90deg);">
+    </div>
+</div>
+<div id="footer" class="footer" *ngIf="!removeHeaderFooter">
+    <app-footer></app-footer>
+</div>
+<!-- <div id="loader" *ngIf="loader">
+    <div class="loader-icon">
+        <img width="120" height="60" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/logo.png" alt="">
+    </div>
+</div> -->

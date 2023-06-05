@@ -1,0 +1,22 @@
+<div class="weekly_updates block " style="margin-top: 30px;">
+    <div class="hdr_4">Subscribe for our weekly updates.</div>
+
+    <div class="input_field">
+        <form [formGroup]="subscribeForm">
+            <div class="newsletter-form-field">
+                <mat-form-field class="formName forminr" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" placeholder="example@gmail.com">
+                    <mat-error>Email is Required</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="btn-block">
+                <button (click)="subscribe()" [disabled]="subscribeForm.invalid" class="btn btn-green">Subscribe</button>
+            </div>
+        </form>
+
+
+        <div id="wltxt">
+            <p>{{msg}}</p>
+        </div>
+    </div>

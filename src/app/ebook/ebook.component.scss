@@ -1,0 +1,324 @@
+
+.ebook-single-block {
+    width: 31.3%;
+    margin: 1%;
+    .img-block img {
+        border-radius: 0;
+        width: 100%;
+        height: auto;
+    }
+    .blog-readtime {
+        margin: 0;
+    }
+    .img-block-top {
+        .title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-align: center;
+            font-weight: 400;
+            z-index: 1;
+        }
+        .bg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #000;
+            opacity: 0.6;
+        }
+    }
+    .content-block {
+        text-align: left;
+        padding: 20px;
+        font-size: 14px;
+        .title {
+            margin: 30px 0;
+        }
+        h3 {
+            font-size: 20px;
+        }
+    }
+
+    .img-block-top {
+        height: 180px;
+        .video-wrap {
+            height: 210px;
+        }
+        .videoplay-outer {
+            left: 50%;
+        }
+        video {
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+    }
+    .btn-block {
+        width: 50%;
+        margin: auto;
+        margin-bottom: 20px;
+        .btn {
+            min-height: auto;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+.ebook-slider h4 {
+    color: #fff;
+}
+.AccCont {
+    a {
+        color: #44B749;
+    }
+    ul {
+        margin-left: 20px;
+    }
+}
+.ebook_podcast {
+    #share {
+        top: 35%;
+        transform: inherit;
+        left: 0;
+        z-index: 5;
+    }
+    .single-block {
+        width: 31.33%;
+        margin: 1%;
+        .content-block {
+            min-height: 100px!important;
+            padding: 10px 20px;
+            text-align: left;
+            cursor: pointer;
+            &::after {
+                width: 30px;
+                height: 30px;
+                content: "";
+                display: block;
+                background-image: url('https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/round-arrow.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: absolute;
+                right: 20px;
+                bottom: 22px;
+            }
+        }
+    }
+}
+
+.ebook-slider {
+    h4 {
+        color: #fff;
+    }
+    background-image: linear-gradient(to bottom,
+    #1d70d7,
+    #0082de,
+    #0092e3,
+    #00a2e5,
+    #33b1e6);
+    .partner-block {
+        background-color: #fff;
+    }
+    .webinar-block-inr {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 0 #aaa;
+        min-height: 400px;
+    }
+    .topic {
+        background-color: #d1dcf1;
+        margin: 5px 0;
+        margin-right: 25%;
+        padding: 3px 15px;
+        border-radius: 20px;
+        font-size: 12px;
+    }
+    .img-block-top {
+        .title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color: #fff;
+            font-weight: 400;
+        }
+        img {
+            height: 100%;
+            display: block;
+        }
+    } 
+}
+::ng-deep {
+    .ebook-slider {
+        .img-block-top {
+            height: 180px;
+            img {
+                height: 100%;
+                display: block;
+            }
+        }
+        .content-block {
+            text-align: left;
+            padding: 20px;
+            margin: 20px;
+        }
+        .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+            background: #ffffff !important;
+            border: 1px solid #ffffff;
+        }
+        .owl-theme .owl-dots .owl-dot span {
+            border: 1px solid #ffffff;
+        }
+        .owl-theme .owl-dots {
+            position: relative;
+            left: auto;
+            margin-top: 40px;
+        }
+    }
+} 
+.img-block-top {
+    .title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        color: #fff;
+        font-weight: 400;
+    }
+    img {
+        height: 100%;
+        display: block;
+    }
+} 
+.install_title {
+    font-size: 60px;
+    font-weight: 700; 
+    margin-bottom: 40px;
+    line-height: 1.2;
+    text-shadow: 1px 6px 3px #000;
+}
+.link_mobile {
+    font-size: 26px;
+    .offer {
+        margin-top: 20px;
+    }
+}
+
+.webinar_block {
+    cursor: pointer;
+}
+.filter_block.AccWrap {
+    width: 100%;
+    padding-right: 20px;
+    .filter_accordion {
+        margin: 5px 0;
+        .AccHdr {
+            padding: 10px 15px;
+            color: #333;
+            background-color: #edf1f9;
+            height: auto;
+            border-radius: inherit;
+            font-weight: 500;
+            &::before {
+                display: none;
+            }
+            &::after {
+                background-image: url('https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/svg/arrow-black.svg');
+                width: 20px;
+                height: 20px;
+                background-color: transparent;
+                right: 10px;
+                background-size: 15px;
+            }
+        }
+    }
+}
+
+.contact-us {
+    .mat-tab-label {
+        color: #fff;
+    }
+    .address_block .branch_mail,
+    .address_block .branch_contact,
+    .address_block .branch_address {
+        border-bottom: 1px solid #fff;
+    }
+    .single-loc-block {
+        z-index: 1;
+        position: relative;
+        background-color: #000;
+        color: #fff;
+        padding: 20px 10px;
+        opacity: 0.7;
+        &:hover {
+            background-color: #172540;
+            opacity: 1;
+        }
+        .link {
+            color: #2769b4;
+            text-decoration: underline;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .branch-name {
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+    }
+    .branch-address-section {
+        min-height: 510px;
+        position: relative;
+        .overlay {
+            background-color: #000;
+            opacity: 0.7;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .bg-img {
+            background: url('https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/map.png');
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+}
+.share_link {
+    z-index: 1;
+    position: relative;
+    .install_title {
+        margin-bottom: 0px;
+    }
+}
+// .topic {
+//     background-color: #d1dcf1;
+//     margin: 5px 0;
+//         margin-right: 0px;
+//         margin-bottom: 5px;
+//     margin-right: 25%;
+//     padding: 3px 15px;
+//     border-radius: 20px;
+//     font-size: 12px;
+// }
+@media(max-width : 820px) {
+    .ebook-single-block {
+        width: 48%;
+    }
+}
+@media(max-width : 468px) {
+    .ebook-single-block {
+        width: 99%;
+        margin: 10px auto;
+    }
+}

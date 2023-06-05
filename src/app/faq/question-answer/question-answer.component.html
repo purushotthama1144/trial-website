@@ -1,0 +1,29 @@
+<div class="pos-rel blog_detail_view">
+    <mat-card *ngIf="questionAnswer">
+        <mat-card-title>
+            <h1 style="font-size: 24px;">
+                {{questionAnswer.question}}
+            </h1>  
+        </mat-card-title>
+        <mat-card-content [innerHTML]="questionAnswer.answer">
+            <!-- {{questionAnswer.answer}} -->
+        </mat-card-content>
+        <div class="container-fluid">
+            <div class="comment-block clearfix">
+                <div class="link-block fl-left">
+                    Last updated on {{questionAnswer.updatedAt|date}}
+                </div>
+                <div class="suggestion-block clearfix fl-right">
+                    Was this helpful?
+                    <button class="like" (click)="like(questionAnswer.id)" [matBadge]="questionLikeDislike?.likes">
+                        <img src="assets/images/google-icons/thumbs-up.svg" width="20" height="20" alt="eye" >
+                    </button>
+        
+                    <button class="dislike" (click)="dislike(questionAnswer.id)" [matBadge]="questionLikeDislike?.dislikes">
+                        <img src="assets/images/google-icons/thumbs-down.svg" width="20" height="20" alt="eye" >
+                    </button>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</div>

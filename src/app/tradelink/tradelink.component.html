@@ -1,0 +1,101 @@
+<div class="main-content">
+    <div class="nk-outer tradelink digipromo-page">
+        <div class="blog_list_banner frame">
+            <div class="container container-medium-width">
+                <div class="blog_banner_inner image-right-text-left-block">
+                    <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                        <div class="image-block w-50">
+                            <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/Trade+Link/share-your-trading-ideas.png" alt="Trading Platform - Alice Blue" class="img-responsive">
+                        </div>
+                        <div class="text-block w-50">
+                            <div class="banner-logo">
+                                <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/Trade+Link/Logo/trafe-link-logo.png" alt="tradelink" class="img-responsive">
+                            </div>
+                            <div class="trading-option-inr">
+                                <h1>Share Your Trading Ideas</h1>
+                                <p>Introducing Trade Link, a free online tool that converts your trading ideas into Trade Orders. A new way to earn 2x the revenue you are earning right now.</p>
+                                <a rel="noreferrer" href="https://bot.aliceblueonline.com/tradelink/linkgenerate.php" target="_blank" class="btn btn-green" style="margin-top: 30px;">Start Sharing</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="digilink-client frame">
+            <div class="container container-medium-width">
+                <div class="image-text-inner frame fl-bx align-items-center">
+                    <div class="w-50">
+                        <div class="iframe pos-rel">
+                            <div class="iframe-bg"></div>
+                            <div class="iframe-inr">
+                                <iframe [src]="safeSrc" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-block w-50">
+                        <div class="content">
+                            <div class="section-header">
+                                <h2>About Trade Link</h2>
+                            </div>
+                            <div class="s-cont" style="margin-bottom: 10px;" [innerHTML]="content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="benefits bg-grey frame">
+            <div class="container container-medium-width h-100">
+                <div class="section-header text-center">
+                    <h2>How it Works?</h2>
+                </div>
+                <div class="image-with-text">
+                    <div class="3-col fl-bx align-items-center text-center">
+                        <div class="col-3 col-one w-30" *ngFor="let work of howWorks">
+                            <div class="icon-text">
+                                <div class="icon-text-icon">
+                                    <img class="image-responsive hover-image" [src]="work.icon" alt="Trade Store - Alice Blue">
+                                </div>
+                                <div class="icon-text-text">
+                                    {{work.desc}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="methods frame">
+            <div class="container container-medium-width h-100">
+                <div class="section-header text-center">
+                    <h2>Why Tradelink?</h2>
+                </div>
+                <div class="image-with-text">
+                    <div class="3-col fl-bx text-center align-items-center">
+                        <div class="col-3 col-one w-30" *ngFor="let tradelink of whyTradelink">
+                            <div class="icon-text bg-box">
+                                <div class="icon-text-text">
+                                    <h3>{{tradelink.title}}</h3>
+                                    <p>{{tradelink.desc}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center frame-top">
+                    <a rel="noreferrer" href="https://bot.aliceblueonline.com/tradelink/linkgenerate.php" target="_blank" class="btn btn-green">Start Sharing Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

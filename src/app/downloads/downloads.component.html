@@ -1,0 +1,52 @@
+<div class="main-content">
+  
+    <div class="feedback help-desk circular_block">
+        <div class="subPageBanner pos-rel">
+            <div class="bgImage" style="background-image: url('https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/Downloads/download.png');"></div>
+            <div class="overlay"></div>
+            <div class="subPage_content">
+                <div class="section-header">
+                    <h1>
+                        Downloads
+                    </h1>
+                    <p>Just make it easy for you.</p>
+                </div>
+            </div>
+        </div>
+        <div class="career_outer_block">
+            <div class="container container-medium-width">
+                <div class="tab_group">
+                    <div class="download-nav">
+                        <nav mat-tab-nav-bar>
+                            <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" routerLinkActive="active-link" #rla="routerLinkActive" [active]="rla.isActive">
+                                <div class="download-links">
+                                    <div class="image">
+                                        <img [src]="link.icon" style="height: 30px">
+                                    </div>
+                                    <div class="content">
+                                        {{link.label}}
+                                    </div>
+                                </div>
+                            </a>
+                        </nav>
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+   
+
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+<div class="main-content brokerage-calc">
+
+    <div class="container container-medium-width">
+        <div class="section-header text-center frame-top">
+            <h1>Brokerage Calculator</h1>
+        </div>
+        <div class="">
+            <nav mat-tab-nav-bar>
+                <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" routerLinkActive
+                    #rla="routerLinkActive" [active]="rla.isActive">
+                    {{link.label}}
+                </a>
+            </nav>
+            <router-outlet></router-outlet>
+        </div>
+        <div class="contract warning-text">
+            {{contractNote.warningText}}
+            <div class="warning-text" style="margin-top: 10px;">
+                {{contractNote.warningText1}}
+            </div>
+        </div>
+    </div>
+    <app-trending-tools></app-trending-tools>
+    <div class="starttrading bg-light-blue frame">
+        <div class="container container-medium-width">
+            <div class="content-blog">
+                <p>Send your Friends to a page of your decision through your customized associate connection. In the
+                    event
+                    that they open a record, we'll naturally delineate referral to you.</p>
+                <!-- <app-generate-link [whatsapp_text]="whatsapp_text" [facebook_text]="facebook_text" [linkedin_text]="linkedin_text" [twitter_text] ="twitter_text"  [telegram_text] = "telegram_text" [client]="false"></app-generate-link> -->
+                <div class="box-lable g-link">
+                    <input class="digilink" type="text" pattern="[a-zA-Z0-9 ]+" maxlength="15"
+                        placeholder="Enter your code" id="generate_link_client" [(ngModel)]="clientCode"
+                        required="">
+                    <button class="digi_button btn btn-green btn-rounded" id="generate_associate_link"
+                        (click)="generateLink()" value="">Generate
+                        Link</button>
+                </div>
+                <div class="box-lable g-link mt-20">
+                    <input class="digilink" type="text" placeholder="Your referral link is" id="copy_link" readonly
+                        [(ngModel)]="copyLink" #userLink>
+                    <button class="digi_button btn btn-blue btn-rounded" (click)="copyInputMessage(userLink)"
+                        id="generate_associate_link" value="">Copy Link</button>
+                </div>
+                <div class="pt bg-light-blue">
+                    <div class="b-text">
+                        Share it Through:
+                    </div>
+
+                    <div class="cs-social-share clearfix">
+                        <div class="cs-share-this-product">
+                            <share-button [theme]="'modern-dark'" [button]="'facebook'" [url]="shareLink"
+                                [description]="facebook_text"></share-button>
+                        </div>
+                        <div class="cs-share-this-product">
+                            <share-button [theme]="'modern-dark'" [button]="'twitter'" [url]="shareLink"
+                                [description]="twitter_text"></share-button>
+                        </div>
+                        <div class="cs-share-this-product">
+                            <share-button [theme]="'modern-dark'" [button]="'telegram'" [url]="shareLink"
+                                [description]="telegram_text"></share-button>
+                        </div>
+                        <div class="cs-share-this-product ">
+                            <share-button [theme]="'modern-dark'" [button]="'linkedin'" [url]="shareLink"
+                                [description]="linkedin_text"></share-button>
+                        </div>
+                        <div class="cs-share-this-product ">
+                            <share-button [theme]="'modern-dark'" [button]="'whatsapp'" [showText]="false"
+                                [url]="shareLink" [description]="whatsapp_text"></share-button>
+                        </div>
+                    </div>
+                </div>
+                <div class="download-app">
+                    <div class="section-header">
+                        <p>GET THE BEST STOCK BROKER APP IN INDIA</p>
+                    </div>
+                    <div class="social-icon-links">
+                        <a target="_blank" rel="noreferrer" href="https://apps.apple.com/in/app/ant-aliceblue/id1450075732"
+                            class="s-icn">
+                            <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/svg/ios.png"
+                                alt="App Store - Alice Blue" class="img-responsive">
+                        </a>
+                        <a target="_blank" rel="noreferrer" href="https://play.google.com/store/apps/details?id=in.aliceblue.ant&hl=en"
+                            class="s-icn">
+                            <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/Homepage+/android.webp"
+                                alt="Google Play Store - Alice Blue" class="img-responsive">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

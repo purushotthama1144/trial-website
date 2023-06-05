@@ -1,0 +1,14 @@
+<div class="bg-light-blue">
+    <div class="container container-medium-width">
+        <div class="branches-list">
+            <ul>
+                <li>Branches:</li>
+                <li class="et-social-icon" *ngFor="let branch of branches">
+                    <a [routerLink]="[branch.link,lowerCase(branch.branch)]" class="icon" style="color: #fff;">
+                        {{branch.branch}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

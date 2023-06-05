@@ -1,0 +1,25 @@
+.image-with-text .w-50 {
+    width: 48%;
+    margin: 1%;
+    padding: 0;
+}
+
+.icon-text {
+    min-height: 246px;
+}
+
+@media(max-width: 820px ){
+    .icon-text {
+        min-height: 270px;
+        font-size: 10pt;
+    }
+}
+@media(max-width: 468px ){
+    .image-with-text .w-50 {
+        width: 98%;
+        margin: 2% 1%;
+    }
+    .icon-text {
+        min-height: 220px;
+    }
+}

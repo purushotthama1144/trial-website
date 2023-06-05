@@ -1,0 +1,155 @@
+<div class="main-content">
+  
+    <div class="ant-page">
+        <div class="blog_list_banner frame">
+            <div class="container container-medium-width">
+                <div class="blog_banner_inner image-right-text-left-block">
+                    <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                        <div class="image-block w-50">
+                            <img class="img-responsive" [src]="antPlusData.main_banner_image_url" alt="ANT Plus - Alice Blue Trading API">
+                        </div>
+                        <div class="text-block w-50">
+                            <div class="section-header text-center">
+                                <h1>{{antPlusData.page_main_heading}}</h1>
+                                <p [innerHTML]="antPlusData.sub_heading"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="directors_cont api_block frame bg-light-blue-1">
+            <div class="container container-medium-width fl-bx align-items-center">
+                <div class="w-100 section-header text-center">
+                    <h2 style="color: inherit;">Why Choose Alice Blue’s ANT Plus API</h2>
+                </div>
+                <div class="w-50 directors-single-block" *ngFor="let api of antPlusData.choose_ant_plus_json; index as i">
+                    <div class="director fl-bx" style="text-align: left;">
+                        <div class="w-20" style="padding-left: 30px;">
+                            <h2>0{{i + 1}}</h2>
+                        </div>
+                        <div class="desc_block w-80" style="padding-right: 20px;">
+                            <h4>{{api.main_heading}}</h4>
+                            <p>{{api.sub_heading}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="missing-section frame">
+            <div class="container container-medium-width text-center">
+                <div class="section-header">
+                    <h2>
+                        Create Your Own Trading Platform
+                    </h2>
+                </div>
+                <p>{{antPlusData.own_trading_platform_text}}</p>
+                <div class="supported-languages frame-top">
+                    <b>Supported Languages :</b> <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/icons/python.jpg" class="img-responsive" alt="test"> , 
+                    <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/icons/json-logo.png" class="img-responsive" alt="test"> , 
+                    <img class="img-responsive" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/icons/js.png" alt="test">
+                </div>
+                <div class="btn-block frame-top">
+                    <a rel="noreferrer" href="https://develop-api.aliceblueonline.com" target="_blank" style="margin-right: 10px; border-radius: 40px;" class="btn btn-blue">Generate API</a>
+                    <a (click)="explore()" style="margin-right: 10px; border-radius: 40px;" class="btn btn-blue" target="_blank">Explore Docs</a>
+                    <a rel="noreferrer" href="https://old.aliceblueonline.com/antplus/#antjs" target="_blank" class="btn btn-blue" style=" border-radius: 40px;">Try Demo</a>
+                </div>
+            </div>
+        </div>
+        <div class="key_features frame">
+            <div class="container container-medium-width">
+                <div class="image-left-text-right-block" *ngIf="imageleftTextright">
+                    <div class="image-text-inner fl-bx align-items-center">
+                        <div class="image-block w-50">
+                            <img [src]="antPlusData.key_features_image_url" width="500" height="350" alt="Stock market trading api" class="img-responsive">
+                        </div>
+                        <div class="text-block  w-50">
+                            <div class="section-header">
+                                <h2>{{imageleftTextright.heading}}</h2>
+                            </div>
+                            <div>
+                                <div [innerHtml]="antPlusData.key_features_text"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="key_features frame">
+            <div class="container container-medium-width">
+                <div class="image-right-text-left-block">
+                    <div class="image-text-inner fl-bx align-items-center">
+                        <div class="image-block w-50">
+                            <img [src]="antPlusData.benefits_image_url" width="500" height="350" alt="Ant plus - trading api" class="img-responsive">
+                        </div>
+                        <div class="text-block  w-50">
+                            <div class="section-header">
+                                <h2>{{imagerightTextleft.heading}}</h2>
+                            </div>
+                            <div>
+                                <div [innerHtml]="antPlusData.benefits_text"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="key_features frame">
+            <div class="container container-medium-width">
+                <div class="image-left-text-right-block text-left-text-right-block" *ngIf="textleftTextright">
+                    <div class="image-text-inner fl-bx align-items-center">
+                        <div class="image-block w-50">
+                            <h1 [innerHTML]="textleftTextright.largeHeader"></h1>
+                        </div>
+                        <div class="text-block  w-50">
+                            <div>
+                                <div [innerHtml]="textleftTextright.list"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="programming_lang frame bg-light-blue">
+            <div class="container container-medium-width">
+                <div class="image-left-text-right-block fl-bx align-items-center">
+                    <div class="image-block w-50">
+                        <img [src]="programmingLanguage.image" alt="Api" class="img-responsive">
+                    </div>
+                    <div class="text-block w-50">
+                        <div class="section-header text-center">
+                            <h2 [innerHTML]="programmingLanguage.title"></h2>
+                        </div>
+                        <div class="btn-block text-center">
+                            <a class="btn btn-blue bg-box" style="border-radius:40px;"
+                                href="mailto: api@aliceblueindia.com">For Request : api@aliceblueindia.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="api_uses frame">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Platforms that use ANT Plus API</h2>
+                </div>
+                <div class="social-icon-links fl-bx align-items-center">
+                    <div class="api" *ngFor="let image of antPlusData.platforms_use_ant_apis_json">
+                        <img [src]="image.image_url" alt="Alice Blue" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

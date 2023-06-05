@@ -1,0 +1,132 @@
+<div [mat-dialog-close]="true" class="icon-close"> <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/svg/cancel-black.svg" alt="test"> </div>
+
+<mat-dialog-content class="mat-typography">
+    <div class="drop-cont">
+        <div class="w-50">
+            <div class="drop-c-inr">
+                <div class="fl-50-inr">
+                    <label>CASH AVAILABLE</label>
+                    <input type="tel" maxlength="10" class="value" name="cash" [(ngModel)]="cashAvailable" (input)="calculation()" id="cash">
+                </div>
+            </div>
+        </div>
+        <div class="w-50">
+            <div class="drop-c-inr">
+                <div class="fl-50-inr">
+                    <label>Price</label>
+                    <p>Rs. {{data.element.price}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-d-outer">
+        <div class="d-d-outer-inr">
+            <div class="dropdown-table">
+                <div class="w-40 ht ">
+                    <div class="t-h sel">
+                        Types of Orders
+                    </div>
+                </div>
+                <div class="w-60 ht freedom trade">
+                    <div class="t-h">
+                        <div class="t-h-c">
+                            <div class="w-100">
+                                F15 Plan(Freedom 15)
+                            </div>
+                            <div class="w-50">
+                                Margin-Required
+                            </div>
+                            <div class="w-50">
+                                No. of LOTS
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown-t-cont">
+                <div class="w-40 cont">
+                    NRML margin
+                </div>
+                <div class="w-60 d-d-c-i cont">
+                    <div class="w-50">
+                        {{data.element.nrml_margin}}
+                    </div>
+                    <div class="w-50">
+                        {{lotNrmlMargin}}
+                    </div>
+                </div>
+                <!-- <div class="w-40 d-d-c-i cont">
+                    <div class="w-50">
+                        {{data.element.normal_margin}}
+                    </div>
+                    <div class="w-50">
+                        {{lotNrmlMargin}}
+                    </div>
+                </div> -->
+            </div>
+            <div class="dropdown-t-cont">
+                <div class="w-40 cont">
+                    mis margin
+                </div>
+                <div class="w-60 d-d-c-i cont">
+                    <div class="w-50">
+                        {{data.element.mis_margin}}
+                    </div>
+                    <div class="w-50">
+                        {{lotMisMargin}}
+                    </div>
+                </div>
+                <!-- <div class="w-40 d-d-c-i cont">
+                    <div class="w-50">
+                        {{data.element.mismargin}}
+                    </div>
+                    <div class="w-50">
+                        {{lotMisMargin}}
+                    </div>
+                </div> -->
+            </div>
+            <div class="dropdown-t-cont" *ngIf="data.element.co_margin">
+                <div class="w-40 cont">
+                    CO margin
+                </div>
+                <div class="w-60 d-d-c-i cont">
+                    <div class="w-50">
+                        {{data.element.co_margin}}
+                    </div>
+                    <div class="w-50">
+                        {{lotCoMargin}}
+                    </div>
+                </div>
+                <!-- <div class="w-40 d-d-c-i cont">
+                    <div class="w-50">
+                        {{data.element.comargin}}
+                    </div>
+                    <div class="w-50">
+                        {{lotCoMargin}}
+                    </div>
+                </div> -->
+            </div>
+            <div class="dropdown-t-cont" *ngIf="data.element.bo_margin">
+                <div class="w-40 cont">
+                    BO margin
+                </div>
+                <div class="w-60 d-d-c-i cont">
+                    <div class="w-50">
+                        {{data.element.bo_margin}}
+                    </div>
+                    <div class="w-50">
+                        {{lotBoMargin}}
+                    </div>
+                </div>
+                <!-- <div class="w-40 d-d-c-i cont">
+                    <div class="w-50">
+                        {{data.element.bomargin}}
+                    </div>
+                    <div class="w-50">
+                        {{lotBoMargin}}
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>

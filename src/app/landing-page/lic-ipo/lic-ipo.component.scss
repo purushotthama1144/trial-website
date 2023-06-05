@@ -1,0 +1,28 @@
+td {
+    border: 1px solid #276ba4;
+}
+tr:first-child {
+    background: #276ba4;
+    color: #fff;
+    td {
+        border-right: 1px solid #fff;
+        &:last-child {
+            border-right: 1px solid #276ba4;
+        }
+        &:first-child {
+            border-left: 1px solid #276ba4;
+        }
+    }
+}
+ul {
+    margin-left: 30px;
+}
+p {
+    margin: 15px 0;
+}
+.section-header {
+    margin-bottom: 20px;
+}
+.ipo-table {
+    overflow: auto;
+}

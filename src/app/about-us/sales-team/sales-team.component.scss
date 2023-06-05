@@ -1,0 +1,16 @@
+.img-block img {
+    border-radius: 50%;
+    background-color: #fff;
+    height: 160px;
+    width: 160px;
+    object-fit: contain;
+    margin: auto;
+}
+.content-block{
+    .link {
+        position: absolute;
+        bottom: 0px;   
+        text-align: left;
+        border-bottom: 1px solid #286ab4;
+    }
+}

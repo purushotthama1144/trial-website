@@ -1,0 +1,44 @@
+<div class="et_pb_tab_content">
+    <div class="frame">
+        <div class="table-responsive wprt_style_display">
+            <table id="mcx-table" class="tg1 table" width="100%">
+                <tbody>
+                    <tr>
+                        <th class="tg-0lax">Date</th>
+                        <th class="tg-0lax">Holiday</th>
+                        <th class="tg-0lax">Day</th>
+                        <th class="tg-0lax">Morning Session</th>
+                        <th class="tg-0lax">Evening Session</th>
+                    </tr>
+
+                    <tr *ngFor="let mcxHoliday of mcxHolidays">
+                        <td class="tg-0lax">{{mcxHoliday.date}}</td>
+                        <td class="tg-sjuo">{{mcxHoliday.holiday}}</td>
+                        <td class="tg-sjuo">{{mcxHoliday.day}}</td>
+                        <td class="tg-0lax" [ngClass]="{'closed':mcxHoliday.morning_session=='Closed','open':mcxHoliday.morning_session=='Open'}"><span>{{mcxHoliday.morning_session}}</span></td>
+                        <td class="tg-sjuo" [ngClass]="{'closed':mcxHoliday.evening_session=='Closed', 'open':mcxHoliday.evening_session=='Open'}"><span>{{mcxHoliday.evening_session}}</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="sat-sun">
+        <h5 clas="">Following Trading Holidays 2021 are Falling on Saturday / Sunday</h5>
+    </div>
+    <div class="frame">
+        <div class="table-responsive wprt_style_display">
+            <table id="mcx-table-1" class="tg1 table" width="100%">
+                <tbody>
+                    <tr *ngFor="let SundayHoliday of SundayHolidays">
+                        <td class="tg-0lax">{{SundayHoliday.date}}</td>
+                        <td class="tg-hmp3">{{SundayHoliday.holiday}}</td>
+                        <td class="tg-hmp3">{{SundayHoliday.day}}</td>
+                        <td class="tg-hmp3" [ngClass]="{'closed':SundayHoliday.status=='Closed'}"><span>{{SundayHoliday.status}}</span></td>
+                        
+                        <!-- <td class="tg-hmp3" [ngClass]="{'open':SundayHoliday.status=='Upcoming'}"><span>{{SundayHoliday.status}}</span></td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

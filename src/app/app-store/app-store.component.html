@@ -1,0 +1,112 @@
+<div class="main-content">
+    <div class="app-store">
+        <div class="subpage-banner">
+            <div class="subpage-banner-inner">
+                <div class="section-header text-center">
+                    <h2>Alice Blue App Store</h2>
+                    <p>Find and download all Apps from Alice Blue</p>
+                </div> 
+            </div>
+        </div>
+        <div class="frame blog-list">
+            <div class="blog-readtime-field fl-bx align-items-center ">
+                <div class="container container-medium-width">
+                    <div class="app-store-single-block pos-rel">
+                        <div class="tab-inner-block fl-bx align-items-center">
+                            <div class="fl-bx  bg-box app-content-inner" *ngFor="let exclusiveBenefit of exclusiveBenefits">
+                                <div class="w-30">
+                                    <img style="position: relative; z-index: 1;" [src]="exclusiveBenefit.logo_image" class="img-responsive" alt="{{exclusiveBenefit.title}}">
+                                </div>
+                                <div class="w-70">
+                                    <!-- <div class="subicon">
+                                        <img [src]="exclusiveBenefit.logoIcon" class="img-responsive" alt="{{exclusiveBenefit.title}}" style="border-radius: 15px;">
+                                    </div> -->
+                                    <div class="tab-title">
+                                        <h2>{{exclusiveBenefit.app_name}}</h2>
+                                        <h3>{{exclusiveBenefit.app_name}}</h3>
+                                        <div class="developer">
+                                            {{exclusiveBenefit.developer_name}}
+                                        </div>
+                                    </div>
+                                    <div class="tab-desc">
+                                        <p>{{exclusiveBenefit.short_description}}</p>
+                                    </div>
+                                    <div class="btn-block fl-bx align-items-center">
+                                        <a class="s-icn" *ngIf="exclusiveBenefit['google_play_url'] != ''" [href]="exclusiveBenefit['google_play_url']">
+                                            <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/Homepage+/android.webp" alt="Google Play Store - Alice Blue" class="img-responsive">
+                                        </a>
+                                        <a class="s-icn" *ngIf="exclusiveBenefit['ios_url'] != ''" [href]="exclusiveBenefit['ios_url']">
+                                            <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/svg/ios.png" alt="App Store - Alice Blue" class="img-responsive">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="frame featured-ts-app">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Featured Trade Store Apps</h2>
+                </div>
+                <owl-carousel-o [options]="customOptions" (dragging)="isDragging = $event.dragging">
+                    <ng-container *ngFor="let featured of featuredTradestore">
+                        <ng-template carouselSlide>
+                            <div class="tab-inner-block fl-bx align-items-center" style="margin: 10px;">
+                                <div class="fl-bx  bg-box app-content-inner">
+                                    <div class="w-30">
+                                        <img [src]="featured.logo_image" class="img-responsive" style="width: auto; height:100px" alt="{{featured.title}}">
+                                    </div>
+                                    <div class="w-70">
+                                        <div class="tab-title">
+                                            <h3 style="margin: 0;">{{featured.app_name}}</h3>
+                                            <div class="developer" style="margin-bottom: 20px;">
+                                                {{featured.developer_name}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-desc" style="padding: 10px;">
+                                        <p>{{featured.short_description}}</p>
+                                        <div class="btn-block fl-bx align-items-center">
+                                            <a class="btn btn-blue" *ngIf="featured['google_play_url']" [href]="featured['google_play_url']">
+                                                Know More
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+            </div>
+        </div> -->
+        <div class="frame own-app bg-light-blue">
+            <div class="container container-medium-width">
+                <div class="fl-bx align-items-center justify-content-center">
+                    <div class="w-100">
+                        <div class="text-center">
+                            <div class="section-header">
+                                <h2>Build your own App</h2>
+                            </div>
+                            <p>Use our Free API to build apps for your clients & users.</p>
+                            <button class="btn btn-yellow" routerLink="/ant-plus">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

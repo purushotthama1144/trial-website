@@ -1,0 +1,102 @@
+<div class="blog_detail_view ebook_detail_view">
+    <div class="frame-medium blog_detail_block">
+        <div class="container">
+            <div class="fl-bx">
+                <div class="blog_detail_header w-100 text-center section-header">
+                    <h2>{{item.ebook_title}}</h2>
+                </div>
+                <div class="w-70 left_block">
+                    <div class="market-talk-detail-top-block bg-box">
+                        <div class="blog_banner_inner">
+                            <div class="fl-bx align-item-center justify-content-center">
+                                <div class="mkt-tlk-detail-image">
+                                    <img [src]="item.ebook_image_url" [alt]="item.ebook_title" class="img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-detail-left-outer mkt-talk-content">
+                        <div class="blog-detail-left">
+                            <div class="hdr_cnt_block">
+                                <div class="cont_cnt_block">
+                                    <p [innerHTML]="item.ebook_description"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-30 right_block pos-rel">
+                    <div class="block">
+                        <h4>Get This Ebook For FREE!</h4>
+                        <form class="form" [formGroup]="ebookForm">
+                            <mat-form-field class="formname forminr" appearance="outline">
+                                <mat-label>Name</mat-label>
+                                <input type="text" matInput formControlName="firstName" placeholder="First Name">
+                                <mat-error>First Name is Required</mat-error>
+                            </mat-form-field>
+                            <mat-form-field class="formemail forminr" appearance="outline">
+                                <mat-label>Email</mat-label>
+                                <input type="text" matInput formControlName="email" placeholder="Email">
+                                <mat-error>Enter valid Email Id</mat-error>
+                            </mat-form-field>
+                            <mat-form-field class="formMobile forminr" appearance="outline">
+                                <mat-label>Mobile</mat-label>
+                                <input type="tel" matInput id="mobile" minlength="10" maxlength="10" (keypress)="keyPress($event)" placeholder="Mobile" formControlName="Mobile">
+                                <mat-error>Please enter 10 digit mobile number</mat-error>
+                            </mat-form-field>
+                            <mat-form-field class="formEmail forminr" appearance="outline">
+                                <mat-label>Select State</mat-label>
+                                <select formControlName="State" matNativeControl name="state">
+                                  <option value="" selected></option>
+                                  <option *ngFor="let state of states" [value]="state.value">
+                                    {{state.viewValue}}
+                                  </option>
+                                </select>
+                                <mat-error>Please select the state</mat-error>
+                            </mat-form-field>
+                            <div class="instructions text-left" style="font-size: 12px;">
+                                You may unsubscribe from these communications at any time. For more information on how we are committed to protecting your privacy, please review our <a rel="noreferrer" href="">Privacy Policy</a>.
+                                <br><br> 
+                                By clicking submit below, you consent to allow Alicebllue to store and process the personal information submitted above to provide you the services requested.
+                                <br>
+                            </div>
+                            <div class="btn-block">
+                                <button class="btn btn-green" type="submit" [disabled]="ebookForm.invalid" (click)="onSubmit()">Download Now</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="share" [ngClass]="{ scrolled : scrolled}">
+        <div class="cs-social-share clearfix">
+            <div class="cs-share-this-product facebook">
+                <share-button [theme]="'modern-dark'" [button]="'facebook'"></share-button>
+            </div>
+            <div class="cs-share-this-product twitter">
+                <share-button [theme]="'modern-dark'" [button]="'twitter'"></share-button>
+            </div>
+            <div class="cs-share-this-product linkedin">
+                <share-button [theme]="'modern-dark'" [button]="'linkedin'"></share-button>
+            </div>
+            <div class="cs-share-this-product whatsapp ">
+                <share-button [theme]="'modern-dark'" [button]="'whatsapp'"></share-button>
+            </div>
+            <div class="cs-share-this-product email" style="background-color: red;">
+                <share-button [theme]="'modern-dark'" [button]="'email'" ></share-button>
+            </div> 
+        </div>
+    </div>
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

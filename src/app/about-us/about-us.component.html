@@ -1,0 +1,255 @@
+<div class="main-content">
+    <div class="about_us">
+        <div class="subpage-banner bg-grey">
+            <div class="container subpage-banner-inner">
+                <div class="blog_banner_inner image-right-text-left-block">
+                    <div class="image-text-inner fl-bx align-items-center ">
+                        <div class="image-block w-50">
+                            <img class="img-responsive" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/About+us+/about-us-aliceblue.png" alt="About us - Alice Blue Stock Brokerage Firm">
+                        </div>
+                        <div class="text-block w-50">
+                            <div class="section-header">
+                                <h1>ABOUT US</h1>
+                                <h2>Enjoy the Best Online Trading Experience with the Best Stock Broker in India</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="image-right-text-left-block frame ">
+            <div class="container container-medium-width">
+                <div class="image-text-inner fl-bx align-items-center">
+                    <div class="image-block w-40">
+                        <img [src]="imgrtxtlAliceblue.image" [alt]="imgrtxtlAliceblue.alt" class="img-responsive">
+                    </div>
+                    <div class="text-block w-60">
+                        <div class="section-header">
+                            <h2>{{imgrtxtlAliceblue.header}}</h2>
+                        </div>
+                    </div>
+                    <div class="w-100 cont mt-35 text-center">
+                        <p>{{imgrtxtlAliceblue.subCont}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="about-slider frame pos-rel">
+            <div class="triangle triangle-left"></div>
+            <div class="triangle triangle-right"></div>
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Our Journey</h2>
+                </div>
+                <div class="timeline">
+                    <owl-carousel-o [options]="customSlider" (dragging)="isDragging = $event.dragging">
+                        <ng-container *ngFor="let journey of journeyData">
+                            <ng-template carouselSlide>
+                                <div class="timeline-nav">
+                                    <div class="timeline-nav__item  bg-box">
+                                        <div class="nav-cnt">
+                                            <img [src]="journey.img" [alt]="journey.title">
+                                        </div>
+                                        <div class="timeline-slide">
+                                            <div class="timeline-slide__content">
+                                                <span>{{journey.year}}</span>
+                                                <br>
+                                                <h4 class="timeline-title">“{{journey.title}}”</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ng-container>
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+        <div class="image-right-text-left-block frame">
+            <div class="container container-medium-width">
+                <div class="image-text-inner fl-bx align-items-center">
+                    <div class="image-block w-40">
+                        <img [src]="imgrtxtlVision.image" [alt]="imgrtxtlVision.alt" class="img-responsive">
+                    </div>
+                    <div class="text-block w-60">
+                        <div class="section-header">
+                            <h2>{{imgrtxtlVision.header}}</h2>
+                        </div>
+                        <div class="content">
+                            <p>{{imgrtxtlVision.content}}</p>
+                            <p [innerHtml]="imgrtxtlVision.additionalCont"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="image-right-text-left-block people_serving_slider frame">
+            <div class="section-header text-center">
+                <h2>Why Alice Blue</h2>
+            </div>
+            <div class="employees_Block slider_block bg-blue-light frame-small pos-rel ">
+                <div class="bg-line"></div>
+                <div class="container fl-bx align-items-center">
+                    <div class="sl_right w-25 pos-rel fl-bx align-items-center ">
+                        <div class="special_header">
+                            People Who <span class="yellow">Serve</span>
+                        </div>
+                    </div>
+                    <div class="sl_left w-75">
+                        <owl-carousel-o [options]="customServeOptions" (dragging)="isDragging = $event.dragging">
+                            <ng-container *ngFor="let item of carouselData">
+                                <ng-template carouselSlide>
+                                    <div class="slider-wrap  pos-rel">
+                                        <div class="bg-overlay"></div>
+                                        <div class="serving_image cover" style="background-image: url('{{item}}');"></div>
+                                    </div>
+                                </ng-template>
+                            </ng-container>
+                        </owl-carousel-o>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product_Block slider_block frame pos-rel ">
+            <div class="bg-line bg-line-left"></div>
+            <div class="container fl-bx align-items-center">
+                <div class="sl_right w-25 pos-rel fl-bx align-items-center ">
+                    <div class="special_header text-center">
+                        Products that <span class="blue">Benefits</span>
+                    </div>
+                </div>
+                <div class="sl_left w-75 pos-rel">
+                    <owl-carousel-o [options]="customProductOptions" (dragging)="isDragging = $event.dragging">
+                        <ng-container *ngFor="let item of productData">
+                            <ng-template carouselSlide>
+                                <div class="slider-wrap">
+                                    <div class="serving_image bg-box cover" style="background-image: url('{{item}}');"></div>
+                                </div>
+                            </ng-template>
+                        </ng-container>
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+        <div class="image-right-text-left-block process_Block slider_block frame pos-rel bg-blue-light">
+            <div class="bg-line bg-line"></div>
+            <div class="container fl-bx align-items-center">
+                <div class="sl_right w-25 pos-rel fl-bx align-items-center ">
+                    <div class="special_header text-center">
+                        Processes that<span class="yellow"> Inspire</span>
+                    </div>
+                </div>
+                <div class="sl_left w-75">
+                    <owl-carousel-o [options]="customProductOptions" (dragging)="isDragging = $event.dragging">
+                        <ng-container *ngFor="let item of processData">
+                            <ng-template carouselSlide>
+                                <div class="slider-wrap">
+                                    <div class="slider-wrap-inner snip">
+                                        <div class="bg-black"></div>
+                                        <div class="serving_image cover bg-box bg-white" style="background-image: url('{{item.img}}');"></div>
+                                        <figcaption>
+                                            <h2>{{item.header}}</h2>
+                                            <a [href]="item.link">Click to Explore ></a>
+                                        </figcaption>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ng-container>
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+        <div class="paradigm_Block product_Block slider_block frame pos-rel ">
+            <div class="bg-line bg-line-left"></div>
+            <div class="container fl-bx align-items-center">
+                <div class="sl_right w-25 pos-rel fl-bx align-items-center ">
+                    <div class="special_header text-center">
+                        Paradigms that <span class="blue">Lead</span>
+                    </div>
+                </div>
+                <div class="sl_left w-75">
+                    <owl-carousel-o [options]="customProductOptions" (dragging)="isDragging = $event.dragging">
+                        <ng-container *ngFor="let item of paradigmData">
+                            <ng-template carouselSlide>
+                                <div class="slider-wrap">
+                                    <div class="serving_image bg-box cover" style="background-image: url('{{item}}');"></div>
+                                </div>
+                            </ng-template>
+                        </ng-container>
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+        <div class="growth_inevitable pos-rel">
+            <div class="bg-animation"></div>
+            <div class="container">
+                <div class="gi_cont">
+                    <div class="bolder-text">Growth</div>
+                    <div class="nrml-txt">Inevitable</div>
+                </div>
+            </div>
+        </div>
+        <div class="directors frame pos-rel">
+            <div class="leaf leaf-left"></div>
+            <div class="leaf leaf-right"></div>
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Board of Directors</h2>
+                </div>
+                <div class="directors_cont fl-bx align-items-center justify-content-center">
+                    <div class="w-30 directors-single-block" style="cursor: pointer;" *ngFor="let director_name of directors_name" routerLink="/directors-bio/{{director_name.titleUrl}}">
+                        <div class="bg-box director" [innerHTML]="director_name.name"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="leadership_team frame pos-rel bg-grey">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Leadership Team</h2>
+                </div>
+                <div class="directors_cont fl-bx align-items-center justify-content-center">
+                    <div class="w-30 directors-single-block" style="cursor: pointer;" *ngFor="let director of directors" routerLink="/directors-bio/{{director.titleUrl}}">
+                        <div class="img-block">
+                            <img [src]="director.img" [alt]="director.alt" class="img-responsive">
+                        </div>
+                        <div class="content-block">
+                            <h4>{{director.title}}</h4>
+                            <div class="title">{{director.designation}}</div>
+                            <a [href]="director.linkdIn" target="_blank">
+                                <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/linkdin.png" alt="test">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="executive_block frame bg-light-cyan">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Executive Team</h2>
+                </div>
+                <div class="tab-block">
+                    <div class="frame-small team pos-rel">
+                        <app-sales-team></app-sales-team>
+                    </div>
+                    <div class="frame-small team pos-rel">
+                        <app-operations-team></app-operations-team>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>
+
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

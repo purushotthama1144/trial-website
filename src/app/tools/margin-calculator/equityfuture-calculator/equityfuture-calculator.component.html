@@ -1,0 +1,135 @@
+<div class="frame-top">
+    <div class="container">
+        <div class="contheader">
+            <div class="section-header text-center">
+                <h2>NSE Futures</h2>
+                <p>(Intraday Margin Calculator)</p>
+            </div>
+        </div>
+    </div>
+    <div class="tab-content-wrap">
+        <div class="tab-content">
+            <div class="container">
+                <div class="table-block clearfix">
+                    <div class="fl-bx align-items-center justify-content-space-between frame-medium">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Search Scrip</mat-label>
+                            <input matInput (keyup)="applyFilter($event)" placeholder="Search Scrip" #input>
+                        </mat-form-field>
+                        <button class="btn btn-green download" (click)="exportexcel(downloadExcel)">
+                            <span class="google-icon"><span class="google-icon"><img src="assets/images/google-icons/download.svg" width="20" height="20" alt="download"></span></span>
+                            Download Excel</button>
+                    </div>
+                    <div class="mat-elevation-z8">
+                        <table mat-table [dataSource]="dataSource" matSort id="equity-future-table">
+                            <!-- Position Column -->
+                            <ng-container matColumnDef="number">
+                                <th class="rTableHead" mat-header-cell *matHeaderCellDef> No. </th>
+                                <td class="rTableCont" mat-cell *matCellDef="let element;let i=index"> {{i+1}} </td>
+                            </ng-container>
+                            <!--Column -->
+                            <ng-container matColumnDef="scrip">
+                                <th class="rTableHead" mat-header-cell mat-sort-header *matHeaderCellDef> Scrip </th>
+                                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.scrip}} </td>
+                            </ng-container>
+                            <!-- Column -->
+                            <ng-container matColumnDef="expiry">
+                                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Expiry </th>
+                                <td class="rTableCont" mat-cell *matCellDef="let element">{{element.expiry}}</td>
+                            </ng-container>
+                            <!-- Column -->
+                            <ng-container matColumnDef="lotsize">
+                                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Lot Size </th>
+                                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.lot_size}}</td>
+                            </ng-container>
+                            <!-- Column -->
+                            <ng-container matColumnDef="price">
+                                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Price (Rs) </th>
+                                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.price}} </td>
+                            </ng-container>
+                            <!-- Column -->
+                            <ng-container matColumnDef="nrmlmargin">
+                                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Nrml Margin </th>
+                                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.nrml_margin}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="mismargin">
+                                <th class="rTableHead" mat-header-cell *matHeaderCellDef> MIS Margin </th>
+                                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.mis_margin}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="comargin">
+                                <th class="rTableHead" mat-header-cell *matHeaderCellDef> CO Margin </th>
+                                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.co_margin}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="bomargin">
+                                <th class="rTableHead" mat-header-cell *matHeaderCellDef> BO Margin </th>
+                                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.bo_margin}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="calc">
+                                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Calc </th>
+                                <td class="rTableCont" mat-cell *matCellDef="let element"> <button mat-button class="calc" (click)="openDialog(element)">Calculate</button></td>
+                            </ng-container>
+
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                            <!-- Row shown when there is no matching data. -->
+                            <tr class="mat-row" *matNoDataRow>
+                                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                            </tr>
+                        </table>
+                        <mat-paginator [pageSizeOptions]="[20 , 40 , 80 , 1000]"></mat-paginator>
+                    </div>
+                </div>
+                <div class="note"><span style="font-weight: bold;">NOTE:</span>Bracket Order charges are applicable at Rs. 4+GST on every executed order
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="trading-option frame">
+    <div class="image-right-text-left-block">
+        <div class="container container-medium-width">
+            <div class="section-header text-center">
+                <h1>Alice Blue Index & Equity Futures Margin Calculator</h1>
+            </div>
+            <div class="image-text-inner fl-bx align-items-center">
+                <div class="image-block w-40">
+                    <img [src]="imgrtxtlcommodity.image" [alt]="imgrtxtlcommodity.alt" class="img-responsive">
+                </div>
+                <div class="text-block w-60">
+                    <div class="content">
+                        <p>{{imgrtxtlcommodity.content}}</p>
+                        <p [innerHtml]="imgrtxtlcommodity.additionalCont"></p>
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+    </div>
+</div>
+<div class="faqs bg-light-blue frame" *ngIf="accordion.length > 0">
+    <div class="container container-medium-width">
+        <div class="">
+            <h2 class="text-center">Frequently Asked Questions</h2>
+        </div>
+        <app-accordion [accordion]="accordion"></app-accordion>
+    </div>
+</div>
+<app-trending-tools></app-trending-tools>
+<app-start-trading></app-start-trading>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

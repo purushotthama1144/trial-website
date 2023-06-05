@@ -1,0 +1,80 @@
+<div class="login_form frame text-center">
+    <div class="icon-close" [mat-dialog-close]="true"> <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/svg/cancel-black.svg" alt="test"> </div>
+    <mat-dialog-content>
+        <div class="logo text-center" style="width: 120px;margin: auto; margin-bottom: 20px;">
+            <img width="120" height="80" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/logo.png" alt="test" class="img-responsive">
+        </div>
+        
+        <form class="form" [formGroup]="loginForm" *ngIf="show == false">
+            <div class="text-center w-100">
+                <h4>Unlock Login</h4>
+            </div>
+            <div class="formName">
+                <div class="formTitle text-left">
+                    Email Id :
+                </div>
+                <mat-form-field class="forminr" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input type="text" matInput formControlName="emailId" placeholder="Eamil">
+                    <mat-error>Enter valid Email Id</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="formName">
+                <div class="formTitle text-left">
+                    Password :
+                </div>
+                <mat-form-field class="formName" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="Password" [type]="passwordHide ? 'password' : 'text'" formControlName="password">
+                        <div class="show-pw">
+                            <img (click)="passwordHide = !passwordHide" src="assets/images/google-icons/eye.svg" width="20" height="20" alt="eye" >
+                        </div>
+                    <mat-error>Password is Required</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="w-100">
+                <span (click)="passwordForm()" class="forgot_password" style="cursor: pointer; color: #276ba4;">Forgot
+                    Password ?</span>
+            </div>
+            <div class="btn-block"
+                style="display: flex;flex-wrap: wrap;align-items: center;justify-content: center;width: 100%;">
+                <button class="btn btn-green" style="margin-bottom: 0px; width: 100px;margin-top: 20px; font-size: 12px;"
+                    type="submit" [disabled]="loginForm.invalid" (click)="loginFormSubmit()">Sign In</button>
+            </div>
+        </form>
+        <form class="form" [formGroup]="forgotPasswordForm" *ngIf="show == true">
+            <div class="text-center w-100">
+                <h4>Forgot Password</h4>
+            </div>
+            <div class="formName">
+                <div class="formTitle text-left">
+                    Email Id :
+                </div>
+                <mat-form-field class="forminr" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input type="text" matInput formControlName="emailId" placeholder="Eamil">
+                    <mat-error>Enter valid Email Id</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="formName">
+                <div class="formTitle text-left">
+                   Enter New Password :
+                </div>
+                <mat-form-field class="formName" appearance="outline">
+                    <mat-label>New Password</mat-label>
+                    <input matInput placeholder="Password" [type]="passwordHide ? 'password' : 'text'"
+                        formControlName="password">
+                        <div class="show-pw">
+                            <img (click)="passwordHide = !passwordHide" src="assets/images/google-icons/eye.svg" width="20" height="20" alt="eye" >
+                        </div>
+                    <mat-error>New Password is Required</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="btn-block"
+                style="display: flex;flex-wrap: wrap;align-items: center;justify-content: center;width: 100%;">
+                <button class="btn btn-green" style="margin-bottom: 0px; width: 175px;margin-top: 20px; font-size: 12px;"
+                    type="submit" [disabled]="forgotPasswordForm.invalid" (click)="forgotPassword()">Generate Password</button>
+            </div>
+        </form>
+    </mat-dialog-content>
+</div>

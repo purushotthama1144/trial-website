@@ -1,0 +1,65 @@
+<div class="blog-right-block">
+    <div class="form_block">
+        <div class="block pos-rel">
+            <div class="spinner" *ngIf="formSubmitted">
+                <div class="warning_text text-center">
+                    Please Wait!, We are Validating your Mobile No & Email ID !
+                </div>
+                <div class="spinner-inner fl-bx align-items-center justify-content">
+                    <mat-spinner></mat-spinner>
+                </div>
+            </div>
+            <div class="hdr_4">Kick start your Trading and Investment journey today!</div>
+            <!-- <p> Open an Account </p> -->
+            <form class="form" [formGroup]="blogForm">
+                <mat-form-field class="formname forminr" appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input type="text" matInput formControlName="firstName" placeholder="First Name">
+                    <mat-error>First Name is Required</mat-error>
+                </mat-form-field>
+                <mat-form-field class="formemail forminr" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input type="text" matInput formControlName="email" placeholder="Email">
+                    <mat-error>Enter valid Email Id</mat-error>
+                </mat-form-field>
+                <mat-form-field class="formMobile forminr" appearance="outline">
+                    <mat-label>Mobile</mat-label>
+                    <input type="tel" matInput id="mobile" minlength="10" maxlength="10" (keypress)="keyPress($event)" placeholder="Mobile" formControlName="Mobile">
+                    <mat-error>Please enter 10 digit mobile number</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class=" forminr" appearance="outline">
+                    <mat-label>Select State</mat-label>
+                    <mat-select formControlName="State" matNativeControl name="state"
+                        (selectionChange)="getCitiesofstate()">
+
+                        <mat-option *ngFor="let state of states" [value]="state">
+                            {{state}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error>Please select the state</mat-error>
+                </mat-form-field>
+                <mat-form-field class=" forminr" appearance="outline"
+                    *ngIf="blogForm.value.State == 'Tamil Nadu' || blogForm.value.State == 'Maharashtra'">
+                    <mat-label>Select City</mat-label>
+                    <mat-select formControlName="City" matNativeControl name="city">
+
+                        <mat-option *ngFor="let city of displayCities" [value]="city.city">
+                            {{city.city}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error>Please select the City</mat-error>
+                </mat-form-field>
+                <div class="btn-block"
+                            style="display: flex;flex-wrap: wrap;align-items: center;justify-content: center;width: 100%;">
+                            <button class="btn btn-green"
+                                style="margin-bottom: 0px; margin-right: 5px;" type="submit"
+                                [disabled]="blogForm.invalid && (blogForm.value.State == 'Tamil Nadu' || blogForm.value.State == 'Maharashtra' && blogForm.value.City == '')"
+                                (click)="onSubmit()">Open an Account</button>
+                                <button style="margin-top: 10px;" type="submit" (click)="onSubmit()" class="btn btn-blue">Continue Application</button>
+                    </div>
+            </form>
+        </div>
+       
+    </div>
+</div>

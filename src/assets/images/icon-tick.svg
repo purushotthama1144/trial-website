@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <g id="Group_3370" data-name="Group 3370" transform="translate(-256 -3850)">
+    <circle id="Ellipse_283" data-name="Ellipse 283" cx="32" cy="32" r="32" transform="translate(256 3850)" fill="rgba(68,183,73,0.24)"/>
+    <path id="Icon_material-check-circle" data-name="Icon material-check-circle" d="M25,3A22,22,0,1,0,47,25,22.008,22.008,0,0,0,25,3ZM20.6,36,9.6,25l3.1-3.1,7.9,7.876,16.7-16.7L40.4,16.2Z" transform="translate(263 3857)" fill="#44b749"/>
+  </g>
+</svg>

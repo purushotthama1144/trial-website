@@ -1,0 +1,59 @@
+<div class="table-block clearfix frame-top">
+    <div class="fl-bx align-items-center">
+
+        <div class="last-updated frame-medium w-80" *ngIf="nseData">
+            Last updated on : {{nseData[0].updatedAt|date : 'medium'}}
+        </div>
+        <div class="updates w-20">
+            Daily<mat-slide-toggle [checked]="checked" (change)="change($event)"></mat-slide-toggle>Weekly
+        </div>
+    </div>
+    <div class="mat-elevation-z8" style="margin-bottom: 20px;">
+        <table mat-table [dataSource]="dataSource" matSort id="equity-future-table">
+            <!--Column -->
+            <ng-container matColumnDef="scrip">
+                <th class="rTableHead" mat-header-cell mat-sort-header *matHeaderCellDef> Scrip </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element" style="font-weight: 500;"> {{element.script}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="r3">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> R3 </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.r3}}</td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="r2">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> R2 </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.r2}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="r1">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> R1 </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.r1}} </td>
+            </ng-container>
+            <!-- Column -->
+            <ng-container matColumnDef="pivot">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> Pivot </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.pivot}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="s1">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> S1 </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.s1}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="s2">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> S2 </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.s2}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="s3">
+                <th class="rTableHead" mat-header-cell *matHeaderCellDef> S3 </th>
+                <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.s3}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[10 , 20 , 40]"></mat-paginator>
+    </div>
+</div>

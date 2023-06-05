@@ -1,0 +1,87 @@
+::ng-deep {
+    .circ-tab {
+        .trading-holiday {
+            .mat-tab-header {
+                box-shadow: none;
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+            }
+            
+            .mat-tab-label {
+                border-radius: 5px;
+                margin: 0 5px;
+                color: #44b749;
+                height: 50px;
+                font-weight: 500;
+                border: 2px solid #44b749;
+            }  
+            .mat-tab-label:hover,
+            .mat-tab-label-active {
+                color: #fff;
+                background-color: #44B749;
+                font-weight: 500;
+                border: 1px solid #44b749;
+            }      
+            th {
+                font-weight: normal;
+                padding: 10px 5px;
+                color: #276ba4;
+                background-color: #f1f9fe;
+                text-align: center;
+            }
+            td {
+                padding: 10px 5px;
+                text-align: center;
+            }
+            td:nth-child(2) {
+                font-weight: 500;
+            }
+            .open span,
+            .closed span {
+                color: #276ba4;
+                background-color: #f1f9fe;
+                padding: 5px 15px;
+                border-radius: 20px;
+                width: 130px;
+                display: block;
+                margin: auto;
+            }
+            .closed span {
+                background-color: #feecec;
+                color: #ec2124;
+            }
+            h4 {
+                margin-top: 40px;
+            }
+            a {
+                color: #276AB4;
+                text-decoration: underline;
+            }
+            .sat-sun {
+                background-color: #f1f9fe;
+                padding: 20px 40px;
+                color: #276bb4;
+                h5 {
+                    margin-bottom: 0;
+                }
+            }
+            .response {
+                background-color: #f1f9fe;
+                padding: 20px 40px;
+            }
+        }
+    }
+}
+@media(max-width : 468px) {
+    ::ng-deep {
+        .circular_block {
+            .holiday-list {
+                .mat-tab-labels {
+                    .mat-tab-label {
+                        width: 40%;
+                    }
+                }
+            }
+        }
+    }
+}

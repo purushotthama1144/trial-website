@@ -1,0 +1,137 @@
+.subPageBanner {
+    height: 400px;
+    position: relative;
+    .bgImage {
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center;
+    }
+}
+.content-block{
+    .link {
+        position: absolute;
+        bottom: 0px;   
+        text-align: left;
+        border-bottom: 1px solid #286ab4;
+    }
+}
+.transfer_fund {
+    .directors-single-block {
+        border-right: 2px solid #d0ebf3;
+    }
+    .directors-single-block:last-child {
+        border-right: 2px solid transparent;
+    }
+    .img-block img {
+        width: 90px;
+        height: 90px;
+    }
+    .content-block {
+        min-height: 60px;
+        padding: 0 65px;
+    }
+}
+.bank_detail {
+    .tg.table {
+        width: 100%;
+        margin: auto;
+        margin-top: auto;
+        margin-top: 30px;
+    }
+    .tg th {
+        background-color: #2a4e90;
+        color: #fff;
+        border: 1px solid #d9e7f9;
+        text-align: left;
+        padding: 9px 24px;
+    }
+    .tg tr td {
+        padding: 6px 20px;
+        border-left: 1px solid transparent;
+        border-right: 1px solid transparent;
+        border-bottom: 1px solid #d9e7f9;
+        text-align: left;
+        font-size: 14px;
+    }
+    .tg tr {
+        background-color: #EBF5FF;
+    }
+    .tg tr:nth-child(even) {
+        font-weight: bold;
+    }
+    .tg .tg-cly1-2 {
+        text-align: left;
+        vertical-align: middle;
+        background-color: #006ab8 !important;
+        color: #fff;
+    }
+    input[type="text"] {
+        padding: 5px;
+        border: 1px solid #fff;
+        background-color: #fff;
+        letter-spacing: 1px;
+        font-weight: normal;
+        margin: 0;
+        border-radius: 5px;
+        width: 60%;
+    }
+}
+.more-detals-table {
+    .tg tr:nth-child(even) {
+        background-color: #f4f3f3;
+    }
+    .tg tr td:nth-child(even),
+    .tg tr td:nth-child(odd) {
+        font-weight: normal;
+    }
+    .tg tr td:first-child {
+        font-weight: bold;
+    }
+}
+.payment_accepted {
+    height: 460px;
+    color: #fff;
+}
+.payment_inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+@media(max-width:820px){
+    .transfer_fund .content-block {
+        padding: 0 10px;
+    }
+    .payment_accepted{
+        .image-block {
+            padding: 10px 25%;
+        }
+    }
+    .payment_accepted {
+        height: 850px;
+    }
+}
+@media(max-width:468px){
+    .w-30 {
+        width: 100%;
+        padding: 10px;
+    }
+    .transfer_fund{
+        .directors-single-block {
+           border-bottom: 2px solid #d0ebf3;
+           border-right:0;
+       }
+    }  
+    .payment_accepted {
+        height: 460px;
+    }  
+    .more-detals-table {
+        overflow: auto;
+        .table-responsive {
+            width: 140%;
+        }
+    } 
+}

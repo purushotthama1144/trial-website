@@ -1,0 +1,20 @@
+.google-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+@media(max-width: 820px) {
+    table.mat-table {
+        width: 130%;
+    }
+}
+
+@media(max-width: 468px) {
+    table.mat-table {
+        width: 275%;
+    }
+    // .mat-paginator{
+    //     width: 130%;
+    // }
+
+}

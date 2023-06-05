@@ -1,0 +1,212 @@
+<div class="main-content">
+
+    <div class="about_us digilink-client digilink">
+        <div class="blog_banner">
+            <div class="container">
+                <div class="blog_banner_inner image-right-text-left-block">
+                    <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                        <div class="image-block w-50">
+                            <img class="img-responsive" [src]="clientData.banner_image" alt="Alice Blue Referral Program">
+                        </div>
+                        <div class="text-block w-50">
+                            <div class="section-header">
+                                <h1>{{clientData.main_heading}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="digilink-client frame">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>{{clientData.para_heading}}</h2>
+                    <p>{{clientData.para_sub_heading}}</p>
+                </div>
+                <div class="image-text-inner fl-bx align-items-center">
+                    <div class="w-50">
+
+                        <div class="iframe">
+                            <div class="iframe-inr">
+                                <iframe width="100%" height="100%" [src]="clientData.video_url | safe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <!-- <p>For further details read the <a class="text-bold text-dark" rel="noreferrer" href="https://aliceblueonline.com/referral/current-client.php" target="_blank">circular on 2-sided referral program.</a></p> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-block w-50">
+                        <div class="content">
+                            <div class="s-cont" [innerHTML]="clientData.para_body"></div>
+                            <a style="cursor: pointer;" (click)=openDialog(clientData.terms_conditions)>Terms & Conditions >></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame">
+            <div class="container container-medium-width">
+                <div class="image-with-text w-100 ">
+                    <div class="section-header text-center">
+                        <h2>Referral Calculator – Potential Earning</h2>
+                        <p>Calculate your earning potential & 10% cashback validity using the calculator below:</p>
+                    </div>
+                    <div class="fl-bx">
+                        <div class="w-30 pos-rel">
+                            <div class="single-calc-block bg-box">
+                                <div class="calc-header">Total Referred Friends per month</div>
+                                <div class="price-slider">
+                                    <div class="value text-right">
+                                        {{referredValue}}
+                                    </div>
+                                    <mat-slider step="2" [tickInterval]="getSliderTickInterval()"
+                                        [displayWith]="formatLabel" [(ngModel)]="referredValue"
+                                        (change)="referredBrokerage()" min="2" max="30" aria-label="unit(s)">
+                                    </mat-slider>
+                                </div>
+                                <div class="note-text">Your reward </div>
+                                <div class="input-text">
+                                    <div class="Brokerageresult">Rs. {{myReward}}</div>
+                                </div>
+                                <div class="note-text">Your 10% Cashback Validity(* For 1 client - 30 days)</div>
+                                <div class="input-text">
+                                    <div class="Brokerageresult">{{referredResult}} Days</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-30 pos-rel">
+                            <div class="single-calc-block bg-box">
+                                <div class="calc-header">Friend’s Brokerage per month</div>
+                                <div class="price-slider">
+                                    <div class="value text-right">
+                                        {{friendValue}}
+                                    </div>
+                                    <mat-slider step="50000" [displayWith]="formatLabel" [(ngModel)]="friendValue"
+                                        (change)="friendBrokerage()" min="50000" max="1000000" aria-label="unit(s)">
+                                    </mat-slider>
+                                </div>
+                                <div class="note-text">Your Earning per month</div>
+                                <div class="input-text">
+                                    <div class="Brokerageresult">Rs. {{friendResult}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-30 pos-rel">
+                            <div class="single-calc-block bg-box">
+                                <div class="calc-header">My Brokerage per month</div>
+                                <div class="price-slider">
+                                    <div class="value text-right">
+                                        {{myValue}}
+                                    </div>
+                                    <mat-slider step="10000" [displayWith]="formatLabel" [(ngModel)]="myValue" (change)="myBrokerage()" min="10000" max="100000" aria-label="unit(s)"></mat-slider>
+                                </div>
+                                <div class="note-text">Your Savings on your brokerage per month</div>
+                                <div class="input-text">
+                                    <div class="Brokerageresult">Rs. {{myResult}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="starttrading bg-light-blue frame">
+            <div class="container container-medium-width">
+                <div class="content-blog">
+                    <h2>Generate Your DigiLink Now!</h2>
+                    <!-- <app-generate-link [whatsapp_text]="whatsapp_text" [facebook_text]="facebook_text" [linkedin_text]="linkedin_text" [twitter_text] ="twitter_text"  [telegram_text] = "telegram_text" [client]="true"></app-generate-link> -->
+                    <div class="box-lable g-link">
+                        <input class="digilink" type="text" pattern="[a-zA-Z0-9 ]+" maxlength="15" placeholder="Enter your client code" id="generate_link_client" [(ngModel)]="clientCode" required="">
+                        <button class="digi_button btn btn-green btn-rounded" id="generate_associate_link" (click)="generateLink()" value="">Generate
+                            Link</button>
+                    </div>
+                    <div class="box-lable g-link mt-20">
+                        <input class="digilink" type="text" placeholder="Your referral link is" id="copy_link" readonly [(ngModel)]="copyLink" #userLink>
+                        <button class="digi_button btn btn-blue btn-rounded" (click)="copyInputMessage(userLink)" id="generate_associate_link" value="">Copy Link</button>
+                    </div>
+                    <div class="pt bg-light-blue">
+                        <div class="b-text">
+                            Share it Through:
+                        </div>
+                        <div class="cs-social-share clearfix">
+                            <div class="cs-share-this-product">
+                                <share-button [theme]="'modern-dark'" [button]="'facebook'" [url]="shareLink" [description]="facebook_text"></share-button>
+                            </div>
+                            <div class="cs-share-this-product">
+                                <share-button [theme]="'modern-dark'" [button]="'twitter'" [url]="shareLink" [description]="twitter_text"></share-button>
+                            </div>
+                            <div class="cs-share-this-product">
+                                <share-button [theme]="'modern-dark'" [button]="'telegram'" [url]="shareLink" [description]="telegram_text"></share-button>
+                            </div>
+                            <div class="cs-share-this-product ">
+                                <share-button [theme]="'modern-dark'" [button]="'linkedin'" [url]="shareLink" [description]="linkedin_text"></share-button>
+                            </div>
+                            <div class="cs-share-this-product ">
+                                <share-button [theme]="'modern-dark'" [button]="'whatsapp'" [showText]="false" [url]="shareLink" [description]="whatsapp_text"></share-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="executive_block frame ">
+            <div class="container container-medium-width">
+                <div class="frame-small team pos-rel">
+                    <owl-carousel-o [options]="customSalesOptions" (dragging)="isDragging = $event.dragging">
+                        <ng-container *ngFor="let item of offers">
+                            <ng-template carouselSlide>
+                                <div class="single-block">
+                                    <div class="content-block bg-box director " style="min-height: 174px;">
+                                        <span class="offer-title">Offer</span>
+                                        <p class="offer-para">{{item.card}}</p>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ng-container>
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+        <div class="faqs frame" *ngIf="faqs.length > 0">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Refer & Earn FAQs</h2>
+                </div>
+                <!-- <div class="fl-bx align-items-center">
+                    <div class="AccWrap" *ngFor="let faq of faqs">
+                        <div class="AccWrapInr">
+                            <div class="AccHdr bg-box-one">
+                                {{faq.question}}
+                            </div>
+                            <div class="AccCont" [innerHTML]="faq.answer"></div>
+                        </div>
+                    </div>
+                </div> -->
+                <div id="accordion" class="accordion">
+                    <div *ngFor="let menu of faqs; let i = index" class="acc_outer" [class.active]="menu.active">
+                        <div class="menu" (click)="toggle(i)">
+                            <span class="before"></span>
+                                {{ menu.question }}
+                            <span class="plus"></span>
+                        </div>
+                        <div class="submenu" #submenu [style.height.px]="menu.active ? submenu.scrollHeight : 0" >
+                            <div class="accContent" [innerHTML]="menu.answer">
+                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

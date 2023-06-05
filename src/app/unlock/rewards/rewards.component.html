@@ -1,0 +1,89 @@
+<div class="main-content">
+    <div class="nk-outer tradelink digipromo-page">
+        <div class="unlock_rewards">
+            <div class="container">
+                <div class="blog_list_banner frame">
+                    <div class="fl-bx align-items-center justify-content-space-between">
+                        <div class="blink_me">
+                            <span *ngIf="sessionData?.unlock_user_mail_verified != 'Y'">Please verify your Emial Id</span>
+                        </div>
+                        <div class="userId fl-bx align-items-center">
+                            <div class="user_email">
+                                <h5 style="margin: 0;margin-right: 10px;">
+                                    User Email : {{sessionData?.unlock_user_mail}}
+                                </h5>
+                            </div>
+                            <div class="logout">
+                                <button mat-raised-button (click)="logout()" matTooltip="Logout"
+                                    matTooltipClass="example-tooltip-red" aria-label="Button that shows a red tooltip"
+                                    class="btn-red">
+                                    <img width="20" height="20" src="assets/images/google-icons/switch.svg" alt="logout">
+                                    logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frame-top section-header text-center">
+                        <h2>
+                            Hello! Show your Interest
+                        </h2>
+                        <p>Choose the field to get idea about your interest (help to unlock rewards of your Interest)
+                        </p>
+                    </div>
+
+                    <div class="section-header text-center">
+                        <h4 class="text-center">Select Valuable Offers</h4>
+                        <p style="font-weight: normal;text-align: center;color: #276ba4;">You can choose upto 5 interest
+                        </p>
+                    </div>
+                    <div class="topic_categories fl-bx align-items-center justify-content-center">
+                        <div class="topic" [ngClass]="{'active':topic.checked}" *ngFor="let topic of rewards.topics" (click)="check(topic)">
+                            {{topic.topic_name}}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="frame offers_block">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h4 class="text-center">Select Valuable Offers</h4>
+                    <p style="font-weight: normal; color: #276ba4;">You can choose upto 5 interest(Select a below field)</p>
+                </div>
+                <div class="offers_one" *ngIf="rewards">
+                    <div class="frame-top" *ngFor="let item of rewards.offers|keyvalue">
+                        
+                        <div class="subcriber_name">
+                            {{item.key}}
+                        </div>
+                       
+                        <div  class="fl-bx align-items-center">
+                            <div *ngFor="let offer of item.value | paginate: { itemsPerPage: 4 , currentPage: q }" class="w-25" (click)="check(offer)">
+                                <div class="single_offer pos-rel"  [ngClass]="{'active':offer.checked}">
+                                    <div class="offer_bg pos-rel" style="background-image: url({{offer.offer_image}});">
+                                        <div class="bg-lay"></div>
+                                        <div class="slider-cont">
+                                            <div class="offer_text">
+                                                <span>{{offer.offer_subscription}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pagination_block w-100 text-center">
+                                <pagination-controls (pageChange)="q = $event"></pagination-controls>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-block ">
+            <div class="container container-medium-width text-center">
+                <button class="btn btn-green" (click)="createUserResponseData()" *ngIf="!updatedResponse">I am Interested</button>
+                <button class="btn btn-blue" (click)="updateUserResponseData()" *ngIf="updatedResponse">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

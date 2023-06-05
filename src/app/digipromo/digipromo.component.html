@@ -1,0 +1,150 @@
+
+<div class="digipromo-page">
+    <div class="blog_list_banner bg-grey frame">
+        <div class="container container-medium-width">
+            <div class="blog_banner_inner image-right-text-left-block">
+                <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                    <div class="image-block w-50">
+                        <img alt="image" class="img-responsive" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/digipromo/Digipromo-share+and+earn+app.png">
+                    </div>
+                    <div class="text-block w-50">
+                        <div class="section-header">
+                            <h1>DIGIPromo – The Share & Earn App</h1>
+                            <p>Digital Promotion Simplified</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="digilink-client frame">
+        <div class="container container-medium-width">
+            <div class="image-text-inner  fl-bx align-items-center">
+                <div class="w-50">
+                    <div class="iframe pos-rel">
+                        <div class="iframe-bg"></div>
+                        <div class="iframe-inr">
+                            <iframe [src]="safeSrc" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-block w-50">
+                    <div class="content">
+                        <div class="section-header">
+                            <h2>What is DIGIPromo?</h2>
+                        </div>
+                        <div class="s-cont" style="margin-bottom: 10px;" [innerHTML]="content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="low-fees frame">
+        <div class="container container-medium-width">
+            <div class="section-header text-center">
+                <h2>DIGIPromo – Benefits & Working</h2>
+            </div>
+            <div class="benefits-row">
+                <div class="w-50 benefit-single-block ng-star-inserted" *ngFor="let benefit of benefitWorking ;let i = index">
+                    <div class="bg-box benefit fl-bx align-items-center">
+                        <div class="aut-icon w-20"><img [src]="benefit.icon" alt="test" class="img-responsive"></div>
+                        <div class="about-aut w-80">
+                            <div class="aut-name"> {{i + 1}}. {{benefit.title}} </div>
+                            <div class="aut-desc"> {{benefit.desc}}</div>
+                        </div>
+                        <div class="right-border"></div>
+                        <div class="bottom-border"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-us image-right-text-left-block digipromo-app frame bg-light-blue">
+        <div class="container container-medium-width">
+            <div class="fl-bx align-items-center">
+                <div class="w-50">
+                    <div class="installs">
+                        <div class="install_title">
+                            <h2>Get the DIGIPromo App</h2>
+                        </div>
+                        <p>It’s Free & Easy to Use. Download the App and Start Generating Referrals.</p>
+                        <div class="social-icon-links">
+                            <a rel="noreferrer" href="https://play.google.com/store/apps/details?id=com.alicedigilink&hl=en_IN&gl=US" target="_blank" class="s-icn"><img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/Homepage+/android.webp" alt="Google Play Store - Alice Blue" class="img-responsive"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-50">
+                    <div class="gif_block">
+                        <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/digilink-phone.png" alt="test" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="milestone frame">
+        <div class="container container-medium-width">
+            <div class="section-header text-center">
+                <h2>Milestones Reached By Alice Blue</h2>
+            </div>
+            <!-- The Timeline -->
+            <ul class="timeline">
+                <!-- Item 1 -->
+                <li *ngFor="let milestone of milestones">
+                    <div class="direction">
+                        <div class="flag-wrapper">
+                            <span class="flag">{{milestone.flag}}</span>
+                        </div>
+                        <div class="desc">{{milestone.desc}}</div>
+                        <!-- <div class="rating">{{milestone.rating}}</div> -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="faqs frame" *ngIf="faqs.length > 0">
+        <div class="container container-medium-width">
+            <div class="section-header text-center">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <!-- <div class="fl-bx">
+                <div class="AccWrap" *ngFor="let faq of faqs">
+                    <div class="AccWrapInr">
+                        <div class="AccHdr bg-box-one">
+                            {{faq.question}}
+                        </div>
+                        <div class="AccCont" [innerHTML]="faq.answer">
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div id="accordion" class="accordion">
+                <div *ngFor="let menu of faqs; let i = index" class="acc_outer" [class.active]="menu.active">
+                    <div class="menu" (click)="toggle(i)">
+                        <span class="before"></span>
+                            {{ menu.question }}
+                        <span class="plus"></span>
+                    </div>
+                    <div class="submenu" #submenu [style.height.px]="menu.active ? submenu.scrollHeight : 0" >
+                        <div class="accContent" [innerHTML]="menu.answer">
+            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="more_questions">
+                More Questions? <span routerLink="/support" style="color:#276ba4;cursor: pointer;">Visit our support center</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

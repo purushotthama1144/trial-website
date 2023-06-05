@@ -1,0 +1,42 @@
+<div class="et_pb_tab et_pb_tab_1 clearfix et-pb-active-slide" style="z-index: 1; display: block; opacity: 1;">
+    <div class="et_pb_tab_content">
+        <div class="frame">
+            <div class="table-responsive wprt_style_display">
+                <table id="nse_table" class="tg table" width="100%">
+                    <tbody>
+                        <tr>
+                            <th class="tg-0lax">Date</th>
+                            <th class="tg-0lax">Holiday</th>
+                            <th class="tg-0lax">Day</th>
+                            <th class="tg-0lax">Status</th>
+                        </tr>
+                        <tr *ngFor="let nseHoliday of nseHolidays">
+                            <td class="tg-0lax">{{nseHoliday.date}}</td>
+                            <td class="tg-hmp3">{{nseHoliday.holiday}}</td>
+                            <td class="tg-hmp3">{{nseHoliday.day}}</td>
+                            <td class="tg-hmp3" [ngClass]="{'closed':nseHoliday.status=='Closed','open':nseHoliday.status=='Open'}"><span>{{nseHoliday.status}}</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="sat-sun">
+            <h5 clas="">Following Trading Holidays 2021 are Falling on Saturday / Sunday</h5>
+        </div>
+        <div class="frame">
+            <div class="table-responsive wprt_style_display">
+                <table id="nse_table_1" class="tg1 table" width="100%">
+                    <tbody>
+                        <tr *ngFor="let SundayHoliday of SundayHolidays">
+                            <td class="tg-0lax">{{SundayHoliday.date}}</td>
+                            <td class="tg-hmp3">{{SundayHoliday.holiday}}</td>
+                            <td class="tg-hmp3">{{SundayHoliday.day}}</td>
+                            <td class="tg-hmp3" [ngClass]="{'closed':SundayHoliday.status=='Closed' ,'open':SundayHoliday.status=='Open' , 'open':SundayHoliday.status=='Upcoming'}"><span>{{SundayHoliday.status}}</span></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

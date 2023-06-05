@@ -1,0 +1,121 @@
+
+.title {
+    padding-left: 30px;
+    padding-top: 20px;
+    min-height: 85px;
+    h3 {
+        font-size: 20px;
+    }
+}
+.dialog-carousel {
+    padding: 8px 20px;
+}
+.content-block {
+    text-align: left;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+.webinar_block {
+    cursor: pointer;
+}
+.ebook-slider {
+    h4 {
+        color: #fff;
+    }
+    background-image: linear-gradient(to bottom,
+    #1d70d7,
+    #0082de,
+    #0092e3,
+    #00a2e5,
+    #33b1e6);
+    .partner-block {
+        background-color: #fff;
+    }
+    .img-block-top {
+        .video-wrap {
+            height: 200px;
+        }
+        .videoplay-outer {
+            left: 50%;
+        }
+        video {
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        img {
+            border-top-left-radius: 5px;
+            border-top-Right-radius: 5px;
+        }
+        .title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-weight: 400;
+        }
+    }
+    .webinar-block-inr {
+        border-radius: 0px;
+        border-top-left-radius: 10px;
+        border-top-Right-radius: 10px;
+    }
+    .topic {
+        background-color: #d1dcf1;
+        margin: 5px 0;
+        margin-right: 25%;
+        padding: 3px 15px;
+        border-radius: 20px;
+        font-size: 12px;
+    }
+}
+.video-modal {
+    .mat-dialog-content {
+        max-height: inherit;
+    }
+}
+.video-player {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.video_bg {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #000;
+}
+.videoplay-outer {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    .video_play {
+        cursor: pointer;
+        position: relative;
+        margin: auto;
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        border-style: dotted;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            border-radius: 50%;
+        }
+    }
+    .wath-vid {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 500;
+    }
+}

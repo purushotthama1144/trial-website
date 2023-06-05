@@ -1,0 +1,210 @@
+.faq{
+    background: #3882c3;
+}
+::ng-deep {
+    .mat-expansion-panel-header-title, .mat-expansion-panel-body{
+        color: #ffffff;
+    }
+}
+.disabled-pointer {
+    pointer-events: none;
+}
+.sub-cat{
+    padding: 5px 0;
+    cursor: pointer;
+}
+#faq-menus {
+    display: flex;
+    flex-direction: row;
+}
+.contenfaq {
+    min-height: 280px;
+    width: 80%;
+    padding-left: 30px;
+}
+.faq-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+}
+.faq-menu-list {
+    width: 100%;
+    list-style: none;
+    border-bottom: 1px solid #fff;
+    cursor: pointer;
+    li {
+        list-style: none;
+        a {
+            padding: 5px 10px;
+            padding-left: 60px;
+            color: #949494;
+            display: block;
+            position: relative;
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 20px;
+                height: 20px;
+                background-image: url(https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/ant-grey.png);
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+}
+.f-submenu {
+    padding: 10px 0;
+    display: none;
+}
+.f-menu-nav {
+    background-color: #276AB4;
+    position: relative;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 8px 10px;
+    padding-left: 60px;
+    position: relative;
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 30px;
+        background-image: url(https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/ant-white.png);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    &::after {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 50px;
+        position: absolute;
+        right: 10px;
+        top: 0;
+        background-image: url('https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/svg/arrow.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 30px;
+        transition: all 0.4s ease 0s;
+        -webkit-transition: all 0.4s ease 0s;
+        -moz-transition: all 0.4s ease 0s;
+    }
+}
+.clicked::after {
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.AccWrap .AccWrapInr {
+    .hr {
+        background-color: #000;
+    }
+    .f-submenu {
+        li {
+            padding-left: 0;
+            list-style: none;
+        }
+    }
+}
+.faq-menu-list:first-child {
+    .f-submenu {
+        display: block;
+    }
+}
+.btn.btn-blue {
+    margin-top: 20px;
+}
+.faqs {
+    .AccWrapInr {
+        padding: 0px 0;
+        .AccHdr {
+            width: 96%;
+        }
+        .AccHdr::before {
+            background-image: url(https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/tickicon.png);
+            width: 30px;
+            height: 30px;
+            min-height: auto;
+            background-color: #fff;
+            left: 10px;
+        }
+        .AccHdr::after {
+            display: none;
+        }
+        .AccHdr.clicked::after {
+            transform: rotate(180deg);
+        }
+        .btn.btn-blue {
+            margin: 0;
+        }
+        .btn-block {
+            width: 4%;
+        }
+    }
+}
+.faq-menu-list li.active a {
+    color: #000;
+    font-weight: 500;
+    font-size: 12pt;
+    text-decoration: underline;
+}
+.hdr_content_block {
+    h4 {
+        margin: 0;
+    }
+}
+.comment-block {
+    font-size: 12pt;
+    margin-top: 20px;
+}
+button.dislike {
+
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    border-radius: 50%;
+    color: #fff;
+    background-color: red;
+    border-color: red;
+    border-width: 1px;
+    font-size: 15px;
+    cursor: pointer;
+}
+button.like {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    margin-right: 10px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: green;
+    border-color: green;
+    border-width: 1px;
+    font-size: 15px;
+}
+@media (max-width: 468px) { 
+    
+    #faq-menus {
+        flex-wrap: wrap;
+    }
+    .mat-accordion {
+        width: 100%;
+    }
+    .contenfaq {
+        width: 100%;
+        padding-left: 0;
+    }
+}

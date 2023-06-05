@@ -1,0 +1,316 @@
+<div class="inner-content">
+    <div class="tb-hdr-ct">
+        <!-- <div class="section-header text-center">
+            <h2>Select Exposure Plan</h2>
+        </div> -->
+        <!-- <div class="brWrap">
+            <div class="brWrapInr">
+                <div class="br-cnt">
+                    <mat-radio-group class="ac-inr example-radio-group" [(ngModel)]="selected">
+                        <div class="trd">
+                            <div class="form_group_inr_cnt">
+                                <mat-radio-button class="example-radio-button" *ngFor="let plan of selectedplans"
+                                    [value]="plan.value">
+                                    {{plan.name}}
+                                </mat-radio-button>
+                            </div>
+                        </div>
+                    </mat-radio-group>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <div class="selection">
+        <div class="eq-tab-block">
+            <div class="eq-t-cnt">
+                <div class="e-t-cnt-inr">
+                    <div class="bg-box">
+                        <div class="eq-t-hdr">
+                            <mat-tab-group mat-align-tabs="center">
+                                <mat-tab class="s-box th-1 w-50" label="Futures">
+                                    <div class="b-s-q">
+                                        <div class="bsq-inr">
+                                            <div class="b w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i buy">
+                                                        Buy Price
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="currencyFutureBuy" (input)="currencyFuture()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="s w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i sell">
+                                                        Sell Price
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="currencyFutureSell" (input)="currencyFuture()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="q w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i qty">
+                                                        Total Traded Lots
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="currencyFutureQty" (input)="currencyFuture()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="equity-group frame">
+                                        <div class="text-c">Charges Breakdown</div>
+                                        <div class="b-s-q  bg-box">
+                                            <div class="bsq-inr">
+                                                <div class="b w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Brokerage
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="brokerage">{{currencyFutureBrokerage}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="s w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Exchange txn charge
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="transaction">{{currencyFutureExchangetxn}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            GST
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="gst">{{currencyFutureGst}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            STT
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="stt">{{currencyFutureStt}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Clearing Charge
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="clearing">{{currencyFutureClearingcharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            SEBI Charges
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="sebicharges">{{currencyFutureSebicharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Stamp Duty
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="stampduty">{{currencyFutureStampduty}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Total Charges
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="total_charges">{{currencyFutureTotalcharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="equity-list turnover">
+                                                    <label>Turnover</label>
+                                                    <span id="tot_amount">{{currencyFutureTurnover}}</span>
+                                                </div>
+                                                <div class="equity-list p-l">
+                                                    <label>Net <span
+                                                            style="color: #00cc33;font-weight: 700;font-size: 1em;">Profit</span>/<span
+                                                            style="color: red;font-weight: 700;font-size: 1em;">Loss</span></label>
+                                                    <span style="font-size: 1em;" id="netprofit">{{currencyFutureProfitloss}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-tab>
+                                <mat-tab class="s-box th-1 w-50" label="Options">
+                                    <div class="b-s-q">
+                                        <div class="bsq-inr">
+                                            <div class="b w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i buy">
+                                                        Buy Price
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="currencyOptionBuy" (input)="currencyOption()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="s w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i sell">
+                                                        Sell Price
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="currencyOptionSell" (input)="currencyOption()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="q w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i qty">
+                                                        Total Traded Lots
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="currencyOptionQty" (input)="currencyOption()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="q w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i buy">
+                                                        Total Lot
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="currencyOptionLot" (input)="currencyOption()">
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="equity-group frame">
+                                        <div class="text-c">
+                                            Charges Breakdown
+                                        </div>
+                                        <div class="b-s-q  bg-box">
+                                            <div class="bsq-inr">
+                                                <div class="b w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Brokerage
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="brokerage">{{currencyOptionBrokerage}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="s w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Exchange txn charge
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="transaction">{{currencyOptionExchangetxn}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            GST
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="gst">{{currencyOptionGst}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            STT
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="stt">{{currencyOptionStt}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Clearing Charge
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="clearing">{{currencyOptionClearingcharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            SEBI Charges
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="sebicharges">{{currencyOptionSebicharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Stamp Duty
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="stampduty">{{currencyOptionStampduty}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Total Charges
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="total_charges">{{currencyOptionTotalcharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="equity-list turnover">
+                                                    <label>Turnover</label>
+                                                    <span id="tot_amount">{{currencyOptionTurnover}}</span>
+                                                </div>
+                                                <div class="equity-list p-l">
+                                                    <label>Net <span
+                                                            style="color: #00cc33;font-weight: 700;font-size: 1em;">Profit</span>/<span
+                                                            style="color: red;font-weight: 700;font-size: 1em;">Loss</span></label>
+                                                    <span style="font-size: 1em;" id="netprofit">{{currencyOptionProfitloss}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-tab>
+                            </mat-tab-group>
+                        </div>
+                        <app-brokerage></app-brokerage>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

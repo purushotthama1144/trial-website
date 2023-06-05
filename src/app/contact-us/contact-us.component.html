@@ -1,0 +1,197 @@
+<div class="main-content">
+  
+    <div class="contact-us">
+        <div class="blog_list_banner frame">
+            <div class="container container-medium-width">
+                <div class="blog_banner_inner image-right-text-left-block">
+                    <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                        <div class="image-block w-50">
+                            <img class="img-responsive" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/contact+us/contact-us.jpg" alt="Alice Blue Customer Care">
+                        </div>
+                        <div class="text-block w-50">
+                            <div class="section-header">
+                                <h1>Contact Us</h1>
+                                <p>We are here to help</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame contact-details-block">
+            <div class="container container-medium-width">
+                <div class="fl-bx align-items-center">
+                    <div class="w-100">
+                        <div class="section-header text-center">
+                            <h2>Have Questions about a Specific Product or Service?</h2>
+                        </div>
+                    </div>
+                    <div class="w-100">
+                        <div class="fl-bx align-items-center justify-content-center">
+                            <div class="careerList" *ngFor="let detail of contactDetails">
+                                <div class="contact-title">
+                                    <h4>{{detail.support_heading}}</h4>
+                                </div>
+                                <div class="contact-open fl-bx" *ngIf="detail.support_timings">
+                                    <div class="icon" style="margin-right: 10px;">
+                                        <img src="assets/images/google-icons/schedule.svg" alt="image" width="20" height="20">
+                                    </div> <span>{{detail.support_timings}}</span>
+                                </div>
+                                <div class="contact-number fl-bx" *ngIf="detail.contact_one">
+                                    <div class="icon" style="margin-right: 10px;">
+                                        <img src="assets/images/google-icons/smartphone.svg" alt="edit" width="20" height="20">
+                                    </div> 
+                                    <span>
+                                        <a style="font-size: 10pt;" *ngIf="detail.contact_one"  href="tel:{{detail.contact_one}}">{{detail.contact_one}}</a>
+                                        <a style="font-size: 10pt;" *ngIf="detail.contact_two"  href="tel:{{detail.contact_two}}"> , {{detail.contact_two}}</a>
+                                        <a style="font-size: 10pt;" *ngIf="detail.contact_three"  href="tel:{{detail.contact_three}}"> , {{detail.contact_three}}</a>
+                                    </span>
+                                </div>
+                                <div class="contact-email fl-bx" *ngIf="detail.support_mail">
+                                    <div class="icon" style="margin-right: 10px;">
+                                        <img src="assets/images/google-icons/email.svg" alt="image" width="20" height="20">
+                                    </div>
+                                    <span><a style="font-size: 10pt;" href="mailto:{{detail.support_mail}}">{{detail.support_mail}}</a></span>
+                                </div>
+                                <div class="hr"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame payout-timing">
+            <div class="container container-medium-width">
+                <div class="payout_block  bg-grey">
+                    <div class="section-header">
+                        <h2 class="fl-bx align-items-center">
+                            <div class="icon" style="margin-right: 10px;">
+                                <img src="assets/images/google-icons/schedule.svg" alt="image" width="30" height="30">
+                            </div>PAY OUT TIMINGS
+                        </h2>
+                    </div>
+                    <div class="payout-cont">
+                        NSE and MCX : If the payout is done before 8 AM, amount will be credited to your bank a/c on the same working day*
+                    </div>
+                    <div class="note green">
+                        *Non working days: All Saturdays and Sundays, Govt holidays, Exchange settlement holidays
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="map_block frame">
+            <div class="container container-medium-width">
+                <div class="fl-bx align-items-center">
+                    <div class="w-50">
+                        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+                            <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label)" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label">
+                            </agm-marker>
+                        </agm-map>
+                    </div>
+                    <div class="w-50 pos-rel bg-blue" style="overflow: visible;">
+                        <div class="bg-box-one address_block">
+                            <div class="branch_details">
+                                <div class="branch_header">
+                                    {{activeMarker}} Branch
+                                </div>
+                                <div class="subbranch_details" [ngSwitch]="activeMarker">
+    
+                                    <div class="subBranch_name">
+                                        <div class="branch_address">
+                                            <div class="title pos-rel fl-bx">
+                                                <div class="icon" style="margin-right: 10px;">
+                                                    <img src="assets/images/google-icons/location.svg" alt="edit" width="20" height="28">
+                                                </div> Alice Blue Financial Services
+                                            </div>
+                                            <div class="details">
+                                                {{ activeBranchDetail?.details?.address}}
+                                            </div>
+                                        </div>
+                                        <div class="branch_contact">
+                                            <div class="title pos-rel fl-bx">
+                                                <div class="icon" style="margin-right: 10px;">
+                                                    <img src="assets/images/google-icons/smartphone.svg" alt="edit" width="20" height="28">
+                                                </div> Contact us at
+                                            </div>
+                                            <div class="details">
+                                                <!-- {{ activeBranchDetail?.details?.contact}} -->
+                                                <div>
+                                                    <div *ngIf="activeBranchDetail?.details?.contact_one">
+                                                        {{first(activeBranchDetail?.details?.contact_one)}}
+                                                        <a  href="tel:{{second(activeBranchDetail?.details?.contact_one)}}">{{second(activeBranchDetail?.details?.contact_one)}}</a>
+                                                    </div>
+                                                    <div *ngIf="activeBranchDetail?.details?.contact_two">
+                                                        {{first(activeBranchDetail?.details?.contact_two)}}
+                                                        <a  href="tel:{{second(activeBranchDetail?.details?.contact_two)}}">{{second(activeBranchDetail?.details?.contact_two)}}</a>
+                                                    </div>
+                                                    <div *ngIf="activeBranchDetail?.details?.contact_three">
+                                                        {{first(activeBranchDetail?.details?.contact_three)}}
+                                                        <a  href="tel:{{second(activeBranchDetail?.details?.contact_three)}}">{{second(activeBranchDetail?.details?.contact_three)}}</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="branch_mail">
+                                            <div class="title pos-rel  fl-bx">
+                                                <div class="icon" style="margin-right: 10px;">
+                                                    <img src="assets/images/google-icons/email.svg" alt="image" width="20" height="28">
+                                                </div> Mail us at
+                                            </div>
+                                            <div class="details">
+                                                <a *ngIf="activeBranchDetail?.details?.email" href="mailto:{{activeBranchDetail?.details?.email}}">{{activeBranchDetail?.details?.email}}</a>
+                                                <!-- {{ activeBranchDetail?.details?.email}} -->
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame branch-address-section">
+            <div class="bg-img"></div>
+            <div class="overlay"></div>
+            <div class="container container-medium-width">
+                <div class="fl-bx align-items-center">
+                    <div class="w-30" *ngFor="let branch of movetoPage">
+                        <div class="single-loc-block text-center">
+                            <div class=" branch-name">
+                                {{branch.name}}
+                            </div>
+                            <a class="link fl-bx justify-content-center" [routerLink]="branch.url">
+                                <div class="icon" style="margin-right:10px;">
+                                    <img src="assets/images/google-icons/location.svg" alt="image" width="20" height="28">
+                                </div> Click to View
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-form-issue-block frame">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Have Concerns? Raise a Ticket</h2>
+                </div>
+                <div class="contact-us-issue_form text-center">
+                    <button class="btn btn-blue" (click)="openRiseTicket()">Raise a Ticket</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

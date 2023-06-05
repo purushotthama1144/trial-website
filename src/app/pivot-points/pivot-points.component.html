@@ -1,0 +1,62 @@
+<div class="main-content">
+  
+    <div class="nk-outer tradelink digipromo-page">
+        <div class="blog_list_banner frame">
+            <div class="container container-medium-width">
+                <div class="blog_banner_inner image-right-text-left-block">
+                    <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                        <div class="image-block w-50">
+                            <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/Pivot+points/daily-weekly-pivot-points.png" alt="Pivot Points - Daily & Weekly" class="img-responsive">
+                        </div>
+                        <div class="text-block w-50">
+                            <div class="trading-option-inr">
+                                <h1>Daily & Weekly Pivot Points by Alice Blue</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame-top tab-block">
+            <div class="container container-medium-width">
+                <mat-tab-group mat-align-tabs="center">
+                    <mat-tab label="MCX Pivot Level">
+                        <app-mcx-pivot-level></app-mcx-pivot-level>
+                    </mat-tab>
+                    <mat-tab label="NSE Pivot Level">
+                        <app-nse-pivot-level></app-nse-pivot-level>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+        <div class="frame-medium policy-desciption">
+            <div class="container container-medium-width">
+                <div class="heading">
+                    What is a Pivot Point?
+                </div>
+                <div class="policy-content" *ngFor="let policy of pivotPoint">
+                    <p [innerHTML]=policy></p>
+                </div>
+               
+                <div class="heading">
+                    What is Pivot Trading?
+                </div>
+                <div class="policy-content" *ngFor="let policy of pivotTrading">
+                    <p [innerHTML]=policy></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

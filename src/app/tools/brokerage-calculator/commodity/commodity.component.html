@@ -1,0 +1,340 @@
+<div class="inner-content">
+    <div class="tb-hdr-ct">
+        <!-- <div class="section-header text-center">
+            <h2>Select Exposure Plan</h2>
+        </div> -->
+        <!-- <div class="brWrap">
+            <div class="brWrapInr">
+                <div class="br-cnt">
+                    <mat-radio-group class="ac-inr example-radio-group" [(ngModel)]="selected">
+                        <div class="trd">
+                            <div class="form_group_inr_cnt">
+                                <mat-radio-button class="example-radio-button" *ngFor="let plan of selectedplans" [value]="plan.value">
+                                    {{plan.name}}
+                                </mat-radio-button>
+                            </div>
+                        </div>
+                    </mat-radio-group>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <div class="selection">
+        <div class="eq-tab-block">
+            <div class="eq-t-cnt">
+                <div class="e-t-cnt-inr">
+                    <div class="bg-box">
+                        <div class="eq-t-hdr">
+                            <mat-tab-group mat-align-tabs="center">
+                                <mat-tab label="Futures">
+                                    <div class="b-s-q">
+                                        <div class="bsq-inr">
+                                            <div class="b w-25">
+                                                <div class="bk">
+                                                    <div class="bk-i buy">
+                                                        Commodity
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <select class="inputText" id="dropdown" [(ngModel)]="selectedScripValue" (change)="commodityFuture()">
+                                                            <option *ngFor="let scrip of calculatorData; let i=index" [selected]="i == 1" [value]="scrip.lot_size">{{scrip.scrip}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="s w-25">
+                                                <div class="bk">
+                                                    <div class="bk-i sell">
+                                                        Buy Price
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="commodityFutureBuy" (input)="commodityFuture()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="q w-25">
+                                                <div class="bk">
+                                                    <div class="bk-i qty">
+                                                        Sell Price
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="commodityFutureSell" (input)="commodityFuture()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="q w-25">
+                                                <div class="bk">
+                                                    <div class="bk-i buy">
+                                                        Total Traded Lots
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="commodityFutureQty" (input)="commodityFuture()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <p>Profit/Loss made for every ₹ 1 change in the selected scrip</p>
+                                        <span style="font-size: 1.5em;">Lot Size: {{selectedScripValue}}</span>
+                                    </div>
+                                    <div class="equity-group frame">
+                                        <div class="text-c">
+                                            Charges Breakdown
+                                        </div>
+                                        <div class="b-s-q  bg-box">
+                                            <div class="bsq-inr">
+                                                <div class="b w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Brokerage
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="brokerage">{{commodityFutureBrokerage}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="s w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Exchange txn charge
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="transaction">{{commodityFutureExchangetxn}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            GST
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="gst">{{commodityFutureGst}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            CTT
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="Ctt">{{commodityFutureCtt}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Clearing Charge
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="clearing">{{commodityFutureClearingcharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            SEBI Charges
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="sebicharges">{{commodityFutureSebicharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Stamp Duty
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="stampduty">{{commodityFutureStampduty}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Total Charges
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="total_charges">{{commodityFutureTotalcharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="equity-list turnover">
+                                                    <label>Turnover</label>
+                                                    <span id="tot_amount">{{commodityFutureTurnover}}</span>
+                                                </div>
+                                                <div class="equity-list p-l">
+                                                    <label>Net <span style="color: #00cc33;font-weight: 700;font-size: 1em;">Profit</span>/<span
+                                                            style="color: red;font-weight: 700;font-size: 1em;">Loss</span></label>
+                                                    <span style="font-size: 1em;" id="netprofit">{{commodityFutureProfitloss}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </mat-tab>
+                                <!-- <mat-tab label="Options">
+                                    <div class="b-s-q">
+                                        <div class="bsq-inr">
+                                            <div class="b w-25">
+                                                <div class="bk">
+                                                    <div class="bk-i buy">
+                                                        Commodity
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <select class="inputText" id="dropdown" [(ngModel)]="selectedScripValue" (change)="intradayEquity()">
+                                                            <option *ngFor="let scrip of scrips; let i=index" [selected]="i == 0" [value]="scrip.value">{{scrip.name}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="s w-25">
+                                                <div class="bk">
+                                                    <div class="bk-i sell">
+                                                        Buy
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="commodityBuy" (input)="intradayEquity()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="q w-25">
+                                                <div class="bk">
+                                                    <div class="bk-i qty">
+                                                        Sell
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="commoditySell" (input)="intradayEquity()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="q w-25">
+                                                <div class="bk">
+                                                    <div class="bk-i buy">
+                                                        Lot Size
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="commodityQty" (input)="intradayEquity()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <p>Profit/Loss made for every ₹ 1 change in the selected scrip</p>
+                                        <span style="font-size: 1.5em;">₹ {{selectedScripValue}}</span>
+                                    </div>
+                                    <div class="equity-group frame">
+                                        <div class="text-c">
+                                            Charges Breakdown
+                                        </div>
+                                        <div class="b-s-q  bg-box">
+                                            <div class="bsq-inr">
+                                                <div class="b w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Brokerage
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="brokerage">{{commodityBrokerage}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="s w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Exchange txn charge
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="transaction">{{commodityExchangetxn}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            GST
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="gst">{{commodityGst}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Ctt
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="Ctt">{{commodityCtt}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Clearing Charge
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="clearing">{{commodityClearingcharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            SEBI Charges
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="sebicharges">{{commoditySebicharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Stamp Duty
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="stampduty">{{commodityStampduty}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Total Charges
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="total_charges">{{commodityTotalcharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="equity-list turnover">
+                                                    <label>Turnover</label>
+                                                    <span id="tot_amount">{{commodityTurnover}}</span>
+                                                </div>
+                                                <div class="equity-list p-l">
+                                                    <label>Net <span style="color: #00cc33;font-weight: 700;font-size: 1em;">Profit</span>/<span
+                                                            style="color: red;font-weight: 700;font-size: 1em;">Loss</span></label>
+                                                    <span style="font-size: 1em;" id="netprofit">{{commodityProfitloss}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </mat-tab> -->
+                            </mat-tab-group>
+                        </div>
+                        <app-brokerage></app-brokerage>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,172 @@
+<div class="main-content">
+    <div class="partner-page">
+        <div id="partner" class="banner pos-rel">
+            <div class="container container-medium-width pos-rel">
+                <div class="subpage-banner" *ngIf="show == true">
+                    <div class="subpage-banner-inner">
+                        <div class="blog_banner_inner image-right-text-left-block">
+                            <div class="image-text-inner fl-bx align-items-center ">
+                                
+                                <div class="image-block w-50">
+                                    <div class="group-4" style="padding: 20px 80px;">
+                                        <div class="unique-id">
+                                            
+                                        </div>
+                                        <img class="img-responsive" style="padding: 0px 40px;" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/unlock/unlock.png" alt="Trading Partner - Alice Blue" />
+                                    </div>
+                                </div>
+                                <div class="quiz-block w-50">
+                                    <p style="text-align: center;">
+                                        Answer questions and stand a chance to unlock a valuable gifts from <span class="blue">Alice Blue!</span> 
+                                    </p>
+                                    <div class="btn-block text-center">
+                                        <button (click)="startQuiz()" class="btn btn-green" style="width: 150px; margin-top: 15px;">Start Quiz</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subpage-banner" *ngIf="not_show == true">
+                    <div class="subpage-banner-inner">
+                        <div class="blog_banner_inner image-right-text-left-block">
+                            <div class="image-text-inner fl-bx align-items-center ">
+                                
+                                <div class="image-block w-50">
+                                    <div class="group-4" style="padding: 20px 80px;">
+                                        <div class="unique-id">
+                                            User Id: {{start_quiz?.user_id}}
+                                        </div>
+                                        <img class="img-responsive" style="padding: 0px 40px;" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/unlock/unlock.png" alt="Trading Partner - Alice Blue" />
+                                    </div>
+                                </div>
+                                <div class="quiz-block w-50">
+                                    <div class="quiz_type">
+                                      <h3>
+                                         {{start_quiz?.quiz_data?.quiz_name}}
+                                      </h3> 
+                                      <p style="color: #276ba4; font-weight: 500;">Question {{currentIndex + 1}} of {{start_quiz?.quiz_data?.questions_attached}}</p> 
+                                    </div>
+                                    <div class="quiz_question_answer">
+                                         <ng-container  *ngIf="currentQuestionSet?.question_type == 'Single Choice'">
+                                             <h5>Q. {{currentIndex + 1}} : {{currentQuestionSet?.question}}</h5>
+                                             <ul>
+                                                 <mat-radio-group aria-label="Select an option" class="answer_list" [(ngModel)]="userResponse && userResponse[0]">
+                                                     <li *ngFor="let option of currentQuestionSet?.question_options">
+                                                         <mat-radio-button [value]="option.value" [name]="option.option" (change)="selectRadio($event)">{{option.option}}</mat-radio-button>
+                                                     </li>
+                                                 </mat-radio-group>
+                                             </ul>
+                                         </ng-container>
+                                         <ng-container *ngIf="currentQuestionSet?.question_type == 'Multiple Choice'">
+                                             <h5>Q No. {{currentIndex + 1}} : {{currentQuestionSet?.question}}</h5>
+                                             <ul>
+                                                 <li *ngFor="let option of currentQuestionSet?.question_options">
+                                                     <mat-checkbox [checked]="option.checked" [value]="option.value" [name]="option.option" (change)="selectedCheckbox($event)">{{option.option}}</mat-checkbox>
+                                                 </li>
+                                             </ul>
+                                         </ng-container>
+                                     </div>                                   
+                                     <div class="btn-block fl-bx pos-rel">
+                                         <button *ngIf="currentIndex > 0" (click)="prev_question()" class="btn btn-yellow btn-prev" style="font-weight: normal;margin:0; margin-right:10px; font-size:12px;width: 80px;">Prev</button>
+                                         <!-- <button (click)="next_question()" class="btn btn-green btn-next" style="font-weight: normal; font-size:12px;width: 80px;">Next</button> -->
+                                         <button (click)="next_question()" *ngIf="currentIndex != lastQuestion" class="btn btn-green btn-next" style="font-weight: normal; font-size:12px;width: 80px;">Next</button>
+                                         <button (click)="submit_quiz()" *ngIf="currentIndex == lastQuestion" class="btn btn-blue" style="font-weight: normal; font-size:12px;width: 80px;padding: 5px">Submit</button>
+                                     </div> 
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="submit_block" *ngIf="submit == true">
+                    <div class="subpage-banner">
+                        <div class="subpage-banner-inner">
+                            <div class="blog_banner_inner">
+                                <div class="image-text-inner fl-bx align-items-center ">
+                                    <div class="quiz-block w-100 text-center">
+                                        <div class="congrats_block fl-bx align-items-center justify-content-center">
+                                            <img  src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/unlock/congrats.png" alt="test">
+                                            Thank you!
+                                        </div>
+                                        <h5>
+                                           You have completed Quiz in: <br> <span style="color:#276ba4;">{{timeTaken.time_taken}}</span> 
+                                        </h5>
+                                        <div class="cust-details">
+                                            <p>Are you an existing Client of <span style="color: #276ba4;">Alice Blue</span> ?</p>
+                                            <div class="btn-block fl-bx text-center justify-content-center" style="margin-top: 20px;">
+                                                <button style="width: 70px; margin-right: 10px;" class="btn btn-blue" 
+                                                (click)="checkExistingClient('Y')">Yes</button>
+                                                <button style="width: 70px;" class="btn btn-green"
+                                                (click)="checkExistingClient('N')">No</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form_block" *ngIf="form == true">
+                    <div class="subpage-banner">
+                        <div class="image-text-inner fl-bx align-items-center ">
+                            <div class="quiz-block w-100 text-center pos-rel">
+                                <div class="congrats_block fl-bx align-items-center justify-content-center">
+                                    <img  src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/unlock/congrats.png" alt="test">
+                                    Thank you!
+                                </div>
+                                <div class="go_back" (click)="back()">
+                                    <button style="background-color: #276ba4; color: #fff;" mat-raised-button
+                                        matTooltip="Back to previous section"
+                                        matTooltipClass="example-tooltip-red"
+                                        aria-label="Button that shows a red tooltip"
+                                        class="btn-red">
+                                        <img style="transform: rotate(90deg);" width="15" height="15" src="assets/images/arrow-down-white.svg" alt="down-arrow">
+                                        Back
+                                    </button>
+                                </div>
+                                <div class="cust-details pos-rel">
+                                    <p>Enter your Email Id and Password to finish and <b>await for result in 48 hours</b></p>
+                                    <form class="form" [formGroup]="quizForm">
+                                        <mat-form-field class="formName forminr" appearance="outline">
+                                            <mat-label>Email</mat-label>
+                                            <input type="text" matInput formControlName="emailId" placeholder="Eamil">
+                                            <mat-error>Enter valid Email Id</mat-error>
+                                        </mat-form-field>
+                                        
+                                        <mat-form-field class="formName forminr" appearance="outline">
+                                            <mat-label>Password</mat-label>
+                                            <input matInput placeholder="Password" [type]="passwordHide ? 'password' : 'text'" formControlName="password">
+                                            <div class="show-pw">
+                                                <img (click)="passwordHide = !passwordHide" src="assets/images/google-icons/eye.svg" width="20" height="20" alt="eye" >
+                                            </div>
+                                            <mat-error>Password is Required</mat-error>
+                                        </mat-form-field>
+    
+                                        <div class="w-100">
+                                            <span (click)="forgotPassword()" class="forgot_password" style="cursor: pointer; color: #276ba4;">Forgot Password ?</span>
+                                        </div>
+                                        <div class="btn-block"
+                                            style="display: flex;flex-wrap: wrap;align-items: center;justify-content: center;width: 100%;">
+                                            <button class="btn btn-green"
+                                                style="margin-bottom: 0px; width: 100px;margin-top: 20px; font-size: 12px;" type="submit"
+                                                [disabled]="quizForm.invalid"
+                                                (click)="clientForm()">Submit</button>
+                                                
+                                        </div>
+                                    </form>
+                                    <div class="spinner" *ngIf="formSubmitted">
+                                        <div class="spinner-inner fl-bx align-items-center justify-content">
+                                            <mat-spinner></mat-spinner>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

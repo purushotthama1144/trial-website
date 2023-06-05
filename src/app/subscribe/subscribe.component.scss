@@ -1,0 +1,31 @@
+.subscribe-spinner{
+    margin: auto;
+}
+.block {
+    padding: 15px 25px;
+    border: 1px solid #ccc;
+    border-top: 10px solid #286ab4;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    box-shadow: 0 3px 5px 0 #ccc;
+}
+.weekly_updates {
+    background-color: #fff;
+}
+.mat-form-field {
+    width: 100%;
+}
+.btn-block {
+    margin: 10px 0;
+    width: 100%;
+    .btn {
+        width: 100%;
+        min-height: 47px;
+    }
+}
+.hdr_4 {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 15px;
+}

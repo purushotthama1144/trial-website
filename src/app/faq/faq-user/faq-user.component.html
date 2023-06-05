@@ -1,0 +1,39 @@
+<div class="frame faq-client" *ngIf="faqs.length > 0">
+    <div id="faq-menus">
+        <ng-template [ngIf]="!loading">
+            <mat-accordion>
+                <ng-container *ngFor="let faq of faqs | filter: selectedQuestion">
+                    <mat-expansion-panel  class="faq" [hideToggle]="faq.sub_categories[0].sub_category == ''">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title (click)="onClickCategory($event,faq)">
+                                {{faq.category}}
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <ng-container *ngFor="let subCategory of faq.sub_categories | filter: selectedQuestion">
+                            <ng-template [ngIf]="subCategory.sub_category">
+                                <div (click)="onClickSubCategory($event,faq.redirect_url_category,subCategory)" class="sub-cat">
+                                    {{subCategory.sub_category}}
+                                </div>
+                            </ng-template>
+                        </ng-container>
+                    </mat-expansion-panel>
+                </ng-container>
+            </mat-accordion>
+        </ng-template>
+        <div class="contenfaq">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+    <div class="loader" *ngIf="pageloader">
+        <div class="loader-inner">
+            <div id="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
+    </div>
+</div>

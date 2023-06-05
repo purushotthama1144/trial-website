@@ -1,0 +1,114 @@
+<div class="main-content">
+  
+    <div class="blog_detail_view blog_category">
+        <div class="frame-medium blog_detail_block pos-rel">
+    
+            <div class="container">
+                <div class="fl-bx pos-rel">
+                    <div class="search-block">
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <div class="search-field">
+                                <div class="google-icon">
+                                    <img src="assets/images/google-icons/search.svg" alt="download" width="20" height="20">
+                                </div>
+                                <div class="search-input">
+                                    <input type="text" placeholder="Blog Search" name="Title" matInput [(ngModel)]="blogCategory">
+                                </div>
+                            </div>
+                        </mat-form-field>
+                    </div>
+    
+                    <div class="w-70 left_block">
+                        <div class="blog-cat-header">
+                            <div class="section-header">
+                                <h1>{{sub_category | titlecase}}</h1>
+                                <div class="blog-title-bar"></div>
+                            </div>
+                        </div>
+                        <div class="blog-category-field fl-bx align-items-center ">
+                            <ng-container *ngIf="category | filter:blogCategory as result">
+                                <div class="blog-cat-single-block pos-rel  bg-box" *ngFor="let user of result | paginate: { itemsPerPage: 8 , currentPage: q }">
+                                    <div class="blog-cat-inner" (click)="openBlogDetail(user)" style="cursor: pointer;">
+                                        <div class="blog-title">
+                                            <h3>{{ (user.title.length>50)? (user.title | slice:0:50)+'..':(user.title) }}</h3>
+                                            <div class="fl-bx blog-cat-readtime-block">
+                                                <div class="blog-category">
+                                                    {{sub_category | titlecase}}
+                                                </div>
+                                                <div class="blog-readtime">
+                                                    {{user.date |date : 'fullDate'}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="img-block">
+                                            <img title="" alt="image" class="img-responsive" [src]="user.banner_image">
+                                        </div>
+                                        <div class="blog-desc" >
+                                            {{ (user.meta_description.length>120)? (user.meta_description | slice:0:120)+'..':(user.meta_description) }}
+                                            <div class="fl-bx align-items-center link_read_text">
+                                                <div class="read_time">
+                                                    {{calculateReadTime(user.body_text)}} Min Read
+                                                </div>
+                                                <div class="text-left">
+                                                    <a class="link" style="cursor:pointer" (click)="openBlogDetail(user)">Read more >></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pagination_block w-100 text-center">
+                                    <pagination-controls (pageChange)="q = $event"></pagination-controls>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="w-30 right_block pos-rel">
+                        
+                        <app-blog-right-block></app-blog-right-block>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame bg-grey simple-title-block text-center">
+            <div class="container">
+                "Begin your <span class="green">Trading & Investment Journey with Alice Blue</span>"
+            </div>
+        </div>
+        <div class="contact-us frame bg-light-blue share_link">
+            <div class="container container-medium-width">
+                <div class="fl-bx align-items-center">
+                    <div class="w-50">
+                        <div class="installs text-center">
+                            <div class="install_title ">
+                                "<span class="yellow">10 LAKH+</span> <br> Installs"
+                            </div>
+                            <div class="link_mobile">
+                                <div class="wrap">
+                                    <div class="offer">
+                                        Enjoy Lifetime Free Delivery Trade
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-50">
+                        <div class="installs text-center download-app">
+                            <app-download-app></app-download-app>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loader" *ngIf="pageloader">
+        <div class="loader-inner">
+            <div id="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
+    </div>
+</div>

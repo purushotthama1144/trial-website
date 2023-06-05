@@ -1,0 +1,76 @@
+<div class="main-content">
+    <div class="partner-page">
+        <div id="partner" class="banner pos-rel unlock">
+            <div class="container container-medium-width pos-rel">
+                <div class="subpage-banner">
+                    <div class="subpage-banner-inner">
+                        <div class="blog_banner_inner image-left-text-right-block">
+                            <div class="image-text-inner fl-bx align-items-center ">
+                                <div class="trading-option-inr section-header w-50 text-center">
+                                    <h1>{{unlockData.main_heading}}</h1>
+                                    <p>{{unlockData.main_sub_heading}}</p>
+
+                                    <div class="image-block">
+                                        <div class="image-grouping">
+                                            <div class="group-images">
+                                                <div class="group group-1">
+                                                    <img class="img-responsive" [src]="unlockData.image_one"
+                                                        alt="Trading Partner - Alice Blue" />
+                                                </div>
+                                                <div class="group group-2">
+                                                    <img class="img-responsive" [src]="unlockData.image_two"
+                                                        alt="Trading Partner - Alice Blue" />
+                                                </div>
+                                                <div class="group group-3">
+                                                    <img class="img-responsive" [src]="unlockData.image_three"
+                                                        alt="Trading Partner - Alice Blue" />
+                                                </div>
+                                                <div class="group group-4">
+                                                    <img class="img-responsive" [src]="unlockData.image_four"
+                                                        alt="Trading Partner - Alice Blue" />
+                                                </div>
+                                            </div>
+                                            <div class="single-image">
+                                                <img class="img-responsive" [src]="unlockData.image_five"
+                                                    alt="Trading Partner - Alice Blue" />
+                                            </div>
+                                        </div>
+                                        <div class="content-block offer_text">
+                                            {{unlockData.first_text}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="image-block w-50">
+                                    <div class="group-5" style="padding: 20px 80px;">
+                                        <img style="padding: 0px 50px;" class="img-responsive"
+                                            src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/unlock/key.png"
+                                            alt="Unlock - Alice Blue" />
+                                    </div>
+                                    <div class="content-block">
+                                        {{unlockData.second_text}}
+                                    </div>
+                                    <div class="btn-block text-center">
+                                        <button (click)="openQuiz()" class="btn btn-green"
+                                            style="width: 150px; margin-top: 15px;">Unlock</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="newsList ban-symbol">
+    <div class="news-list-header">
+        <div class="serial-number">
+            Segment
+        </div>
+        <div class="description">
+            CNC/NRML
+        </div>
+
+    </div>
+    <div class="table_cont" *ngFor="let bansymbol of bansymbol ; let i=index">
+        <div class="AccWrapInr">
+            <div class="newslistinr fl-bx align-items-center">
+                <div class="serial-number">
+                    {{i+1}}
+                </div>
+                <div class="description">
+                    {{bansymbol.script}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

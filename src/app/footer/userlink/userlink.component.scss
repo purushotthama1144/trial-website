@@ -1,0 +1,31 @@
+.logo {
+    width: 160px;
+}
+ 
+.da-alice-economy {
+    font-size: 12px;
+}
+/*Footer End*/
+@media (max-width : 820px ) {
+    .logo {
+        margin: auto;
+    }
+    .logo_block {
+        padding-bottom: 20px
+    }
+    ::ng-deep {
+        .w-25 a .text {
+            font-size: 10pt;
+        }
+    }
+}
+@media (max-width : 468px ) {
+    .logo_block {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .logo {
+        width: 100px;
+    }
+}

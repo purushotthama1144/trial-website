@@ -1,0 +1,39 @@
+<mat-tab-group mat-align-tabs="center" animationDuration="0ms">
+    <mat-tab label="NSE">
+        <div class="newsList ban-symbol bo-co-margin blocked-scrips frame-top">
+            <div class="news-list-header">
+
+                <div class="description">
+                    SEGMENT
+                </div>
+                <div class="description">
+                    Scrip Name
+                </div>
+                <div class="description">
+                    PRODUCT TYPE
+                </div>
+                <div class="description">
+                    BLOCK REASON
+                </div>
+            </div>
+            <div class="table_cont" *ngFor="let blockedscrip of blockedscrip">
+                <div class="AccWrapInr">
+                    <div class="newslistinr fl-bx align-items-center">
+                        <div class="description">
+                            {{blockedscrip.segment}}
+                        </div>
+                        <div class="description">
+                            {{blockedscrip.script}}
+                        </div>
+                        <div class="description">
+                            {{blockedscrip.product_type}}
+                        </div>
+                        <div class="description">
+                            {{blockedscrip.model}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+</mat-tab-group>

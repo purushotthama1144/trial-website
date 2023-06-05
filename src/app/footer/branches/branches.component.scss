@@ -1,0 +1,35 @@
+
+.branches-list {
+    padding: 20px 0;
+    li {
+        display: inline;
+        margin-right: 5px;
+        padding-right: 0px;
+        border-right: 1px solid #fff;
+        font-size: 10pt;
+        &:first-child {
+            border-right: none;
+        }
+        &:last-child {
+            border-right: none;
+        }
+    }
+}
+@media(max-width: 468px) {
+    .branches-list {
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;   
+            flex-wrap: wrap;
+        }
+        li {
+            padding-right: 5px;
+            min-width: 85px;
+            border-right: none;
+        }
+        li:first-child {
+            font-weight: 500;
+        }
+    } 
+}

@@ -1,0 +1,208 @@
+<div class="blog_detail_view ebook_podcast">
+    <div class="loader" *ngIf="pageloader">
+        <div class="loader-inner">
+            <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
+    </div>
+    <div class="blog_list_banner bg-grey frame">
+        <div class="container container-medium-width">
+            <div class="blog_banner_inner image-right-text-left-block">
+                <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                    <div class="image-block w-50">
+                        
+                        <img alt="image" class="img-responsive"
+                            src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/ANTIQ+Blog/Parent+page(ANT+IQ+Blogs+Banner)/ant-iq-blogs.png">
+                    </div>
+                    <div class="text-block w-50">
+                        <div class="section-header">
+                            <h1>Free Ebooks & Podcast</h1>
+                            <p>All of Alice Blue's ebooks, in one place</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="frame-top ebook_content_block">
+        <div class="container">
+            <div class="fl-bx">
+                <div class="w-20 left_block">
+                    <div class="filter_block AccWrap">
+                        <div class="filter_accordion AccWrapInr">
+                            <mat-accordion>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            Filter by Topic
+                                        </mat-panel-title>
+                                        <mat-panel-description>
+
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <div class="f_c" *ngFor="let topic of filterData.topics">
+                                        <mat-checkbox [(ngModel)]="topic.checked" class="check"
+                                            (change)="getTopicCheckboxes()">{{topic.topic}}</mat-checkbox>
+                                    </div>
+                                </mat-expansion-panel>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            Filter by Language
+                                        </mat-panel-title>
+                                        <mat-panel-description>
+
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <div class="f_c" *ngFor="let language of filterData.languages">
+                                        <mat-checkbox [(ngModel)]="language.checked" class="check"
+                                            (change)="getLanguageCheckboxes()">{{language.language}}</mat-checkbox>
+                                    </div>
+                                </mat-expansion-panel>
+                            </mat-accordion>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-80 right_block" *ngIf="ebooks.length == 0">
+                    <div class="section-header text-center">
+                        <h2>No Ebooks Found</h2>
+                    </div>
+                </div>
+                <div class="w-80 right_block">
+                    <div class="ebook-category-field fl-bx align-items-center" *ngIf="ebooks.length > 0">
+                        <ng-container *ngIf="filteredEbooks as result">
+                            <div style="min-height:auto;" class="ebook-single-block pos-rel  bg-box"
+                                *ngFor="let item of result | paginate: { itemsPerPage: 6 , currentPage: q }">
+                                <div class="webinar_block">
+                                    <div class="pos-rel webinar-block-inr">
+                                        <div class="img-block-top pos-rel">
+                                            <div class="bg-layer"></div>
+                                            <img class="img-responsive" [src]="item.ebook_image_url" [alt]="item.ebook_title">
+                                            <div class="title">
+                                                {{item.ebook_title}}
+                                            </div>
+                                        </div>
+                                        <div class="content-block blog-cat-readtime-block">
+                                            <ng-container *ngFor="let topic of item.ebook_topics">
+                                                <span class="topic blog-category">
+                                                    {{topic.topic}}
+                                                </span>
+                                            </ng-container>
+                                            <div class="title">
+                                                <h3>{{item.ebook_title}}</h3>
+                                            </div>
+                                            <div class="btn-block">
+                                                <button class="btn btn-blue" (click)="ebookDetail(item)">
+                                                    <img src="assets/images/google-icons/download.svg" width="20" height="20" alt="download" style="width: 20px !important;height: 20px; margin-right: 10px; ">Read More
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pagination_block w-100 text-center">
+                                <pagination-controls (pageChange)="q = $event"></pagination-controls>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="ebook-slider partner-slider about_us frame-medium w-100" *ngIf="ebooks.length > 3">
+                    <div class="container container-medium-width">
+                        <div class="section-header">
+                            <h4>Newly Added to the EBook Library</h4>
+                        </div>
+                        <owl-carousel-o [options]="customServeOptions" (dragging)="isDragging = $event.dragging">
+                            <ng-container *ngFor="let item of ebooks | slice:0:5">
+                                <ng-template carouselSlide>
+                                    <div class="webinar_block" (click)="ebookDetail(item)">
+                                        <div class="pos-rel webinar-block-inr">
+                                            <div class="img-block-top pos-rel">
+                                                <img title="" alt="image" class="img-responsive"
+                                                    [src]="item.ebook_image_url">
+                                                <div class="title">
+                                                    {{item.ebook_title}}
+                                                </div>
+                                            </div>
+                                            <div class="content-block">
+                                                <ng-container *ngFor="let topic of item.ebook_topics">
+                                                    <div class="topic blog-category" style="margin-bottom: 15px;">
+                                                        {{topic.topic}}
+                                                    </div>
+                                                </ng-container>
+                                                <div class="title">
+                                                    <h3>{{item.ebook_title}}</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-template>
+                            </ng-container>
+                        </owl-carousel-o>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="image-right-text-left-block frame">
+        <div class="container">
+            <div class="image-text-inner bg-grey fl-bx align-items-center justify-content-center">
+                <div class="image-block w-50 product">
+                    <div class="img__wrap dashboard">
+                        <img alt="image"
+                            src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/blog-cat-3.png"
+                            class="img__img img-responsive">
+                        <div class="img__description_layer">
+                            <div class="img__description text-center">
+                                <h3 style="color: #fff; margin-bottom: 0;">Visit Alice Blue’s EBooks</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-block w-50 text-center" style="font-size: 30px; font-weight: 500;">
+                    "Begin your <span class="green">Trading Investment Journey with Alice Blue</span>"
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-us frame bg-light-blue share_link">
+        <div class="container container-medium-width">
+            <div class="fl-bx align-items-center fl-jst-center">
+                <div class="w-50">
+                    <div class="installs text-center">
+                        <div class="install_title ">
+                            <span class="yellow">"10 LAKH+</span> <br> Installs"
+                        </div>
+                        <div class="link_mobile">
+                            <div class="wrap">
+                                <div class="offer">
+                                    Enjoy Lifetime Free Delivery Trade
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-50">
+                    <div class="installs text-center download-app">
+                        <app-download-app></app-download-app>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

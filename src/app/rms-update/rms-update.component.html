@@ -1,0 +1,54 @@
+<div class="main-content">
+  
+    <div class="rms-live-page">
+        <div class="blog_list_banner frame">
+            <div class="container container-medium-width">
+                <div class="blog_banner_inner image-right-text-left-block">
+                    <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                        <div class="image-block w-50">
+                            <img class="img-responsive" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/RMS+live/live-rms-updates.png" alt="RMS Live">
+                        </div>
+                        <div class="text-block w-50">
+                            <div class="section-header text-center">
+                                <h1>Our Data's in a Better Place</h1>
+                                <p>The best way to get to know our updates</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rms-live-content-block bg-light-cyan frame">
+            <div class="container">
+                <div class="tab-gallery-block pos-rel h-100">
+                    <div class="tab-buttons">
+                        <a class="tab-button pos-rel" *ngFor="let link of navLinks" [routerLink]="link.link" routerLinkActive="active-link">
+                            <div class="right-icon">
+                                <img class="dark" width="15" height="15" src="assets/images/google-icons/chevron-right.svg" alt="arrow right">
+                                <img class="white" width="15" height="15" src="assets/images/google-icons/chevron-right-white.svg" alt="arrow right">
+                            </div>
+                            {{link.label}}
+                        </a>
+                    </div>
+                    <div class="image-with-text-block-tab">
+                        <div class="image-with-text-block-tab-wrap clearfix">
+                            <router-outlet></router-outlet>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

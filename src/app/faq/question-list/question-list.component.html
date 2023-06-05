@@ -1,0 +1,33 @@
+<div class="pos-rel">
+    <div class="faq-list" *ngIf="!loading">
+        <div class="download-accordion">
+            <div class="AccWrap faqs">
+                <ng-container *ngIf="questionAnswers | filter : selectedQuestion as result">
+                    <div class="AccWrapInr pos-rel" *ngFor="let question of result | paginate: { itemsPerPage: 8 , currentPage: q }">
+                        <div class="faq-AccHdr AccHdr" (click)="moveToAnswer(question)">
+                            <div class="hdr_content_block">
+                                <h4>{{question.question}}</h4>
+                            </div>
+                        </div>
+                        <div class="hr"></div>
+                    </div>
+                </ng-container>
+            </div>
+
+        </div>
+        <div class="pagination_block w-100 text-center">
+            <pagination-controls (pageChange)="q = $event"></pagination-controls>
+        </div>
+    </div>
+    <div class="loader" *ngIf="pageloader">
+        <div class="loader-inner">
+            <div id="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,234 @@
+<div class="icon-close" [mat-dialog-close]="true"> 
+    <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/svg/cancel-black.svg" alt="test"> 
+</div>
+<mat-dialog-content>
+    <!-- Plain Thank You -->
+    <div class="nk-outer tradelink digipromo-page" *ngIf="data.element.thankyou_page_type == 'Plain Thank you'">
+        <div class="blog_list_banner frame bg-grey">
+            <div class="container container-medium-width">
+                <div class="blog_banner_inner image-right-text-left-block">
+                    <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                        <div class="image-block w-50">
+                            <img [src]="data.element.banner_image" alt="Trading Platform - Alice Blue" class="img-responsive">
+                        </div>
+                        <div class="text-block w-50">
+                            <div class="trading-option-inr">
+                                <h1 style="color: #44B749;">Thanks!</h1>
+                                <p>{{data.element.banner_sub_heading}}</p>
+                                <h2>"{{data.element.banner_heading}}"</h2>
+                                <p>ebook</p>
+                                <div class="disclaimer-block bg-grey"><span class="disc-title">Note:</span> In case you don't see the email in your inbox in the next 10 minutes, kindly check your spam or promotions folder. Contact <a style="text-decoration: underline; font-weight: 500;" href="mailto:askus@aliceblueindia.com">askus@aliceblueindia.com</a> in case of queries.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame request-callback">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h3>{{data.element.page_description}}</h3>
+                </div>
+                <div class="blog-readtime-field fl-bx align-items-center ">
+                    <p>{{data.element.page_sub_heading}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Request Callback Thank you-->
+    <div class="nk-outer tradelink digipromo-page" *ngIf="data.element.thankyou_page_type == 'Include Request callback'">
+        <div class="blog_list_banner frame bg-grey">
+            <div class="container container-medium-width">
+                <div class="blog_banner_inner image-right-text-left-block">
+                    <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                        <div class="image-block w-50">
+                            <img [src]="data.element.banner_image" alt="Trading Platform - Alice Blue" class="img-responsive">
+                        </div>
+                        <div class="text-block w-50">
+                            <div class="trading-option-inr">
+                                <h1 style="color: #44B749;">Thanks!</h1>
+                                <p>{{data.element.banner_sub_heading}}</p>
+                                <h2>"{{data.element.banner_heading}}"</h2>
+                                <p>ebook</p>
+                                <div class="disclaimer-block bg-grey"><span class="disc-title">Note:</span> In case you don't see the email in your inbox in the next 10 minutes, kindly check your spam or promotions folder. Contact <a style="text-decoration: underline; font-weight: 500;" href="mailto:askus@aliceblueindia.com">askus@aliceblueindia.com</a> in case of queries.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame request-callback">
+            <div class="container container-medium-width">
+                <div class="fl-bx">
+                    <div class="w-50">
+                        <div class="section-header">
+                            <h3>
+                                {{data.element.page_sub_heading}}
+                            </h3>
+                        </div>
+                        <div class="content_block" [innerHTML]="data.element.page_description">
+
+                        </div>
+                    </div>
+                    <div class="w-40 ebook_detail_view blog_detail_view">
+                        <div class="block">
+                            <h4>Schedule a free call with an expert now!</h4>
+                            <form class="form" [formGroup]="callbackForm">
+                                <mat-form-field class="formname forminr" appearance="outline">
+                                    <mat-label>Name</mat-label>
+                                    <input type="text" matInput formControlName="firstName" placeholder="First Name">
+                                    <mat-error>First Name is Required</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="formemail forminr" appearance="outline">
+                                    <mat-label>Email</mat-label>
+                                    <input type="text" matInput formControlName="email" placeholder="Email">
+                                    <mat-error>Enter valid Email Id</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="formMobile forminr" appearance="outline">
+                                    <mat-label>Mobile</mat-label>
+                                    <input type="tel" matInput id="mobile" minlength="10" maxlength="10" (keypress)="keyPress($event)" placeholder="Mobile" formControlName="Mobile">
+                                    <mat-error>Please enter 10 digit mobile number</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="formEmail forminr" appearance="outline">
+                                    <mat-label>Select State</mat-label>
+                                    <select formControlName="State" matNativeControl name="state">
+                                    <option value="" selected></option>
+                                    <option *ngFor="let state of states" [value]="state.value">
+                                        {{state.viewValue}}
+                                    </option>
+                                    </select>
+                                    <mat-error>Please select the state</mat-error>
+                                </mat-form-field>
+                            
+                                <div class="btn-block">
+                                    <button class="btn btn-green" type="submit" [disabled]="callbackForm.invalid" (click)="onSubmit()">Get your free assessment</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Show case blogs THank you-->
+    <div class="nk-outer tradelink digipromo-page" *ngIf="data.element.thankyou_page_type == 'Showcase blogs'">
+        <div class="blog_list_banner frame bg-grey">
+            <div class="container container-medium-width">
+                <div class="blog_banner_inner image-right-text-left-block">
+                    <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                        <div class="image-block w-50">
+                            <img [src]="data.element.banner_image" alt="Trading Platform - Alice Blue" class="img-responsive">
+                        </div>
+                        <div class="text-block w-50">
+                            <div class="trading-option-inr">
+                                <h1 style="color: #44B749;">Thanks!</h1>
+                                <p>{{data.element.banner_sub_heading}}</p>
+                                <h2>"{{data.element.banner_heading}}"</h2>
+                                <p>ebook</p>
+                                
+                                <div class="disclaimer-block bg-grey"><span class="disc-title">Note:</span> In case you don't see the email in your inbox in the next 10 minutes, kindly check your spam or promotions folder. Contact <a style="text-decoration: underline; font-weight: 500;" href="mailto:askus@aliceblueindia.com">askus@aliceblueindia.com</a> in case of queries.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame request-callback">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h3>Recommended Content</h3>
+                </div>
+            
+                <div class="blog-readtime-field fl-bx align-items-center ">
+                    <ng-container *ngIf="data.element.cards_json.length > 0">
+                        <div class="blog-cat-single-block pos-rel  bg-box" *ngFor="let user of data.element.cards_json">
+                            <div class="blog-cat-inner">
+                                <div class="blog-title">
+                                    <!-- <h3>{{ (user.title.length > 50)? (user.title | slice:0:50)+'..':(user.title) }}</h3> -->
+                                    <h3>{{ (user.card_heading.length > 50)? (user.card_heading | slice:0:50)+'..':(user.card_heading) }}</h3>
+                                    <div class="fl-bx blog-cat-readtime-block">
+                                        <div class="blog-readtime blog-category">
+                                            {{user.card_category | titlecase}}
+                                        </div>
+                                        <div class="blog-readtime">
+                                            {{user.card_date | date : 'fullDate'}}
+                                            <!-- {{user.date |date : 'medium'}} -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="img-block">
+                                    <img title="" alt="image" class="img-responsive" [src]="user.card_image">
+                                </div>
+                                <div class="blog-desc">
+                                    <!-- {{user.card_description}} -->
+                                    {{ (user.card_description.length>120)? (user.card_description | slice:0:120)+'..':(user.card_description) }}
+                                   <div class="text-center read-more">
+                                        <a class="btn btn-green" style="cursor:pointer; margin-right: 0;" target="_blank" [href]="user.card_link">Read Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="data.element.cards_json.length == 0">
+                        No Results Found
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Webinar Thank you -->
+    <div class="nk-outer tradelink digipromo-page" *ngIf="data.element.thankyou_page_type == 'Include upcoming webinars'">
+        <div class="blog_list_banner frame bg-grey">
+            <div class="container container-medium-width">
+                <div class="blog_banner_inner image-right-text-left-block">
+                    <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                        <div class="image-block w-50">
+                            <img [src]="data.element.banner_image" alt="Trading Platform - Alice Blue" class="img-responsive">
+                        </div>
+                        <div class="text-block w-50">
+                            <div class="trading-option-inr">
+                                <h1 style="color: #44B749;">Thanks!</h1>
+                                <p>{{data.element.banner_sub_heading}}</p>
+                                <h2>"{{data.element.banner_heading}}"</h2>
+                                <p>ebook</p>
+                                
+                                <div class="disclaimer-block bg-grey"><span class="disc-title">Note:</span> In case you don't see the email in your inbox in the next 10 minutes, kindly check your spam or promotions folder. Contact <a style="text-decoration: underline; font-weight: 500;" href="mailto:askus@aliceblueindia.com">askus@aliceblueindia.com</a> in case of queries.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame request-callback">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h3>Upcoming Webinars that you may find of interest</h3>
+                </div>
+            
+                <div class="fl-bx align-items-center w-60" style="margin: auto;" *ngFor="let data of data.element.cards_json">
+                    <div class="w-30 icon-block">
+                        <div class="pos-rel icon-bg-block">
+                            <div class="bg-layout"></div>
+                            <img class="img-responsive" [src]="data.webinar_image_url" alt="test" style="border-radius: 5px;">
+                        </div>
+                    </div>
+                    <div class="w-70 text-block">
+                        <div class="topic-title">
+                            {{data.webinar_topic}}
+                        </div>
+                        <div class="author">
+                            <span class="name" style="font-weight: 500;">{{data.webinar_author}}</span> , <span class="designation">{{data.webinar_author_designation}}</span>
+                        </div>
+                        <div class="published-date">
+                            {{data.webinar_date}}
+                        </div>
+                        <div class="">
+                            <a class="btn btn-green" target="_blank" [href]="data.webinar_link"> Register Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+    

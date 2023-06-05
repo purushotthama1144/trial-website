@@ -1,0 +1,30 @@
+<div class="newsList">
+    <div class="news-list-header">
+        <div class="segment">
+            Segment
+        </div>
+        <div class="cnc-nrml">
+            CNC/NRML
+        </div>
+        <div class="mis">
+            MIS
+        </div>
+        <div class="mis">
+            CO
+        </div>
+        <div class="mis">
+            BO
+        </div>
+    </div>
+    <div class="table_cont" *ngFor="let exposure of exposures">
+        <div class="AccWrapInr">
+            <div class="newslistinr fl-bx align-items-center">
+                <div class="segment">{{exposure.segment}}</div>
+                <div class="cnc-nrml">{{exposure.nrml}}</div>
+                <div class="mis">{{exposure.mis}}</div>
+                <div class="mis">{{exposure.co}}</div>
+                <div class="mis">{{exposure.bo}}</div>
+            </div>
+        </div>
+    </div>
+</div>

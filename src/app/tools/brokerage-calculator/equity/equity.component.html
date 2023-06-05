@@ -1,0 +1,574 @@
+<div class="inner-content">
+    <div class="tb-hdr-ct">
+        <!-- <div class="section-header text-center">
+            <h2>Select Exposure Plan</h2>
+        </div> -->
+        <!-- <div class="brWrap">
+            <div class="brWrapInr">
+                <div class="br-cnt">
+                    <mat-radio-group class="ac-inr example-radio-group" [(ngModel)]="selected" (change)="onRadioChange()">
+                        <div class="trd">
+                            <div class="form_group_inr_cnt">
+                                <mat-radio-button class="example-radio-button" *ngFor="let plan of selectedplans" [value]="plan.value">
+                                    {{plan.name}}
+                                </mat-radio-button>
+                            </div>
+                        </div>
+                    </mat-radio-group>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <div class="selection">
+        <div class="eq-tab-block">
+            <div class="eq-t-cnt">
+                <div class="e-t-cnt-inr">
+                    <div class="bg-box">
+                        <div class="eq-t-hdr">
+                            <mat-tab-group mat-align-tabs="center" animationDuration="0ms">
+                                <mat-tab label="Intraday Equity">
+                                    <div class="b-s-q">
+                                        <div class="bsq-inr">
+                                            <div class="b w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i buy">
+                                                        Buy Price
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="intradayEquityBuy" value="intradayEquityBuy" (input)="intradayEquity()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="s w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i sell">
+                                                        Sell Price
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="intradayEquitySell" value="intradayEquitySell" (input)="intradayEquity()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="q w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i qty">
+                                                        Quantity
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="intradayEquityQty" value="intradayEquityQty" (input)="intradayEquity()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="equity-group frame">
+                                        <div class="text-c">
+                                            Charges Breakdown
+                                        </div>
+                                        <div class="b-s-q  bg-box">
+                                            <div class="bsq-inr">
+                                                <div class="b w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Brokerage
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="brokerage">{{intradayEquityBrokerage}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="s w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Exchange txn charge
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="transaction">{{intradayEquityExchangetxn}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            GST
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="gst">{{intradayEquityGst}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            STT
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="stt">{{intradayEquityStt}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Clearing Charge
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="clearing">{{intradayEquityClearingcharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            SEBI Charges
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="sebicharges">{{intradayEquitySebicharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Stamp Duty
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="stampduty">{{intradayEquityStampduty}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Total Charges
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="total_charges">{{intradayEquityTotalcharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="equity-list turnover">
+                                                    <label>Total Turnover</label>
+                                                    <span id="tot_amount">{{intradayEquityTurnover}}</span>
+                                                </div>
+                                                <div class="equity-list p-l">
+                                                    <label><span style="color: #00cc33;font-weight: 700;font-size: 1em;">Profit</span> /
+                                                    <span style="color: red;font-weight: 700;font-size: 1em;">Loss</span></label>
+                                                    <span style="font-size: 1em;" id="netprofit">{{intradayEquityProfitloss}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-tab>
+                                <mat-tab label="Delivery Equity">
+                                    <div class="b-s-q">
+                                        <div class="bsq-inr">
+                                            <div class="b w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i buy">
+                                                        Buy Price
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="deliveryEquityBuy" value="deliveryEquityBuy" (input)="deliveryEquity()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="s w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i sell">
+                                                        Sell Price
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="deliveryEquitySell" value="deliveryEquitySell" (input)="deliveryEquity()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="q w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i qty">
+                                                        Quantity
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="deliveryEquityQty" value="deliveryEquityQty" (input)="deliveryEquity()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="equity-group frame">
+                                        <div class="text-c">
+                                            Charges Breakdown
+                                        </div>
+                                        <div class="b-s-q  bg-box">
+                                            <div class="bsq-inr">
+                                                <div class="b w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Brokerage
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="brokerage">{{deliveryEquityBrokerage}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="s w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Exchange txn charge
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="transaction">{{deliveryEquityExchangetxn}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            GST
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="gst">{{deliveryEquityGst}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            STT
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="stt">{{deliveryEquityStt}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Clearing Charge
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="clearing">{{deliveryEquityClearingcharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            SEBI Charges
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="sebicharges">{{deliveryEquitySebicharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Stamp Duty
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="stampduty">{{deliveryEquityStampduty}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Total Charges
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="total_charges">{{deliveryEquityTotalcharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="equity-list turnover">
+                                                    <label>Turnover</label>
+                                                    <span id="tot_amount">{{deliveryEquityTurnover}}</span>
+                                                </div>
+                                                <div class="equity-list p-l">
+                                                    <label>Net <span style="color: #00cc33;font-weight: 700;font-size: 1em;">Profit</span>/
+                                                    <span style="color: red;font-weight: 700;font-size: 1em;">Loss</span></label>
+                                                    <span style="font-size: 1em;" id="netprofit">{{deliveryEquityProfitloss}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-tab>
+                                <mat-tab label="Futures">
+                                    <div class="b-s-q">
+                                        <div class="bsq-inr">
+                                            <div class="b w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i buy">
+                                                        Buy Price
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="fnoFutureBuy" value="fnoFutureBuy" (input)="fnoFuture()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="s w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i sell">
+                                                        Sell Price
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="fnoFutureSell" value="fnoFutureSell" (input)="fnoFuture()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="q w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i qty">
+                                                        Quantity
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="fnoFutureQty" value="fnoFutureQty" (input)="fnoFuture()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="equity-group frame">
+                                        <div class="text-c">
+                                            Charges Breakdown
+                                        </div>
+                                        <div class="b-s-q  bg-box">
+                                            <div class="bsq-inr">
+                                                <div class="b w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Brokerage
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="brokerage">{{fnoFutureBrokerage}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="s w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Exchange txn charge
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="transaction">{{fnoFutureExchangetxn}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            GST
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="gst">{{fnoFutureGst}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            STT
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="stt">{{fnoFutureStt}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Clearing Charge
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="clearing">{{fnoFutureClearingcharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            SEBI Charges
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="sebicharges">{{fnoFutureSebicharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Stamp Duty
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="stampduty">{{fnoFutureStampduty}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Total Charges
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="total_charges">{{fnoFutureTotalcharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="equity-list turnover">
+                                                    <label>Turnover</label>
+                                                    <span id="tot_amount">{{fnoFutureTurnover}}</span>
+                                                </div>
+                                                <div class="equity-list p-l">
+                                                    <label>Net <span style="color: #00cc33;font-weight: 700;font-size: 1em;">Profit</span>/
+                                                    <span style="color: red;font-weight: 700;font-size: 1em;">Loss</span></label>
+                                                    <span style="font-size: 1em;" id="netprofit">{{fnoFutureProfitloss}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-tab>
+                                <mat-tab label="Options">
+                                    <div class="b-s-q">
+                                        <div class="bsq-inr">
+                                            <div class="b w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i buy">
+                                                        Buy Price
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="fnoOptionBuy" value="fnoOptionBuy" (input)="fnoOption()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="s w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i sell">
+                                                        Sell Price
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="fnoOptionSell" value="fnoOptionSell" (input)="fnoOption()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="q w-30">
+                                                <div class="bk">
+                                                    <div class="bk-i qty">
+                                                        Total Traded Lots
+                                                    </div>
+                                                    <div class="bk-c cl-data">
+                                                        <input type="tel" [(ngModel)]="fnoOptionQty" value="fnoOptionQty" (input)="fnoOption()" maxlength="6">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="equity-group frame">
+                                        <div class="text-c">
+                                            Charges Breakdown
+                                        </div>
+                                        <div class="b-s-q  bg-box">
+                                            <div class="bsq-inr">
+                                                <div class="b w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Brokerage
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="brokerage">{{fnoOptionBrokerage}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="s w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Exchange txn charge
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="transaction">{{fnoOptionExchangetxn}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            GST
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="gst">{{fnoOptionGst}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            STT
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="stt">{{fnoOptionStt}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Clearing Charge
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="clearing">{{fnoOptionClearingcharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            SEBI Charges
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="sebicharges">{{fnoOptionSebicharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Stamp Duty
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="stampduty">{{fnoOptionStampduty}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="q w-30">
+                                                    <div class="bk">
+                                                        <div class="bk-i">
+                                                            Total Charges
+                                                        </div>
+                                                        <div class="bk-c cl-data">
+                                                            <span id="total_charges">{{fnoOptionTotalcharges}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="equity-list turnover">
+                                                    <label>Turnover</label>
+                                                    <span id="tot_amount">{{fnoOptionTurnover}}</span>
+                                                </div>
+                                                <div class="equity-list p-l">
+                                                    <label>Net <span style="color: #00cc33;font-weight: 700;font-size: 1em;">Profit</span>/
+                                                    <span style="color: red;font-weight: 700;font-size: 1em;">Loss</span></label>
+                                                    <span style="font-size: 1em;" id="netprofit">{{fnoOptionProfitloss}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-tab>
+                            </mat-tab-group>
+                        </div>
+                        <app-brokerage></app-brokerage>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

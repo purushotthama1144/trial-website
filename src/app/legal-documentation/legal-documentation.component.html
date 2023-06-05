@@ -1,0 +1,49 @@
+<div class="main-content">
+  
+    <div class="privacy-policy help-desk legal-documentation">
+        <div class="subPageBanner">
+            <div class="bgImage" style="background-image: url('https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/legal+document.png');"></div>
+            <div class="overlay"></div>
+            <div class="banner-content text-center subPage_content">
+                <div class="section-header">
+                    <h1>Legal Documentation</h1>
+                </div>
+            </div>
+        </div>
+        <div class="faq-list faq">
+            <div class="download-accordion container container-medium-width">
+                <div class="AccWrap faqs">
+                    <div class="AccWrapInr pos-rel" *ngFor="let legalDoc of legalDocs" style="cursor: pointer;" [routerLink]="[legalDoc.link]">
+                        <div class="AccHdr">
+                            <div class="hdr_content_block">
+                                <h4>{{legalDoc.question}}</h4>
+                            </div>
+                        </div>
+                        <div class="btn-block">
+                            <div class="share">
+                                <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/share.png" alt="test">
+                            </div>
+                        </div>
+                        <!-- <div class="AccCont ">
+                            {{legalDoc.answer}}
+                        </div> -->
+                        <div class="hr "></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

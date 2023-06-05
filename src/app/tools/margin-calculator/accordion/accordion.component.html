@@ -1,0 +1,27 @@
+<!-- <div class="w-100">
+    <div class="fl-bx justify-space-between">
+        <div class="AccWrap" *ngFor="let acc of accordion">
+            <div class="AccWrapInr">
+                <div class="AccHdr">
+                    {{acc.question}}
+                </div>
+                <div class="AccCont" [innerHTML]="acc.answer"></div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div id="accordion" class="accordion">
+    <div *ngFor="let menu of accordion; let i = index" class="acc_outer" [class.active]="menu.active">
+        <div class="menu" (click)="toggle(i)">
+            <span class="before"></span>
+                {{ menu.question }}
+            <span class="plus"></span>
+        </div>
+        <div class="submenu" #submenu [style.height.px]="menu.active ? submenu.scrollHeight : 0" >
+            <div class="accContent" [innerHTML]="menu.answer">
+
+            </div>
+        </div>
+    </div>
+</div>

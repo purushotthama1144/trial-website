@@ -1,0 +1,135 @@
+<div class="main-content">
+    <div class="ant-page">
+        <div class="blog_list_banner frame">
+            <div class="fixed-right-image" style="background-image: url({{antDeskData.banner_image_bg_url}});"></div>
+            <div class="container">
+                <div class="blog_banner_inner image-right-text-left-block">
+                    <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                        <div class="image-block w-50 pos-rel">
+                            <img class="img-responsive" [src]="antDeskData.main_banner_image_url" alt="ANT Desk - Trading Application">
+                        </div>
+                        <div class="text-block w-50">
+                            <div class="section-header">
+                                <h1>{{antDeskData.page_main_heading}}</h1>
+                                <p [innerHTML]="antDeskData.sub_heading"></p>
+                                <div style="margin-left: 0;margin-top: 15px;" class="btn-block">
+                                    <a class="btn btn-blue" rel="noreferrer" href="https://alicewebsite.s3.ap-south-1.amazonaws.com/cms/uploaded-files/others/Alice_setup_17thSep2021-1633860723374.zip">Download </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="features-benefit frame">
+            <div class="container container-medium-width">
+                <div class="fl-bx text-center">
+                    <div class="section-header text-center w-100">
+                        <h2>Features of ANT Desk</h2>
+                        <p [innerHTML]="antDeskData.features_ant_sub_heading"></p>
+                    </div>
+                    <ul class="list">
+                        <li *ngFor="let list of antDeskData.features_of_ant_json"> {{list.text}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="digilink-client frame digipromo-page bg-grey">
+            <div class="container container-medium-width">
+                <div class="image-text-inner frame fl-bx align-items-center">
+                    <div class="w-50">
+                        <div class="content">
+                            <div class="section-header">
+                                <h4>Learn to use</h4>
+                                <h2 style="color: #276ab4;">ANT Desk Trading Application</h2>
+                            </div>
+                            <!-- <div class="btn-block">
+                                <button class="btn btn-blue">Download Now</button>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="w-50">
+                        <div class="iframe pos-rel">
+                            <div class="iframe-bg"></div>
+                            <div class="iframe-inr">
+                                <iframe [src]="antDeskData.ant_video_url | safe" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="partner-slider featured-ts-app about_us frame">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>What’s New on ANT Web?</h2>
+                </div>
+                <owl-carousel-o [options]="customServeOptions" (dragging)="isDragging = $event.dragging">
+                    <ng-container *ngFor="let item of antDeskData.new_ant_web_json">
+                        <ng-template carouselSlide>
+                            <div class="single-block single-product">
+                                <div class="bg-grey">
+                                    <div class="type" [ngClass]="{'new': item.s_no=='Newly Released','upcoming': item.s_no=='Upcoming'}">
+                                        {{item.s_no}}
+                                    </div>
+                                    <div class="partner-block">
+                                        <h4>{{item.heading}}</h4>
+                                        <p class="small-text">{{item.sub_heading}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+            </div>
+        </div>
+        <div class="faqs frame" *ngIf="faqs.length > 0">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <!-- <div class="fl-bx align-items-center">
+                    <div class="AccWrap" *ngFor="let faq of faqs">
+                        <div class="AccWrapInr">
+                            <div class="AccHdr bg-box-one">
+                                {{faq.question}}
+                            </div>
+                            <div class="AccCont" [innerHTML]="faq.answer">
+
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div id="accordion" class="accordion">
+                    <div *ngFor="let menu of faqs; let i = index" class="acc_outer" [class.active]="menu.active">
+                        <div class="menu" (click)="toggle(i)">
+                            <span class="before"></span>
+                                {{ menu.question }}
+                            <span class="plus"></span>
+                        </div>
+                        <div class="submenu" #submenu [style.height.px]="menu.active ? submenu.scrollHeight : 0" >
+                            <div class="accContent" [innerHTML]="menu.answer">
+                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="view_more">
+                    More Questions? <span routerLink="/support" style="color:#276ba4;cursor: pointer;">Visit our support center</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

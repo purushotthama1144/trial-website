@@ -1,0 +1,158 @@
+<div class="header-wrap" [ngClass]="toggleMenu ? 'nav-open' : ''">
+    <div class="header-top bg-blue">
+        <div class="container-large container clearfix fl-bx align-items-center">
+            <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+                <div class="cont-details">Collateral margin provides you extra funds for trading or investing by pledging securities in your Demat account. Find out its Benefits & How to pledge your stocks here. <a style="margin:0 5px" rel="noreferrer" href="https://aliceblueonline.com/circulars/postbox/cc-138.html" class="btn btn-green">Click here</a> for more details</div>
+            </marquee>
+        </div>
+    </div>
+    <div class="main-header" [ngClass]="{ scrolled : scrolled}">
+        <div class="header-bottom">
+            <div class="container pos-rel">
+                <div class="header-bottom-inner clearfix">
+                    <div class="logo fl-left " [ngClass]="{'ant-logo':router.url=='/ant-plus'}">
+                        <a routerLink="/">
+                            <img width="150" height="72" src="assets/images/home/logo.webp" alt="Alice Blue - Share Market, Trading & Investing"
+                                class="img-responsive">
+                        </a>
+                        <a rel="noreferrer" href="https://aliceblueonline.com/ant-plus/" *ngIf="router.url=='/ant-plus'">
+                            <img width="150" height="72" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/ant-plus.png"
+                                alt="Alice Blue - ANT Plus" class="img-responsive">
+                        </a>
+                    </div>
+                    <div class="header-right fl-right">
+                        <div class="nav-butn" (click)="clickEvent()" [ngClass]="toggleMenu ? 'clicked' : ''">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </div>
+                        <div id="menu" class="desktop-menu">
+                            <div class="menu-inner-wrap">
+                                <ul class="sub-nav-wrap const-menu">
+                                    <li class="nav" routerLinkActive="active-nav" *ngFor="let menuItem of menuItems;let i=index">
+                                        <a (click)="closePushmenu()" [routerLink]="menuItem.link">{{menuItem.title}} <span class="google-icon" *ngIf="menuItem.subMenu"><img width="18" height="18" src="assets/images/arrow-down.svg" alt="down-arrow"></span></a>
+                                        <ul *ngIf="menuItem.subMenu">
+                                            <li class="nav" routerLinkActive="active-nav" style="width: 100%;"
+                                                *ngFor="let subMenuItem of menuItem.subMenu">
+                                                <a (click)="closePushmenu()" [routerLink]="subMenuItem.link">{{subMenuItem.title}}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="desktop_push_menu">
+                                    <div id="nav-wrapper" [ngClass]="toggleMenu ? 'mnu-closed' : ''">
+                                        <div class="nav-wrapper-inner">
+                                            <div class="additonal-menu-links">
+                                                <ul class="add-menu-cont">
+                                                    <li class="add-menu-item" routerLinkActive="active-menu">
+                                                        <a (click)="removeClass()" routerLink="/antiq">ANT IQ Blog</a>
+                                                    </li>
+                                                    <li class="add-menu-item ">
+                                                        <a (click)="removeClass()" rel="noreferrer" href="https://ipo.aliceblueonline.com" target="_blank">Apply to IPOs</a>
+                                                    </li>
+                                                
+                                                    <li class="add-menu-item" routerLinkActive="active-menu">
+                                                        <a (click)="removeClass()" rel="noreferrer" href="https://mutualfunds.aliceblueonline.com/"
+                                                            target="_blank">Invest in Mutual Funds</a>
+                                                    </li>
+                                                    <li class="add-menu-item">
+                                                        <a (click)="removeClass()" routerLink="/ab-store">App Store</a>
+                                                    </li>
+                                                </ul>
+                                                <ul class="add-menu-cont">
+                                                    <li class="add-menu-item" *ngFor="let redirectMenu of redirectMenus">
+                                                        <a (click)="removeClass()" class="icon-text-menu" [href]="redirectMenu.link">
+                                                            {{redirectMenu.title}}
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <ul class="add-menu-cont">
+                                                    <li class="add-menu-item" routerLinkActive="active-menu">
+                                                        <a (click)="removeClass()" routerLink="/digilink-client-version">Digilink for Client</a>
+                                                    </li>
+                                                    <li class="add-menu-item" routerLinkActive="active-menu">
+                                                        <a (click)="removeClass()" routerLink="/digilink-for-partner">Digilink for Partner EKYC</a>
+                                                    </li>
+                                                    <li class="add-menu-item" routerLinkActive="active-menu">
+                                                        <a (click)="removeClass()" target="_blank" rel="noreferrer" href="https://funds.aliceblueonline.com/">Funds</a>
+                                                    </li>
+                                                    <li class="add-menu-item">
+                                                        <a (click)="removeClass()" routerLink="/call-trade">Dealing Helpline</a>
+                                                    </li>
+                                                    <li class="add-menu-item" routerLinkActive="active-menu">
+                                                        <a (click)="removeClass()" routerLink="/helpdesk">Helpdesk</a>
+                                                    </li> 
+                                                  
+                                                    <li class="add-menu-item" routerLinkActive="active-menu">
+                                                        <a (click)="removeClass()" target="_blank" rel="noreferrer" href="https://aliceblueonline.com/tradeschool/rachana-ranade-courses/">Courses</a>
+                                                    </li>
+                                                    <li class="add-menu-item" routerLinkActive="active-menu">
+                                                        <a (click)="removeClass()" routerLink="/ebook">Ebook</a>
+                                                    </li>
+                                                    <li class="add-menu-item" routerLinkActive="active-menu">
+                                                        <a (click)="removeClass()" routerLink="/bank-details">Bank Details</a>
+                                                    </li>
+                                                </ul> 
+                                                <ul>
+                                                    <li>
+                                                        <a class="btn text-center unlock" style="text-align: center;" (click)="openLogin() ; removeClass()">Unlock Login</a>
+                                                    </li>
+                                                    <li *ngFor="let url of landing_pageUrls">
+                                                        <a (click)="removeClass()" routerLink="/landing-page/{{url.url}}">{{url.title}}</a>
+                                                    </li>
+                                                </ul> 
+                                            </div>
+                                            <div class="slide-menu-block">
+                                                <div class="lo-block">Login</div>
+                                                <ul class="slide-mnu-wrp">
+                                                    <li class="slide-mnu" routerLinkActive="active-nav"
+                                                        *ngFor="let menuItem of pushMenu">
+                                                        <a (click)="removeClass()" class="icon-text-menu" [href]="menuItem.link" target="_blank">
+                                                            {{menuItem.title}}
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <div class="text-center">
+                                                    <button mat-button [matMenuTriggerFor]="menu">ABFSPL Back Office</button>
+                                                    <mat-menu #menu="matMenu">
+                                                        <ul class="">
+                                                            <li mat-menu-item routerLinkActive="active-menu">
+                                                                <a target="_blank" rel="noreferrer" href="https://bot.aliceblueonline.com">Client Login</a>
+                                                            </li>
+                                                            <li mat-menu-item routerLinkActive="active-menu">
+                                                                <a target="_blank" rel="noreferrer" href="https://bo.aliceblueonline.com:4443/WebLogin/index.cfm?Logintype=Branch">Branch Login</a>
+                                                            </li>
+                                                            <li mat-menu-item routerLinkActive="active-menu">
+                                                                <a target="_blank" rel="noreferrer" href="https://bo.aliceblueonline.com:4443/WebLogin/index.cfm?Logintype=SUBBRANCH">Sub-Broker Login</a>
+                                                            </li>
+                                                        </ul>
+                                                    </mat-menu>
+                                                    <button mat-button [matMenuTriggerFor]="menu">ABCPL Back Office</button>
+                                                    <mat-menu #menu="matMenu">
+                                                        <ul class="">
+                                                            <!-- <li mat-menu-item routerLinkActive="active-menu">
+                                                                <a target="_blank" rel="noreferrer" href="https://abcplbo.aliceblueonline.com/WebClient/">Client Login</a>
+                                                            </li> -->
+                                                            <li mat-menu-item routerLinkActive="active-menu">
+                                                                <a target="_blank" rel="noreferrer" href="https://abcplbo.aliceblueonline.com/WebLogin/index.cfm?Logintype=Branch">Branch Login</a>
+                                                            </li>
+                                                            <li mat-menu-item routerLinkActive="active-menu">
+                                                                <a target="_blank" rel="noreferrer" href="https://abcplbo.aliceblueonline.com/WebLogin/index.cfm?Logintype=SUBBRANCH">Sub-Broker Login</a>
+                                                            </li>
+                                                        </ul>
+                                                    </mat-menu>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+.market-talk-detail-top-block {
+    width: 50%;
+    margin: auto;
+}
+.mkt-tlk-detail-image {
+    height: 350px;
+    width: 100%;
+}
+.blog_banner_inner {
+    padding: 10px 10px;
+}
+.mkt-talk-content {
+    margin-top: 45px;
+}
+.related_questions {
+    .AccWrap {
+        width: 95%;
+        .AccHdr {
+            padding: 10px 10px;
+            color: #286ab4;
+            font-weight: 400;
+            &::before {
+                display: none;
+            }
+            &::after {
+                display: none;
+            }
+        }
+    }
+}
+.ebook_detail_view {
+    .block {
+        background-color: #1e489e;
+        border: none;
+        h4,
+        .instructions,
+        a {
+            color: #fff;
+        }
+        a {
+            text-decoration: underline;
+        }
+    }
+}
+.AccCont {
+    a {
+        color: #44B749;
+    }
+    ul {
+        margin-left: 20px;
+    }
+}
+@media(max-width : 820px) {
+    .market-talk-detail-top-block {
+        width: 95%;
+    }
+}
+@media(max-width : 468px) {
+    .mkt-tlk-detail-image {
+        height: 188px;
+    }
+}

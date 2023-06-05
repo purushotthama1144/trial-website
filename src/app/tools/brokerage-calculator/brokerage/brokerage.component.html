@@ -1,0 +1,18 @@
+<div class="equity-block">
+    <div class="output table-responsive">
+        <div class="states">    
+            <div class="st-dt-cnt">
+                <div class="st-dt-cnt-inr" *ngFor="let charge of charges">
+                    <div class="trd">
+                        <div class="text-c">
+                           {{charge.name}}
+                        </div>
+                        <div class="opt cl-data">
+                            {{charge.charge}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

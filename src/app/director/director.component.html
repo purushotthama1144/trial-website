@@ -1,0 +1,104 @@
+<div class="main-content">
+    <div class="about_us">
+        <div class="subpage-banner pos-rel">
+            <div class="bg-img" style="background-image: url(assets/images/bnr.png);"></div>
+            <div class="container subpage-banner-inner pos-rel z-index">
+                <div class="blog_banner_inner image-right-text-left-block">
+                    <div class="image-text-inner fl-bx align-items-center ">
+                        <div class="image-block w-30 logo-block">
+                            <div class="bg-icn"></div>
+                            <img [alt]="bio.name" class="img-responsive" [src]="bio.image">
+                        </div>
+                        <div class="text-block w-70">
+                            <div class="section-header text-center">
+                                <h1 class="t-s">{{bio.name}}</h1>
+                                <p>{{bio.designation}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame-medium director-detail" *ngIf="bio.bold_text">
+            <div class="container container-medium-width">
+                <div class="fl-bx align-items-center">
+                    <div class="w-50">
+                        <div class="cntnt-block text-left pos-rel">
+                            <div class="bg-icon" style="background-image: url(assets/images/inverted.png);"></div>
+                            <h2 class="text-center" style="line-height: 1.6; padding-top: 20px; position: relative;">
+                               {{bio.bold_text}}
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="w-50">
+                        <div class="cntnt-block">
+                            <div class="two-col fl-bx align-items-center" *ngIf="bio.education">
+                                <div class="w-30" >
+                                    <div class="icon-block">
+                                        <img src="assets/images/cap.png" class="img-responsive" alt="test">
+                                    </div>
+                                </div>
+                                <div class="w-70">
+                                    <div class="details">
+                                        <div class="edu" [innerHTML]="bio.education">
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="two-col fl-bx align-items-center" *ngIf="bio.vision">
+                                <div class="w-30" >
+                                    <div class="icon-block">
+                                        <img src="assets/images/circle.png" class="img-responsive" alt="test">
+                                    </div>
+                                </div>
+                                <div class="w-70">
+                                    <div class="edu" [innerHTML]="bio.vision">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame-medium director-detail">
+            <div class="container container-medium-width">
+                <p class="paragraph" [innerHTML]="bio.description"></p>
+            </div>
+        </div>
+        <div class="frame-medium follow-links">
+            <div class="container container-medium-width">
+                <div class="fl-bx align-items-center">
+                   <span style="font-weight: 500;">
+                       Follow him on Social media platform : 
+                    </span> 
+                    <a target="_blank" *ngIf="bio.fb_link" [href]="bio.fb_link">
+                        <img src="assets/images/facebook.svg" alt="test" class="nrml-img"> 
+                    </a>
+                    <a target="_blank" *ngIf="bio.twitter_link" [href]="bio.twitter_link">
+                        <img src="assets/images/twitter.svg" alt="test" class="nrml-img">
+                    </a>
+                    <a target="_blank" *ngIf="bio.instagram_link" [href]="bio.instagram_link">
+                        <img src="assets/images/Instagram.svg" alt="test" class="nrml-img">
+                    </a>
+                    <a target="_blank" *ngIf="bio.telegram_link" [href]="bio.telegram_link">
+                        <img src="assets/images/telegram.svg" alt="test" class="nrml-img">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

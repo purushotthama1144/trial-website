@@ -1,0 +1,45 @@
+<div class="icon-close" [mat-dialog-close]="true"> <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/svg/cancel-black.svg" alt="test"> </div>
+<mat-dialog-content>
+    <div class="potential_calc">
+        <div class="pot_calc_hdr text-center">
+            Potential Earning Calculator
+        </div>
+        <div class="pot_calc_cont">
+            <div class="pot_cont">
+                <div class="sub_hdr">
+                    Enter Avg. Monthly Customers Onboarded <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/warning.png" alt="test">
+                </div>
+                <div class="slidr_bar">
+                    <div class="value text-right">
+                        {{sliderValue}}
+                    </div>
+                    <mat-slider step="1" [(ngModel)]="sliderValue" (change)="custOnboarded()" min="5" max="80" aria-label="unit(s)"></mat-slider>
+                </div>
+            </div>
+            <div class="result">
+                <p>Avg. Monthly Brokerage Commission</p>
+                <div class="value">
+                    <span style="color: #44B749;">₹</span> {{monthlyBrokerageCommission}}
+                </div>
+            </div>
+            <div class="result">
+                <p>Avg. Monthly Mutual Fund Incentive</p>
+                <div class="value">
+                    <span style="color: #44B749;">₹</span> {{monthlyMonthlyMutualFundIncentive}}
+                </div>
+            </div>
+            <div class="result">
+                <p>Avg. Monthly Account Opening Incentive</p>
+                <div class="value">
+                    <span style="color: #44B749;">₹</span> {{accountOpeningIncentive}}
+                </div>
+            </div>
+            <div class="result">
+                <p>Total Avg. Monthly Earning</p>
+                <div class="value">
+                    <span style="color: #44B749;">₹</span> {{monthlyTotalEarning}}
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>

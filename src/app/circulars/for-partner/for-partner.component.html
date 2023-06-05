@@ -1,0 +1,72 @@
+<div class="frame post-box">
+    <div class="et_pb_code_inner marque_block">
+        <div class="d-attentn-inner clearfix">
+            <span class="d-left">
+                <!-- <img class="attention" src="https://www.aliceblueonline.com/wp-content/uploads/2017/08/attention.png"
+                    alt="attention"> -->
+                <span class="d-text">
+                    <span>Important</span> Note:
+                </span>
+            </span>
+            <span class="d-right">
+                <marquee onmouseover="this.stop();" onmouseout="this.start();"> 
+                    <!-- <img src="https://www.aliceblueonline.com/wp-content/uploads/2020/03/checkmark.png" width="15" height="15"> Single Margin Trade in ABFSPL  -->
+                    <!-- <a   rel="noreferrer" href="https://www.aliceblueonline.com/single-margin-facility/" target="_blank"
+                         rel="noopener noreferrer">Click here to Know More..</a> -->
+                    <!-- <img src="https://www.aliceblueonline.com/wp-content/uploads/2020/03/checkmark.png" width="15"
+                        height="15">  -->
+                        Trade Store -Define, Pick &amp; Trade!
+                    <a rel="noreferrer" href="https://tradestore.aliceblueonline.com/" target="_blank" rel="noopener noreferrer"> Click here</a>
+                    <!-- <img src="https://www.aliceblueonline.com/wp-content/uploads/2020/03/checkmark.png" width="15" height="15"> -->
+                        Digi Promo -Expand your Business by sharing templates in social media
+                    <a rel="noreferrer" href="https://play.google.com/store/apps/details?id=com.alicedigilink" target="_blank" rel="noopener noreferrer"> Download App Now!</a>
+                    <!-- <img src="https://www.aliceblueonline.com/wp-content/uploads/2020/03/checkmark.png" width="15"
+                        height="15"> -->
+                        Alice Blue Achievements 2019
+                    <!-- <a rel="noreferrer" href="https://www.aliceblueonline.com/achievements-2019/" target="_blank"
+                        rel="noopener noreferrer">click here</a> -->
+                </marquee>
+            </span>
+        </div>
+    </div>
+    <div class="post_box_content frame-top ">
+        <div class="post_box_cont_flbx fl-bx align-items-center">
+            <div class="post_box_title">
+                <h4>For Partner Circulars</h4>
+            </div>
+            <div class="post_box_filter">
+                <h4>Filter Results</h4>
+                <div class="date_picker">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Choose a date</mat-label>
+                        <input matInput (dateChange)="applyFilter($event)" [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="wptb-table-container">
+            <div class="wptb-table-container-matrix">
+                <div class="table-responsive">
+                    <table mat-table [dataSource]="dataSource" matSort id="excel-table">
+                        <!--Column -->
+                        <ng-container matColumnDef="date">
+                            <th class="rTableHead" mat-header-cell mat-sort-header *matHeaderCellDef> Date </th>
+                            <td class="rTableCont" mat-cell *matCellDef="let element"> {{element.date | date : longDate}} </td>
+                        </ng-container>
+                        <!-- Column -->
+                        <ng-container matColumnDef="circular_name">
+                            <th class="rTableHead" mat-header-cell *matHeaderCellDef> Circular Name </th>
+                            <td class="rTableCont" mat-cell *matCellDef="let element" (click)="opencircularDetail(element)" style="cursor: pointer;"><a >{{element.circular_name}}</a> </td>
+                        </ng-container>
+                        <!-- Column -->
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                    <mat-paginator [pageSizeOptions]="[20 , 40 , 80 , 100]"></mat-paginator>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

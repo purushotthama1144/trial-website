@@ -1,0 +1,129 @@
+.contact-sticker {
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+        color: #ededed;
+        background: #ededed;
+    }
+}
+.contact-sticker-inner {
+    position: fixed;
+    transform: rotate(-90deg);
+    right: -47px;
+    top: 37%;
+    cursor: pointer;
+    z-index: 8;
+}
+.contact-descr {
+    background-color: #44B749;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 10px 10px;
+    font-weight: 400;
+    font-size: 10pt;
+}
+.contact-descr-inr {
+    color: #FFFFFF;
+    cursor: pointer;
+    -moz-transform: rotate(-90.0deg);
+    transform: rotate(-90.0deg);
+    -webkit-transform: rotate(-90.0deg);
+    font-weight: 700;
+}
+.contact-right-blog {
+    transition: all 0.2s cubic-bezier(1, 0, 0, 1) 0s;
+    width: 400px;
+    background-color: #fff;
+    position: fixed;
+    right: 40px;
+    bottom: 10%;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 9;
+}
+.contact-right-desc {
+    padding: 15px;
+}
+.contact-sticker.shown {
+    .contact-right-blog {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+.close-form-icon {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    right: -11px;
+    top: -15px;
+    cursor: pointer;
+    background: #000;
+    border-radius: 50%;
+}
+/* contact sticker END */
+.contact-sticker{
+
+    .spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #000;
+        opacity: 0.8;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        .spinner-inner {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+.form-image-block {
+    min-height: 180px;
+}
+
+@media(max-width : 468px ){
+    .contact-sticker-inner {
+        right: 75px;
+        z-index: 99;
+        transform: rotate(0deg);
+        top: 85px;
+        transition: 0.2 ease-in;
+    }
+    .contact-sticker.scrolled {
+        .contact-sticker-inner {
+            top: 80px;
+        }
+    }
+        
+    .contact-descr {
+        padding: 6px 6px;
+        font-size: 8pt;
+        border-radius: 5px;
+    }
+    .contact-right-blog {
+        width: 300px;
+        z-index: 99;
+        right: auto;
+        left: 50%;
+        bottom: auto;
+        top: 30%;
+        transform: translateX(-50%);
+        .form-image-block {
+            min-height: 140px;
+        }
+        .contact-right-desc {
+            height: 258px;
+            overflow-y: auto;
+        }
+    }
+    .formName {
+        width: 100%;
+    }
+    .btn-green {
+        margin-bottom: 10px !important;
+        margin-right: 0 !important;
+    
+    }
+}

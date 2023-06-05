@@ -1,0 +1,42 @@
+<div class="main-content">
+    <div class="career help-desk">
+        <div class="subPageBanner">
+            <div class="bgImage" style="background-color: #276bb4;"></div>
+            <div class="overlay"></div>
+            <div class="subPage_content">
+                <h1>Site Map</h1>
+            </div>
+        </div>
+        <div class="frame sitemap-list">
+            <div class="container container-medium-width">
+                <div class="fl-bx align-items-center">
+                    <div class="url-list" *ngFor="let urls of urlList">
+                        <div class="url-title">
+                          <h4>
+                            {{urls.title}}
+                          </h4>
+                        </div>
+                        <ul>
+                            <li *ngFor="let url of urls.urls" >
+                                <a *ngIf="url.externallink" target="_blank" [href]="url.externallink">{{url.urltitle}}</a>
+                                <a *ngIf="url.routerlink" target="_blank" [routerLink]="url.routerlink">{{url.urltitle}}</a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

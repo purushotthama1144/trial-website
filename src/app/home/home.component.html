@@ -1,0 +1,312 @@
+<div class="main-content">
+    <div class="home pos-rel">
+        <div class="banner">
+            <div class="banner-image">
+                <div class="imageBlock">
+                    <img src="assets/images/home/bull.webp" alt="Trading Platform - Alice Blue"  width="600" height="442">
+                </div>
+            </div>
+            <div class="banner-icon"></div>
+            <div class="main">
+                <div class="dotted-circle"></div>
+            </div>
+            <div class="banner-content ">
+                <div class="trading-option-inr">
+                    <h1>
+                        Tame The BULL.
+                    </h1>
+                    <div class="sub-title" style="margin-bottom: 30px;color: #233b78; font-weight: 500;">
+                        Join the Alice Blue Ecosystem and Gain Access to Multiple Tools, Tricks, Insights and Dashboards.
+                    </div>
+                    <div class="section-header">
+                        <h2 style="margin-bottom: 0;font-size: 24px;">Simplify Investing</h2>
+                        <p style="font-weight: normal;">Open a Demat Account</p>
+                    </div>
+                    <div class="btn-block">
+                        <a  class="btn btn-green" routerLink="/open-account-fill-kyc-request-call-back">Signup!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div class="ant-details bg-grey frame">
+                <div class="container">
+                    <div class="fl-bx align-items-center">
+                        <div class="w-40">
+                            <div class="slider-content ">
+                                <div class="section-header">
+                                    <h2>Get ahead with the Freedom15 (F15) Plan!</h2>
+                                    <p>Rs. 15 per order or 0.05% whichever is lower</p>
+                                </div>
+                                <div class="btn-block">
+                                    <a routerLink="/pricing" class="btn btn-blue btn-arrow">Learn More <span><img width="25" height="15" src="assets/images/home/right-arrow.webp" alt="test" loading="lazy" ></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-60">
+                            <div class="slider-header">
+                                Our Recent Updates
+                            </div>
+                            <div class="slider">
+                                <owl-carousel-o [options]="customOptions" (dragging)="isDragging = $event.dragging">
+                                    <ng-container *ngFor="let item of cards_data">
+                                        <ng-template carouselSlide>
+    
+                                            <div class="slider-wrap">
+                                                <div class="slider-inner">
+                                                    <div class="slider-cont pos-rel bg-box">
+                                                        <div class="slider-img" style="min-height: 90px;">
+                                                            <img [src]="item.card_logo_image_path" width="90" height="60" [alt]="item.alt" loading="lazy">
+                                                        </div>
+    
+                                                        <div class="version">
+    
+                                                            <span>{{item.card_title}}</span>
+                                                        </div>
+                                                        <div class="desc">
+                                                            {{item.description}} {{item.card_description}}
+                                                            <ng-template [ngIf]="item.card_link.startsWith('/')">
+                                                                <a class="item-link" [routerLink]="item.card_link">Learn More ></a>
+                                                            </ng-template>
+                                                            <ng-template [ngIf]="!item.card_link.startsWith('/')">
+                                                                <a class="item-link" [routerLink]="" (click)="openHref(item.card_link)">Learn More ></a>
+                                                            </ng-template>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                        </ng-template>
+                                    </ng-container>
+                                </owl-carousel-o>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="trade-with-ease frame">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <h2>Trade With Ease</h2>
+                        <p>Seize your opportunity, get the Tech Driven Trading Edge with ANT. Perfect for both beginners and experts</p>
+                    </div>
+                    <div class="image-left-text-right-block" *ngIf="imageleftTextright">
+                      
+                        <div class="image-text-inner fl-bx align-items-center">
+                            <div class="image-block w-50">
+                                <img [src]="imageleftTextright.image" width="500" height="350" [alt]="imageleftTextright.alt" loading="lazy" class="img-responsive">
+                            </div>
+                            <div class="text-block  w-50">
+                                <div>
+                                    <div [innerHtml]="imageleftTextright.list"></div>
+                                </div>
+                                <div class="btn-block">
+                                    <a [routerLink]="imageleftTextright.buttonLink" class="btn btn-blue btn-arrow">{{imageleftTextright.button}}
+                                        <span>
+                                            <img width="25" height="15" src="assets/images/home/right-arrow.webp" alt="test" loading="lazy">
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="fl-bx align-items-center">
+                                    <div class="btn-block" *ngIf="webbutton">
+                                        <a [href]="webbuttonLink" target="_blank" class="btn btn-blue" style="border-radius: 40px;">{{webbutton}}</a>
+                                    </div>
+                                    <div class="btn-block" *ngIf="botbutton">
+                                        <a [href]="botbuttonLink" target="_blank" class="btn btn-blue" style="border-radius: 40px;">{{botbutton}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="our-clients frame pos-rel">
+                <div id="bg" class="lazy"></div>
+                <div class="container pos-rel">
+                    <div class="image-right-text-left-block">
+                        <div class="image-text-inner fl-bx align-items-center">
+                            <div class="image-block w-50">                      
+                                <img width="410" height="310" src="assets/images/home/investor-trading-platforms-aliceblue.webp" alt="Alice Blue Trading Platform" loading="lazy">
+                            </div>
+                            <div class="w-50">
+                                <div class="text-block text-center pos-rel">
+                                   <h3 class="text-center">More Than</h3>
+                                    <div class="client-detail">
+                                        <div class="clients-served">
+                                            <span class='numscroller'>100000</span>
+                                            <div class="section-header">
+                                                <p>
+                                                    Investors & Traders Across India Use Alice Blue Platforms
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                                <div class="social-icon-links">
+                                    <a class="s-icn" target="_blank" rel="noreferrer" href="https://play.google.com/store/apps/details?id=in.aliceblue.ant&hl=en"><img width="130" height="40" src="assets/images/home/android.webp" alt="Google Play Store - Alice Blue" loading="lazy"></a>
+                                    <a class="s-icn" target="_blank" rel="noreferrer" href="https://apps.apple.com/in/app/ant-/id1450075732"><img width="130" height="40" src="assets/images/home/ios.webp" alt="App Store - Alice Blue" loading="lazy"></a>
+                                    <a class="s-icn " target="_blank" rel="noreferrer" href="https://ant.aliceblueonline.com"><img width="130" height="40" src="assets/images/home/antweb.webp" alt="Ant Web" loading="lazy"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="low-fees frame">
+                <div class="container container-medium-width">
+                    <div class="section-header text-left">
+                        <h2>Its Not Just The Price Advantage With Us!</h2>
+                        <p>Discover the multiple benefits and vast value created for Investors and Traders</p>
+                    </div>
+                    <div class="benefits-row">
+                        <div class="w-50 benefit-single-block" *ngFor="let benefit of benefits">
+                            <div class="bg-box benefit">
+                                <h3>{{benefit.card_heading}}</h3>
+                                <p>{{benefit.card_body}}</p>
+                                <a target="_blank" *ngIf="benefit.card_link" class="link" [href]="benefit.card_link">Learn more ></a>
+                                <div class="right-border"></div>
+                                <div class="bottom-border"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="video-block frame">                
+                <div class="video-wrap pos-rel">
+                    <ng-template #videoblock>
+                        <div class="video-player">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/eLRhZzO_v5s" title="YouTube video player" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        </div>
+                    </ng-template>
+                    <ng-container *ngIf="videodisabled; else videoblock">
+                        <div class="video_player_inner h-100 pos-rel">
+                            <div class="video-overlay"></div>
+                            <div id="video_bg" class="lazy"></div>
+                            <!-- <div id="video_bg" class="lazy" style="background-image: url('https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/Homepage+/bg.webp');"></div> -->
+                   
+                            <div class="videoplay-outer">
+                                <div class="video_play">
+                                    <img (click)="changeImg()" width="80" height="80" [title]="play" [src]="videoIcon" alt="play" loading="lazy">
+                                </div>
+                                <div class="wath-vid">
+                                    Watch Video
+                                </div>
+                            </div>
+        
+                            <div class="video-text">
+                                Benefits <span class="green">of Trading with Alice Blue</span>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <!-- <div class="slider-blocks frame">
+                <div class="container container-medium-width">
+                    <div class="section-header text-left">
+                        <h2>Over 16 Years Of Excellence</h2>
+                        <p>Your Trusted Stock Broker</p>
+                    </div>
+                    <div class="news-awards fl-bx">
+                        <div class="news w-50 eq-h">
+                            <div class="news-slider">
+                                <div class="news-header">
+                                    <img width="545" height="85" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/news.png" class="img-responsive" alt="test" loading="lazy">
+                                    <h2 class="text-center">In the Press</h2>
+                                </div>
+                                <div class="press-slider">
+                                    <owl-carousel-o [options]="customAwardOptions" (dragging)="isDragging = $event.dragging">
+                                        <ng-container *ngFor="let item of in_press">
+                                            <ng-template carouselSlide>
+                                                <div class="slider-wrap text-center press-slider-wrap">
+                                                    <div class="slider-inner">
+                                                        <div class="slider-cont">
+                                                            <div class="slider-img">
+                                                                <img width="90" height="39" [src]="item.press_image_path" [alt]="item.alt" class="img-responsive" loading="lazy">
+                                                            </div>
+                                                            <div class="desc">
+                                                                {{item.press_description}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </ng-template>
+                                        </ng-container>
+                                    </owl-carousel-o>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="awards w-50 eq-h">
+                            <div class="news-slider awards-slider h-100">
+                                <div class="news-header">
+                                    <img width="545" height="85" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/Homepage+/awards.webp" class="img-responsive" alt="test" loading="lazy">
+                                    <h2 class="text-center">Awards</h2>
+                                </div>
+                                <div class="press-slider">
+                                    <owl-carousel-o [options]="customAwardOptions" (dragging)="isDragging = $event.dragging">
+                                        <ng-container *ngFor="let item of awards">
+                                            <ng-template carouselSlide>
+                                                <div class="slider-wrap text-center press-slider-wrap">
+                                                    <div class="slider-inner">
+                                                        <div class="slider-cont">
+                                                            <div class="slider-img">
+                                                                <img width="120" height="120" [src]="item.awards_image_path" class="img-responsive" [alt]="item.alt" loading="lazy">
+                                                            </div>
+                                                            <div class="award-logo">
+                                                                <h3 class="award-header">{{item.awards_title}}</h3>
+                                                            </div>
+    
+                                                            <div class="desc">
+                                                                {{item.awards_description}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </ng-template>
+                                        </ng-container>
+                                    </owl-carousel-o>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="contact-us frame bg-light-blue">
+                <div class="container container-medium-width">
+                    <div class="fl-bx align-items-center fl-jst-center">
+                        <div class="w-100">
+                            <div class="common-gap left">
+                                <div class="section-header">
+                                    <h2>Get started with Demat account with Alice Blue today!</h2>
+                                </div>
+                                <div class="benefits">
+                                    <ul>
+                                        <li>Over 1000 Tools, Tips and other useful collaterals</li>
+                                        <li>Multilingual Support for quick resolution</li>
+                                        <li>Advanced Customer & Partner Dashboards</li>
+                                        <li>Trade Store aggregator app bringing cost & content benefits</li>
+                                        <li>Trade School courses and learnings to make investing and trading profitable</li>
+                                        <li>16+ Branches across India </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

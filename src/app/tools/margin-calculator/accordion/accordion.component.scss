@@ -1,0 +1,90 @@
+// Accordion
+.accordion {
+    width: 100%;
+    margin: auto;
+    color: #000;
+    border-radius: 4px;
+}
+.acc_outer {
+    margin-bottom: 15px;
+    background: #fff;
+    border-radius: 10px;
+}
+  
+.accordion .menu {
+    position: relative;
+    padding: 15px 15px 15px 45px;
+    color: #4d4d4d;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    min-height: 60px;
+}
+.submenu {
+    height: 0;
+    overflow: hidden;
+    // background: #005eb04a;
+    font-size: 14px;
+    transition: height 0.4s ease;
+    a {
+        span {
+            color: #44B749;
+        }
+    }
+    .accContent {
+        padding: 10px 20px;
+        border-top: 1px solid #000;
+    }
+}
+
+.plus {
+    width: 60px;
+    min-height: 60px;
+    height: 100%;
+    background-color: #134b97;
+    position: absolute;
+    right: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    transition: all 0.4s ease 0s;
+    -webkit-transition: all 0.4s ease 0s;
+    -moz-transition: all 0.4s ease 0s;
+    top: 0;
+    background-image: url("https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/svg/arrow.svg");
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+}
+.acc_outer.active {
+    .plus {
+        transform: rotate(180deg);
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+}
+.before {
+    width: 15px;
+    height: 100%;
+    background-color: #134b97;
+    background-image: none;
+    position: absolute;
+    left: 0px;
+    top: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+@media(max-width : 468px) {
+    .plus {
+        width: 30px;
+        height: 100%;
+    }
+    .accordion .menu {
+        padding: 15px 15px 15px 27px;
+        min-height: 60px;
+        height: auto;
+    }
+}

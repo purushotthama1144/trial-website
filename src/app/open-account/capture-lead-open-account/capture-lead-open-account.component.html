@@ -1,0 +1,455 @@
+<div class="main-content">
+  
+    <div class="open-an-account">
+        <div id="open-account" class="banner pos-rel bg-light-blue">
+            <div class="container z-index pos-rel">
+                <div class="fl-bx align-items-center justify-content-center">
+                    <div class="w-50">
+                        <div class="banner-desc">
+                            <div class="banner-desc-inr">
+                                <h1>Open <span class="yellow">Demat</span> and <span class="yellow">Trading</span> Account</h1>
+                                <div class="banner-sub-text">
+                                    <div class="chevron">
+                                        <div class="round-shape"> Low Brokerage Trading Account</div>
+                                    </div>
+                                    <div class="fl-bx">
+                                        <div class="cont-text" *ngFor="let bannerText of bannerText">
+                                            {{bannerText}}
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-50 pos-rel">
+                        <div class="partner_form pos-rel">
+                            <div class="spinner" *ngIf="formSubmitted">
+                                <div class="warning_text text-center">
+                                    Please Wait!, We are Validating your Mobile No & Email ID !
+                                </div>
+                                <div class="spinner-inner fl-bx align-items-center justify-content">
+                                    <mat-spinner></mat-spinner>
+                                </div>
+                            </div>
+                            <div class="form_subhdr_top text-center">Sign Up Now</div>
+                            <div class="form_subhdr_bottom text-center">Trade in NSE, BSE, MCX in a Single Margin</div>
+                            <form class="form" [formGroup]="accountopenForm">
+                                <mat-form-field class="formEmail forminr" appearance="outline">
+                                    <mat-label>Name</mat-label>
+                                    <input type="text" matInput formControlName="firstName" placeholder="First Name">
+                                    <mat-error>Name is Required</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="formEmail forminr" appearance="outline">
+                                    <mat-label>Email</mat-label>
+                                    <input type="text" matInput formControlName="emailId" placeholder="Eamil">
+                                    <mat-error>Enter valid Email Id</mat-error>
+                                </mat-form-field>
+    
+                                <mat-form-field class="formMobile forminr" appearance="outline">
+                                    <mat-label>Mobile</mat-label>
+                                    <input type="tel" matInput id="mobile" minlength="10" maxlength="10" (keypress)="keyPress($event)" placeholder="Mobile" formControlName="Mobile">
+                                    <mat-error>Please enter 10 digit mobile number</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="formEmail forminr" appearance="outline">
+                                    <mat-label>Select State</mat-label>
+                                    <mat-select formControlName="State" matNativeControl name="state" (selectionChange)="getCitiesofstate()">
+            
+                                        <mat-option *ngFor="let state of states" [value]="state">
+                                            {{state}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>Please select the state</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="formEmail forminr" appearance="outline" *ngIf="accountopenForm.value.State == 'Tamil Nadu' || accountopenForm.value.State == 'Maharashtra'">
+                                    <mat-label>Select City</mat-label>
+                                    <mat-select formControlName="City" matNativeControl name="city">
+            
+                                        <mat-option *ngFor="let city of displayCities" [value]="city.city">
+                                            {{city.city}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error>Please select the City</mat-error>
+                                </mat-form-field>
+                                <div class="checkBox">
+                                    <mat-checkbox class="example-margin" formControlName="check">I authorize Alice Blue to communicate with me through multiple channels, regading thier new product updates and lauch. </mat-checkbox>
+                                </div>
+                                <div class="btn-block" style="display: flex;flex-flow: column;margin-top: 15px;align-items: center;justify-content: center;width: 100%;">
+                                    <button class="btn btn-green" style="margin-bottom: 10px; margin-right: 0;" type="submit" [disabled]="accountopenForm.invalid && (accountopenForm.value.State == 'Tamil Nadu' || accountopenForm.value.State == 'Maharashtra' && accountopenForm.value.City == '')" (click)="onSubmit()">Open an Account</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame pricing simple-heading">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Low Brokerage Trading Account</h2>
+                </div>
+                <div class="fl-bx align-items-center justify-content-center text-center">
+                    <div class="w-30 priceheader" *ngFor="let pricingDetail of pricingDetails">
+                        <div class="priceInner">
+                            <div class="pricing-title">
+                                <span class="prices">{{pricingDetail.price}}</span>
+                            </div>
+                            <h5>{{pricingDetail.title}}</h5>
+                            <div class="desc">
+                                {{pricingDetail.desc}}
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+        <div class="business-partner-benefits frame">
+            <div class="container container-medium-width">
+                <div class="fl-bx text-center">
+                    <div class="section-header text-center w-100">
+                        <h2>Why Open an Account with Alice Blue?</h2>
+                    </div>
+                    <ul class="list">
+                        <li> Low Brokerage - Flat ₹15/order</li>
+                        <li>Robust Trading Platform</li>
+                        <li>Free Lifetime Equity Delivery</li>
+                        <li>Trade in Any Segment with Single Margin</li>
+                        <li>Pan India Multi-lingual Branch Support</li>
+                        <li>Optimal Exposure, MTF & CO</li>
+                        <li>Invest in Mutual Funds & IPOs with the same Account</li>
+                        <li>100% Online Account Opening Process</li>
+                        <li>Algo Trading Facility</li>
+                        <li>Timely Pay-in & Pay-out</li>
+                        <li>Free Advanced API</li>
+                        <li>Exclusive Access to TradeSchool & TradeStore</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="exclusive-benefits frame">
+            <div class="container container-medium-width">
+                <div class="section-header text-center w-100">
+                    <h2>Exclusive Alice Blue Benefits</h2>
+                </div>
+                <mat-tab-group mat-align-tabs="center">
+                    <mat-tab [label]="exclusiveBenefit.title" *ngFor="let exclusiveBenefit of exclusiveBenefits">
+                        <div class="tab-inner-block">
+                            <div class="fl-bx align-items-center">
+                                <div class="w-30">
+                                    <img [src]="exclusiveBenefit.icon" class="img-responsive" alt="{{exclusiveBenefit.title}}" style="border-radius: 15px;">
+                                </div>
+                                <div class="w-70">
+                                    <div class="tab-title">
+                                        <h3>About {{exclusiveBenefit.title}}</h3>
+                                    </div>
+                                    <div class="tab-desc">
+                                        <p>{{exclusiveBenefit.desc}}</p>
+                                        <a [href]="exclusiveBenefit.link" class="btn btn-blue" style="margin-top: 30px;">Download {{exclusiveBenefit.title}} App</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+        <div class="account-opening-process frame text-center">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Open your Demat Account in Just 3 Steps</h2>
+                </div>
+                <div class="feature_cont fl-bx align-items-center">
+                    <div class="w-30 feature-single-block text-center" *ngFor="let accOpen of AccOpeningSteps">
+                        <div class="img-block">
+                            <img [src]="accOpen.img" alt="test" class="img-responsive bg-box-one">
+                        </div>
+                        <div class="feature-ico-block">
+                            <h4>{{accOpen.title}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="feature-benefit frame bg-light-cyan">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>One Account for Trading & Investing</h2>
+                    <p>Invest for long-term gains or trade intraday, all with one single account</p>
+                </div>
+                <div class="feature_cont fl-bx align-items-center">
+                    <div class="w-30 feature-single-block text-center" *ngFor="let feature of features">
+                        <div class="img-block">
+                            <img [src]="feature.img" alt="test" class="img-responsive bg-box-one">
+                        </div>
+                        <div class="feature-ico-block">
+                            <h4>{{feature.title}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame tech-driven-block">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Tech-driven Trading Edge</h2>
+                    <p>Technology that enables easy & fast trading & investing</p>
+                </div>
+                <div class="tech-driven-tab contact-us show-desktop">
+                    <mat-tab-group>
+                        <mat-tab *ngFor="let tradingEdge of tradingEdges ;let i=index ">
+                            <ng-template mat-tab-label>
+                                <div class="tab-tech-driven-block">
+                                    <div class="tab-header">
+                                        {{tradingEdge.title}}
+                                    </div>
+                                    <div class="tab-desc">
+                                        {{tradingEdge.sDesc}}
+                                    </div>
+                                    <div class="tab-begins" *ngIf="tradingEdge.desc">
+                                        <div class="tab-link" (click)="knowMore(i)">
+                                            Know More
+                                        </div>
+                                        <div class="tab-content" [innerHTML]="tradingEdge.desc"  *ngIf="tradingEdge.knowMore"></div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                            <div class="gif_block">
+                                <img [src]="tradingEdge.icon" [alt]="tradingEdge.title" class="img-responsive">
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+                <div class="tech-driven-tab contact-us hide-desktop">
+                    <div class="slider">
+                        <owl-carousel-o [options]="customOptions" (dragging)="isDragging = $event.dragging">
+                            <ng-container *ngFor="let item of tradingEdges;let i=index">
+                                <ng-template carouselSlide>
+    
+                                    <div class="slider-wrap">
+                                        <div class="slider-inner">
+                                            <div class="slider-cont bg-box">
+                                                <div class="gif_block">
+                                                    <img [src]="item.icon" [alt]="item.title" class="img-responsive">
+                                                </div>
+                                                <div class="tab-tech-driven-block">
+                                                    <div class="tab-header">
+                                                        {{item.title}}
+                                                    </div>
+                                                    <div class="tab-desc">
+                                                        {{item.sDesc}}
+                                                    </div>
+                                                    <div class="tab-begins" *ngIf="item.desc">
+                                                        <div class="tab-link" (click)="knowMore(i)">
+                                                            Know More
+                                                        </div>
+                                                        <div class="tab-content" [innerHTML]="item.desc" *ngIf="item.knowMore">
+    
+                                                        </div>
+                                                    </div>
+    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                </ng-template>
+                            </ng-container>
+                        </owl-carousel-o>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-blocks frame">
+            <div class="container container-medium-width">
+                <div class="section-header text-left">
+                    <h2>Over 16 Years Of Excellence</h2>
+                    <p>Your Trusted Stock Broker</p>
+                </div>
+                <div class="news-awards fl-bx">
+                    <div class="news w-50 eq-h">
+                        <div class="news-slider">
+                            <div class="news-header">
+                                <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/news.png" class="img-responsive" alt="test">
+                                <h2 class="text-center">In the Press</h2>
+                            </div>
+                            <div class="press-slider">
+                                <owl-carousel-o [options]="customAwardOptions" (dragging)="isDragging = $event.dragging">
+                                    <ng-container *ngFor="let item of homeData?.in_press">
+                                        <ng-template carouselSlide>
+                                            <div class="slider-wrap text-center press-slider-wrap">
+                                                <div class="slider-inner">
+                                                    <div class="slider-cont">
+                                                        <div class="slider-img">
+                                                            <img [src]="item.press_image_path" alt="title" class="img-responsive ">
+                                                        </div>
+                                                        <div class="desc">
+                                                            {{item.press_description}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-template>
+                                    </ng-container>
+                                </owl-carousel-o>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="awards w-50 eq-h">
+                        <div class="news-slider awards-slider h-100">
+                            <div class="news-header">
+                                <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/awards.png" class="img-responsive" alt="test">
+                                <h2 class="text-center">Awards</h2>
+                            </div>
+                            <div class="press-slider">
+                                <owl-carousel-o [options]="customAwardOptions" (dragging)="isDragging = $event.dragging">
+                                    <ng-container *ngFor="let item of homeData?.awards">
+                                        <ng-template carouselSlide>
+                                            <div class="slider-wrap text-center press-slider-wrap">
+                                                <div class="slider-inner">
+                                                    <div class="slider-cont">
+                                                        <div class="slider-img">
+                                                            <img [src]="item.awards_image_path" class="img-responsive" [alt]="item.awards_title" width="80" height="auto">
+                                                        </div>
+                                                        <div class="award-logo">
+                                                            <h4><span class="award-header">{{item.awards_title}}</span></h4>
+                                                        </div>
+    
+                                                        <div class="desc">
+                                                            {{item.awards_description}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-template>
+                                    </ng-container>
+                                </owl-carousel-o>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="frame testimonial-slider-block bg-blue pos-rel">
+            <div class="container container-medium-width">
+                <div class="testimonial-slider employees_Block ">
+                    <owl-carousel-o [options]="customAwardOptions" (dragging)="isDragging = $event.dragging">
+                        <ng-container *ngFor="let item of testimonialData">
+                            <ng-template carouselSlide>
+                                <div class="testimonial-Slider-inner fl-bx align-items-center">
+                                    <div class="w-30">
+                                        <div class="author">
+                                            <div class="fl-bx">
+                                                <div class="aut-icon w-20"><img [src]="item.img" alt="test" class="img-responsive"></div>
+                                                <div class="about-aut w-80">
+                                                    <div class="aut-name"> {{item.name}}</div>
+                                                    <div class="aut-desc"> {{item.date}}</div>
+                                                    <div class="w-100 ratings" style="margin-top: 30px;">
+                                                        <span class="star" *ngFor="let i of item.rating | enumerate">
+                                                            <img src="assets/images/google-icons/star-yellow.svg" alt="star" width="20" height="20">
+                                                        </span>
+                                                    </div>
+                                                </div>
+    
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w-70">
+                                        <div class="testimonial-desc">
+                                            <div class="double-quote">
+                                                <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/double-quote.png" class="img-responsive" alt="test" style="width: 50px;height: 60px;">
+                                            </div>
+                                            <div class="test-desc">
+                                                {{item.desc}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ng-container>
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+        <div class="frame number-says-all text-center">
+            <div class="section-header">
+                <h2>The Numbers Say It All</h2>
+            </div>
+            <div class="number-says-bg">
+                <div class="container container-medium-width">
+                    <div class="fl-bx align-items-center frame ">
+                        <div class="w-25" *ngFor="let number of numberSays">
+                            <div class="heading">
+                                {{number.title}}
+                            </div>
+                            <div class="desc">
+                                {{number.subTitle}}
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="faqs frame" *ngIf="faqs.length > 0">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>FAQs about Alice Blue Franchise</h2>
+                </div>
+                <!-- <div class="fl-bx align-items-center">
+                    <div class="AccWrap" *ngFor="let faq of faqs">
+                        <div class="AccWrapInr">
+                            <div class="AccHdr bg-box-one">
+                                {{faq.question}}
+                            </div>
+                            <div class="AccCont" [innerHTML]="faq.answer">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div id="accordion" class="accordion">
+                    <div *ngFor="let menu of faqs; let i = index" class="acc_outer" [class.active]="menu.active">
+                        <div class="menu" (click)="toggle(i)">
+                            <span class="before"></span>
+                                {{ menu.question }}
+                            <span class="plus"></span>
+                        </div>
+                        <div class="submenu" #submenu [style.height.px]="menu.active ? submenu.scrollHeight : 0" >
+                            <div class="accContent" [innerHTML]="menu.answer">
+                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="view_more">
+                    More Questions? <span routerLink="/support" style="color:#276ba4;cursor: pointer;">Visit our support center</span>
+                </div>
+            </div>
+        </div>
+        <div class="contact-us frame bg-light-blue">
+            <div class="container container-medium-width">
+                <div class="fl-bx align-items-center justify-content-center">
+                    <div class="w-50">
+                        <div class="gif_block">
+                            <img class="img-responsive" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/locate-gif.gif" alt="test">
+                        </div>
+                    </div>
+                    <div class="w-50">
+                        <div class="installs text-center">
+                            <h2>ANT Mobi App</h2>
+                            <div class="install_title ">
+                                Over "<span class="yellow">1LAKH+</span> Downloads"
+                            </div>
+                            <div class="download-app-block">
+                                <app-download-app></app-download-app>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>

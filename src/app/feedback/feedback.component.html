@@ -1,0 +1,42 @@
+<div class="feedback help-desk circular_block">
+    <div class="subPageBanner pos-rel">
+        <div class="bgImage" style="background-image: url('https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/Your+Opinion.png');"></div>
+        <div class="overlay"></div>
+        <div class="subPage_content">
+            <div class="section-header">
+                <h2>
+                    Your Opinion Matters
+                </h2>
+                <p>Share your feedback with us.</p>
+            </div>
+        </div>
+    </div>
+    <div class="career_outer_block">
+        <div class="container container-medium-width">
+            <mat-tab-group>
+                <mat-tab *ngFor="let feedback of feedbackCategory">
+                    <ng-template mat-tab-label>
+                        <!-- <div class="image">
+                            <img [src]="feedback.icon"  style="height: 30px">
+                        </div> -->
+                        <div class="content">
+                           {{feedback.title}} 
+                        </div>
+                    </ng-template>
+                    <app-feedback-form [title]="feedback.title" [category]="feedback.category" [desc]="feedback.desc"></app-feedback-form>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

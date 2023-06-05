@@ -1,0 +1,159 @@
+<div class="dealing-desk">
+    <div class="desk-block frame">
+        <div class="container container-medium-width">
+            <div class="fl-bx align-items-center">
+                <div class="w-50">
+                    <div class="credential_block">
+                        <div class="section-header text-center pos-rel">
+                            <p>Already an Alice Blue Client?</p>
+                            <h1>Contact the Centralized Dealing Desk</h1>
+                            <div class="bar-green-line"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-50">
+                    <div class="ab_details pos-rel">
+                        <div class="mapouter">
+                            <div class="bg_overlay_dark"></div>
+                            <div class="gmap_canvas">
+                                <iframe width="600" height="500" id="gmap_canvas"
+                                    src="https://maps.google.com/maps?q=%20Bagalur%20Main%20Road,%20Dwaraka%20Nagar,%20Yelahanka,%20Bengaluru&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            </div>
+                        </div>
+                        <div class="details">
+                            <div class="get_details">
+                                <div class="grad ">
+                                    <div class="icon">
+                                        <img src="assets/images/google-icons/location.svg" alt="edit" width="20" height="20">
+                                    </div> BRANCH NAME
+                                </div>
+                                <div class="desc">
+                                    Bangalore
+                                </div>
+                            </div>
+                            <div class="get_details">
+                                <div class="grad ">
+                                    <div class="icon">
+                                        <img src="assets/images/google-icons/smartphone.svg" alt="edit" width="20" height="20">
+                                    </div> Call and Trade
+                                </div>
+                                <div class="desc text-green">
+                                    <!-- Our office is currently closed as a precaution from COVID-19. For updates, please
+                                    continue to check the website and our social media pages (Facebook and Twitter).
+                                    <br>  -->
+                                    <a href="tel:08035215055">PH: 08035215055</a> / <a href="tel:08045490855">PH:
+                                        08045490855</a>
+                                </div>
+                            </div>
+                            <div class="get_details">
+                                <div class="grad ">
+                                    <div class="icon">
+                                        <img src="assets/images/google-icons/email.svg" alt="image" width="20" height="20">
+                                    </div> GENERAL SUPPORT
+                                </div>
+                                <div class="desc text-green">
+                                    <a href="mailto:askus@aliceblueindia.com">askus@aliceblueindia.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="desk-block frame">
+        <div class="container container-medium-width">
+            <div class="section-header text-center pos-rel">
+                <p>New to Alice Blue?</p>
+                <h2>Know About Call and Trade Facility</h2>
+                <div class="bar-green-line bar-blue-line"></div>
+            </div>
+            <div class="fl-bx align-items-center">
+                <div class="w-50">
+                    <div class="benefits_call_trade bg-light-blue">
+                        <div class="call_title">
+                            Benefits of Call and Trade
+                            <div class="bar-green-line bar-blue-line bar-white-line"></div>
+                        </div>
+                        <div class="benefits_content">
+                            <ul>
+                                <li *ngFor="let calltradeBenefit of calltradeBenefits" [innerHTML]="calltradeBenefit">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-50">
+                    <div class="benefits_call_trade">
+                        <div class="call_title">
+                            How to Use Call and Trade Facility
+                            <div class="bar-green-line bar-blue-line"></div>
+                        </div>
+                        <div class="step">
+                            Follow the steps:
+                        </div>
+                        <div class="benefits_content">
+                            <ul class="timeline">
+                                <li class="timeline-event" *ngFor="let calltradeFacility of calltradeFacilities">
+                                    <label class="timeline-event-icon"></label>
+                                    <div class="timeline-event-copy">
+                                        <p class="timeline-event-thumbnail" [innerHTML]="calltradeFacility"></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faqs frame" *ngIf="faqs.length > 0">
+                <div class="container container-medium-width">
+                    <div class="section-header text-center">
+                        <h2>Call and Trade FAQs</h2>
+                    </div>
+                    <!-- <div class="fl-bx align-items-center">
+                        <div class="AccWrap" *ngFor="let faq of faqs">
+                            <div class="AccWrapInr">
+                                <div class="AccHdr bg-box-one">
+                                    {{faq.question}}
+                                </div>
+                                <div class="AccCont">
+                                    {{faq.answer}}
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div id="accordion" class="accordion">
+                        <div *ngFor="let menu of faqs; let i = index" class="acc_outer" [class.active]="menu.active">
+                            <div class="menu" (click)="toggle(i)">
+                                <span class="before"></span>
+                                {{ menu.question }}
+                                <span class="plus"></span>
+                            </div>
+                            <div class="submenu" #submenu [style.height.px]="menu.active ? submenu.scrollHeight : 0">
+                                <div class="accContent" [innerHTML]="menu.answer">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="view_more">
+                        More Questions? <span routerLink="/support" style="color:#276ba4;cursor: pointer;">Visit our
+                            support center</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,141 @@
+<div class="main-content">
+  
+    <div class="pricing product">
+        <div class="subpage-banner  bg-grey">
+            <div class="container subpage-banner-inner">
+                <div class="blog_banner_inner image-right-text-left-block">
+                    <div class="image-text-inner fl-bx align-items-center ">
+                        <div class="image-block w-50">
+                            <img alt="image" class="img-responsive"
+                                [src]="produtData.main_banner_image_url">
+                        </div>
+                        <div class="text-block w-50">
+                            <div class="section-header">
+                                <h1>{{produtData.page_main_heading}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="frame-top"></div>
+            <div class="product-slider about_us frame bg-grey">
+                <div class="container container-medium-width product_Block">
+                    <div class="section-header text-center">
+                        <h2>ANT Products</h2>
+                    </div>
+                    <owl-carousel-o [options]="customSalesOptions" (dragging)="isDragging = $event.dragging">
+                        <ng-container *ngFor="let item of produtData.product_cards_json">
+                            <ng-template carouselSlide>
+                                <div class="single-block single-product">
+                                    <div class="img-block">
+                                        <img [src]="item.ant_product_image_url" [alt]="item.ant_prodct_text" class="img-responsive bg-box-one">
+                                    </div>
+                                    <div class="content-block bg-box-one text-center" style="min-height: 277px;">
+                                        <p class="small-text">{{item.ant_prodct_text}}</p>
+                                        <p><a *ngIf="item.ant_product_link" target="_blank" [href]="item.ant_product_link">Learn More ></a></p>
+                                        <a *ngIf="item.ant_product_android_link" class="btn btn-blue" target="_blank" [href]="item.ant_product_android_link" style="color: #fff;">Download</a>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ng-container>
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+        <div class="frame analyse">
+            <div class="container container-medium-width">
+                <div class="image-text-inner fl-bx align-items-center">
+                    <div class="image-block w-60">
+                        <img alt="image" class="img-responsive"
+                            src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/ANT+Products/ant-analyse-trade-grow.png">
+                    </div>
+                    <div class="text-block w-40">
+                        <div class="section-header">
+                            <h2>Analyze N Trade (ANT)</h2>
+                        </div>
+                        <div class="content">
+                            <div class="s-cont">
+                                <h5>What is ANT about?</h5>
+                                <ul>
+                                    <li>ANT is a Personal Trading Assistance.</li>
+                                    <li>Speed is the essence. ANT helps you to make faster decisions.</li>
+                                    <li>Insights is the key. ANT helps you with unparalleled data insights.</li>
+                                </ul>
+                            </div>
+
+                            <div class="s-cont">
+                                <h5>Why should you use this product?</h5>
+                                <ul>
+                                    <li>To beat the market.</li>
+                                    <li>To improve accuracy of trade.</li>
+                                    <li>To make more in lesser time.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame ant-dashboard">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>ANT Dashboard View</h2>
+                </div>
+                <div class="ant-dashboard pos-rel">
+                    <owl-carousel-o [options]="antDashboard" (dragging)="isDragging = $event.dragging">
+                        <ng-container *ngFor="let item of produtData.ant_dashboard_json">
+                            <ng-template carouselSlide>
+                                <div class="w-100 snip">
+                                    <div class="img__wrap dashboard">
+                                        <div class="bg-overlay bg-overlay-black"></div>
+                                        <img alt="image" class="img__img img-responsive" [src]="item.image_url">
+                                        <div class="img__description_layer">
+                                            <div class="img__description text-center">
+                                                <h2 style="color: #fff;position: relative;z-index: 1;">ANT Dashboard
+                                                </h2>
+                                                <a rel="noreferrer" href="https://ant.aliceblueonline.com/" target="_blank">Click to
+                                                    Login
+                                                    ></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ng-container>
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+        <div class="frame feature-benefit">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Features & Benefits</h2>
+                </div>
+                <div class="feature_cont fl-bx align-items-center">
+                    <div class="w-30 feature-single-block" *ngFor="let feature of features">
+                        <div class="img-block">
+                            <img [src]="feature.img" alt="test" class="img-responsive bg-box-one">
+                        </div>
+                        <div class="content-block">
+                            <h4>{{feature.title}}</h4>
+                            <p>{{feature.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+</div>
+
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

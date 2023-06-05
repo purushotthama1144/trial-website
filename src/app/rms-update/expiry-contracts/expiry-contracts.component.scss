@@ -1,0 +1,33 @@
+.description {
+    width: 25%;
+    border-right: 1px solid #fff;
+    padding: 10px 0;
+    &:last-child {
+        border-right: 1px solid transparent;
+    }
+}
+.news-list-header {
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #44b549;
+    color: #fff;
+    font-weight: 500;
+}
+
+.newslistinr {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.table_cont:nth-child(odd) .newslistinr {
+    background-color: #eee;
+}
+.table_cont:nth-child(even) .newslistinr {
+    background-color: #fff;
+}
+@media(max-width : 468px) {
+    .newsList.ban-symbol.bo-co-margin.blocked-scrips {
+        width: 200%;
+    }
+}

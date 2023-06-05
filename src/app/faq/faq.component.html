@@ -1,0 +1,66 @@
+<div class="main-content">
+  
+    <div class="help-desk faq" >
+        <div class="career_outer_block help-desk faq  pos-rel" style="margin-top: 0;">
+            <div class="container pos-rel">
+                <div class="careerSearchBlock faqSearchblock">
+                    <div class="search-form">
+                        <mat-form-field class="w-100" appearance="outline">
+                            <mat-label>Search for Questions</mat-label>
+                            <input matInput [(ngModel)]="selectedQuestion" type="text" (input)="change()">
+                            <!-- <mat-select [(ngModel)]="selectedQuestion">
+                                <mat-option *ngFor="let option of options" [value]="option">{{option.question}}</mat-option>
+                            </mat-select> -->
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="frame searched_answer_block" *ngIf="selectedQuestion">
+                <div class="icon-close"> <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/svg/cancel-black.svg" alt="test"> </div>
+                <div class="container" style="height: 100%;">
+                    <div id="accordion" class="accordion acc-outer">
+                        <div *ngFor="let menu of searchedQuestionsFound; let i = index" class="acc_outer" [class.active]="menu.active">
+                            <div class="menu" (click)="toggle(i)">
+                                <span class="before"></span>
+                                    {{ menu.question }}
+                                <span class="plus"></span>
+                            </div>
+                            <div class="submenu" #submenu [style.height.px]="menu.active ? submenu.scrollHeight : 0" >
+                                <div class="accContent" [innerHTML]="menu.answer">
+                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <mat-card class="w-80 mat-elevation-z8" *ngFor="let searchedQuestion of searchedQuestionsFound">
+                        <mat-card-title>
+                            {{searchedQuestion.question}}
+                        </mat-card-title>
+                        <mat-card-content [innerHTML]="searchedQuestion.answer"></mat-card-content>
+                    </mat-card> -->
+                </div>
+            </div>
+            <div class="frame faq-block">
+                <div class="container ">
+                    <faq-user [selectedQuestion]="selectedQuestion"></faq-user>
+                    <div class="raise-ticket text-center" >
+                        Haven't found the answer to your Question? Raise a Help Ticket
+                        <br>
+                        <button class="btn btn-blue" (click)="openRiseTicket()">Raise a Ticket</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loader" *ngIf="pageloader">
+        <div class="loader-inner">
+            <div id="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
+    </div>
+</div>

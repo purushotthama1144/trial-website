@@ -1,0 +1,44 @@
+.mat-dialog-content {
+    margin: 0;
+    padding: 0;
+}
+.close-popup {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #fff;
+    background-color: #286ab4;
+    border-radius: 17px;
+    padding-right: 6px;
+    font-size: 11pt;
+    cursor: pointer;
+    font-weight: 500;
+    img {
+        width: 28px;
+        margin-right: 5px;
+    }
+}
+
+@media(max-width : 468px) {
+    ::ng-deep {
+        .custom-modalbox {
+            width: 55% !important;
+        }
+    }
+    .close-popup {
+        span.close {
+            display: none;
+        }
+        // display: none;
+        right: 5px;
+        top: 2px;
+        padding-right: 0px;
+        img {
+            width: 24px;
+            margin: 0;
+        }
+     
+    }
+}

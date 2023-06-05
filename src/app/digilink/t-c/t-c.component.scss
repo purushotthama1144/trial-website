@@ -1,0 +1,26 @@
+
+::ng-deep {
+.frame-small {
+    .modal-body {
+        // padding: 0 20px;
+        ol {
+            margin-left: 30px;
+            li {
+                list-style: decimal;
+                font-size: 12px;
+                ul li {
+                    list-style: disc;
+                    ul {
+                        li {
+                            list-style: square;
+                        }
+                    }
+                }
+            }
+        } 
+        ul {
+            margin-left: 15px;
+        }
+    }
+}
+}

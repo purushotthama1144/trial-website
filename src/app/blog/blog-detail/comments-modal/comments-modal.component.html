@@ -1,0 +1,32 @@
+<div class="text-center" mat-dialog-title>Speak Your Mind</div>
+<div class="icon-close" [mat-dialog-close]="true"> <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/svg/cancel-black.svg" alt="test"> </div>
+<div mat-dialog-content>
+    <form [formGroup]="commentForm">
+        <div class="comment-field">
+            <mat-form-field class="example-full-width w-100" appearance="outline">
+                <textarea matInput placeholder="Write your comment" rows="3" formControlName="comment"></textarea>
+                <mat-error>Comment is Required</mat-error>
+            </mat-form-field>
+        </div>
+        <mat-form-field class="formName forminr" appearance="outline">
+            <mat-label>Name</mat-label>
+            <input type="text" matInput formControlName="name" placeholder="Name">
+            <mat-error>First Name is Required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="formName forminr" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="text" matInput formControlName="email" placeholder="Email">
+            <mat-error>Enter valid Email Id</mat-error>
+        </mat-form-field>
+        <div class="simple-text">
+            <mat-checkbox class="example-margin" formControlName="checkbox"></mat-checkbox>  Save My Name, Email and Website in this browser for the next time comments
+        </div>
+        <!-- {{commentForm.value|json}} -->
+        <br>
+        <div class="btn-block text-center">
+            <button class="btn btn-green m-auto" type="submit" [disabled]="commentForm.invalid" (click)="onSubmit()">Post your
+                comment</button>
+        </div>
+        <br>
+    </form>
+</div>

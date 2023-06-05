@@ -1,0 +1,226 @@
+.hover-img {
+    display: none;
+}
+
+.nrml-img,
+.hover-img {
+    width: 20px;
+    height: 18px;
+}
+
+#footer-bottom a:hover .hover-img {
+    display: block;
+}
+
+#footer-bottom a:hover .nrml-img {
+    display: none;
+}
+.footer {
+    position: relative;
+    // z-index: 1;
+    background-color: #fff;
+}
+.footer-menus-list li {
+    list-style: none;
+}
+.et_pb_row {
+    padding: 2% 0px;
+    .download_app_block {
+        margin-right: 2%;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+    }
+}
+.branches-list {
+    padding: 20px 0;
+    li {
+        display: inline;
+        margin-right: 5px;
+        padding-right: 5px;
+        border-right: 1px solid #fff;
+        &:first-child {
+            border-right: none;
+        }
+        &:last-child {
+            border-right: none;
+        }
+    }
+}
+.et_pb_column {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.et_pb_column_1_3 {
+    width: 33.33%;
+}
+.et_pb_column_1_7 {
+    width: 25%;
+}
+.footer-nav-right {
+    width: 58%;
+}
+#main-footer {
+    background-color: #fff;
+} 
+.f-s-icn {
+    width: 25%;
+    padding: 10px;
+}
+#main-footer a {
+    font-size: 12px;
+}
+#main-footer .dropdown-footer {
+    ul {
+        padding-bottom: 20px;
+    }
+    a {
+        color: #fff;
+        font-size: 14px;
+    }
+} 
+.drop-header {
+    padding: 20px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+   
+    li {
+        list-style: none;
+    }
+}
+.col-header {
+    padding-bottom: 20px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.new-footer li a {
+    color: #000 !important;
+}
+.new-footer .drop-header li a , .new-footer .dropdown-footer li a {
+    color: #fff !important;
+}
+.da-alice-economy-list li {
+    display: initial;
+    font-size: 12px;
+    margin-right: 5px;
+    color: rgba(255, 255, 255, 0.8);
+    .btn {
+        padding: 2px 6px;
+        font-size: 10px !important;
+    }
+}
+#main-footer .da-alice-economy-list a,
+#main-footer .footer-disclaimer a {
+    text-decoration: none;
+}
+span.d-left {
+    width: 17%;
+    font-size: 12pt;
+    display: flex;
+    float: left;
+    font-weight: 700;
+}
+span.d-right {
+    display: flex;
+    float: left;
+    width: 83%;
+    font-size: 13px;
+}
+span.d-text {
+    margin: 0 10px;
+}
+img.attention {
+    width: 12px;
+}
+.footer-disclaimer {
+    text-align: left;
+    font-size: 12px;
+}
+#footer-bottom {
+    font-size: 13px;
+    padding: 15px 0 5px;
+}
+.et-social-icons li {
+    display: inline-block;
+    margin-right: 10px;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+#main-footer .et-social-icons li a {
+    font-size: 12pt;
+    display: flex;
+    align-items: center;
+}
+#footer-info {
+    padding-bottom: 10px;
+    color: #666;
+    text-align: left;
+}
+#footer-bottom a {
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    color: #666;
+}
+.et-social-icon:last-child {
+    border-right: 1px solid transparent;
+}
+#footer-bottom a:hover {
+    color: #2769b4;
+}
+#footer-info strong {
+    border-left: 1px solid #666;
+    padding-left: 5px;
+    margin-left: 5px;
+}
+li.et-social-icon.digi-icon,
+li.et-social-icon.market-icon {
+    width: 30px;
+}
+.ht-ctc-chat {
+    position: fixed;
+    bottom: 40px;
+    left: 5px;
+    cursor: pointer;
+    z-index: 99999999;
+}
+.s5_img {
+    height: 40px;
+    width: 40px;
+    z-index: 1;
+}
+.d-hotline.h-btn {
+    border-radius: 34px 8px 34px 34px;
+    bottom: 35px;
+    box-shadow: 0 5px 4px 0 rgba(0, 0, 0, .26);
+    color: #fff;
+    cursor: pointer;
+    display: table;
+    position: fixed;
+    right: 5px;
+    z-index: 1;
+    height: 50px;
+    width: 50px;
+}
+.d-hotline {
+    background-color: #2bb140;
+    border-color: transparent #2bb140 transparent transparent;
+}
+#main-footer .da-alice-economy-list a,
+#main-footer .footer-disclaimer a {
+    color: #276AB4;
+}
+.w-20 {
+    .logo {
+        width: 160px !important;
+    }
+    width: 20%;
+    padding: 0 1px;
+}
+.da-alice-economy {
+    font-size: 12px;
+}
+/*Footer End*/

@@ -1,0 +1,36 @@
+
+<div class="blog frame"  *ngIf="carouselBlogData.length > 0">
+    <div class="container container-medium-width">
+        <div class="section-header text-left">
+            <h2>Blogs</h2>
+        </div>
+        <div class="blog-block">
+            <owl-carousel-o [options]="customBlogOptions" (dragging)="isDragging = $event.dragging">
+                <ng-container *ngFor="let item of carouselBlogData | slice:0:10">
+                    <ng-template carouselSlide>
+                        <div class="image-block-content white-bg">
+                            <div class="img-block">
+                                <!-- <img width="355" height="140" [src]="item.banner_image" [title]="item.title" alt="image" class="img-responsive"> -->
+                            </div>
+                            <div class="content-block text-center">
+                                <div class="blog-title">{{item.title}}</div>
+                                <div class="publishd">
+                                    {{item.date |date : 'fullDate'}}
+                                </div>
+                                <div class="blog-desc text-center">
+                                    {{item.meta_description}}
+                                </div>
+                                <div class="text-left">
+                                   <a class="link" style="cursor:pointer" (click)="openBlogDetail(item)">Read more ></a>
+                               </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ng-container>
+            </owl-carousel-o>
+        </div>
+        <div class="blog-link text-right">
+            <a routerLink="/antiq" class="link ">View All Blogs ></a>
+        </div>
+    </div>
+</div>

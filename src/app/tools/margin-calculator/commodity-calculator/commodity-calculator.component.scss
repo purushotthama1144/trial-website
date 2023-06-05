@@ -1,0 +1,32 @@
+::ng-deep .AccCont {
+    ul{
+        margin-left: 30px;
+        a{
+            color: #44B749;
+        }
+    }
+    p {
+        margin-left: 15px;
+        a{
+            color: #44B749;
+        }
+    }
+}
+.google-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+@media(max-width: 820px) {
+    table.mat-table {
+        border-spacing: 0;
+        width: 130%;
+    }
+}
+@media(max-width: 468px) {
+    table.mat-table {
+        width: 275%;
+    }
+    
+}

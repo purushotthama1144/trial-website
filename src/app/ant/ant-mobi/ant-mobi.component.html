@@ -1,0 +1,145 @@
+<div class="main-content">
+    <div class="ant-page">
+        <div class="blog_list_banner frame">
+            <div class="fixed-right-image" style="background-image: url({{antMobiData.banner_image_bg_url}});"></div>
+            <div class="container">
+                <div class="blog_banner_inner image-right-text-left-block">
+                    <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                        <div class="image-block w-50 pos-rel">
+                            <img class="img-responsive" [src]="antMobiData.main_banner_image_url" alt="ANT Mobi – Mobile Trading App">
+                        </div>
+                        <div class="text-block w-50">
+                            <div class="section-header">
+                                <h1>{{antMobiData.page_main_heading}}</h1>
+                                <p [innerHTML]="antMobiData.sub_heading"></p>
+                            </div>
+                            <div class="text-left fl-bx align-items-center mobi-icon">
+                                <a class="s-icn" target="_blank" rel="noreferrer" href="https://play.google.com/store/apps/details?id=in.aliceblue.ant">
+                                    <img _ngcontent-serverapp-c372="" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/Homepage+/android.webp" alt="Google Play Store - Alice Blue" class="img-responsive">
+                                </a>
+                                <a class="s-icn" target="_blank" rel="noreferrer" href="https://apps.apple.com/in/app/ant-aliceblue/id1450075732">
+                                    <img _ngcontent-serverapp-c372="" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/svg/ios.png" alt="App Store - Alice Blue" class="img-responsive">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="features-benefit frame">
+            <div class="container container-medium-width">
+                <div class="fl-bx text-center">
+                    <div class="section-header text-center w-100">
+                        <h2>Features of ANT Mobi</h2>
+                        <p>Trade seamlessly on your Android/Apple Smartphone or tablet. <br>ANT Mobi supports single tap buy/sell and direct trade from the chart.</p>
+                    </div>
+                    <ul class="list">
+                        <li *ngFor="let loop of antMobiData.features_of_ant_json" >{{loop.text}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="digilink-client frame digipromo-page bg-grey">
+            <div class="container container-medium-width">
+                <div class="image-text-inner fl-bx align-items-center">
+                    <div class="w-50">
+                        <div class="content">
+                            <div class="section-header">
+                                <h4>Learn to use</h4>
+                                <h2 style="color: #276ab4;">ANT Mobi Mobile Application</h2>
+                            </div>
+                            <div class="text-left fl-bx align-items-center mobi-icon">
+                                <a class="s-icn" target="_blank" rel="noreferrer" href="https://play.google.com/store/apps/details?id=in.aliceblue.ant">
+                                    <img _ngcontent-serverapp-c372="" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/Homepage+/android.webp" alt="Google Play Store - Alice Blue" class="img-responsive">
+                                </a>
+                                <a class="s-icn" target="_blank" rel="noreferrer" href="https://apps.apple.com/in/app/ant-aliceblue/id1450075732">
+                                    <img _ngcontent-serverapp-c372="" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/svg/ios.png" alt="App Store - Alice Blue" class="img-responsive">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-50">
+                        <div class="iframe pos-rel">
+                            <div class="iframe-bg"></div>
+                            <div class="iframe-inr">
+                                <iframe [src]="antMobiData.ant_video_url | safe" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="partner-slider featured-ts-app about_us frame">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>What’s New on ANT Mobi?</h2>
+                </div>
+                <owl-carousel-o [options]="customServeOptions" (dragging)="isDragging = $event.dragging">
+                    <ng-container *ngFor="let item of antMobiData.new_ant_web_json">
+                        <ng-template carouselSlide>
+                            <div class="single-block single-product">
+                                <div class="bg-grey">
+                                    <div class="type" [ngClass]="{'new': item.s_no=='Newly Released','upcoming': item.s_no=='Upcoming'}">
+                                        {{item.s_no}}
+                                    </div>
+                                    <div class="partner-block">
+                                        <h4>{{item.heading}}</h4>
+                                        <p class="small-text">{{item.sub_heading}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+            </div>
+        </div>
+        <div class="faqs frame" *ngIf="faqs.length > 0">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <!-- <div class="fl-bx align-items-center">
+                    <div class="AccWrap" *ngFor="let faq of faqs">
+                        <div class="AccWrapInr">
+                            <div class="AccHdr bg-box-one">
+                                {{faq.question}}
+                            </div>
+                            <div class="AccCont" [innerHTML]="faq.answer">
+
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div id="accordion" class="accordion">
+                    <div *ngFor="let menu of faqs; let i = index" class="acc_outer" [class.active]="menu.active">
+                        <div class="menu" (click)="toggle(i)">
+                            <span class="before"></span>
+                                {{ menu.question }}
+                            <span class="plus"></span>
+                        </div>
+                        <div class="submenu" #submenu [style.height.px]="menu.active ? submenu.scrollHeight : 0" >
+                            <div class="accContent" [innerHTML]="menu.answer">
+                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="view_more">
+                    More Questions? <span routerLink="/support" style="color:#276ba4;cursor: pointer;">Visit our support center</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

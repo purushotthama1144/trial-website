@@ -1,0 +1,28 @@
+::ng-deep {
+    .middleware {
+        .table-outer{
+            overflow: auto;
+            tr:nth-child(odd){
+                background-color: #ddd;
+               
+            }
+            td {
+                text-align: center;
+                border: 1px solid #000;
+            }
+        }
+        ul {
+            margin-left: 20px;
+        }
+    }
+    img.e-rte-image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width : 468px) {
+    #share {
+        display: none;
+    }
+}

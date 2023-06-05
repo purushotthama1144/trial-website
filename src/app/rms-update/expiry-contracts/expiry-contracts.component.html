@@ -1,0 +1,36 @@
+<div class="newsList ban-symbol bo-co-margin blocked-scrips">
+    <div class="news-list-header">
+
+        <div class="description">
+            SEGMENT
+        </div>
+        <div class="description">
+            Scrip Name
+        </div>
+        <div class="description">
+            RMS SQUARE OFF TIME
+        </div>
+        <div class="description">
+            EXPIRY DATE
+        </div>
+
+    </div>
+    <div class="table_cont" *ngFor="let expirycontract of expirycontract">
+        <div class="AccWrapInr">
+            <div class="newslistinr fl-bx align-items-center">
+                <div class="description">
+                    {{expirycontract.segment}}
+                </div>
+                <div class="description">
+                    {{expirycontract.script}}
+                </div>
+                <div class="description">
+                    {{expirycontract.rms_time}}
+                </div>
+                <div class="description">
+                    {{expirycontract.expiry}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

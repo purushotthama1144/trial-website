@@ -1,0 +1,221 @@
+<div class="frame-top">
+    <div class="container">
+        <div class="contheader">
+            <div class="section-header text-center">
+                <h2>Nifty & Bank Nifty Options</h2>
+                <p>(Intraday Margin Calculator)</p>
+            </div>
+        </div>
+    </div>
+    <div class="tab-content-wrap">
+        <div class="tab-content">
+            <div class="container container-medium-width">
+                <div class="table-block clearfix">
+                    <mat-tab-group mat-align-tabs="start" animationDuration="0ms">
+                        <mat-tab label="Nifty Option Calculator">
+                            <div class="bank-nifty nifty-option">
+                                <div class="fl-bx justify-content-center align-items-center">
+                                   
+                                    <div class="w-50">
+                                        <div class="mc-inr">
+                                            <div class="co-bo-margin w-100">
+                                                <div class="actionBtnnew">
+                                                    <button type="button" class="btn-buy btn-green" [ngClass]="{'btn-green': selectedIndex == 1}" (click)="setSelected(1)">BUY</button>
+                                                </div>
+                                                <div class="actionBtnnew">
+                                                    <button type="reset" class="btn-sell" [ngClass]="{'btn-green': selectedIndex == 2}" (click)="setSelected(2)">SELL</button>
+                                                </div>
+                                            </div>
+                                            <div class="co-bo-margin w-50">
+                                                <label>Lot size :</label>
+                                                <input type="tel" name="lotsize" [(ngModel)]="niftyOptionlotSize" class="calciInput">
+                                            </div>
+
+                                            <div class="co-bo-margin w-50">
+                                                <label>Premium Price :</label>
+                                                <input type="tel" name="price" [(ngModel)]="niftyPremiumprice">
+                                            </div>
+                                            <div class="co-bo-margin w-50">
+                                                <label>Margin Available :</label>
+                                                <input type="tel" [(ngModel)]="niftyMarginavailable">
+                                            </div>
+                                            <div class="co-bo-margin w-50">
+                                                <label>Today's Nifty Span Margin :</label>
+                                                <input type="tel" [(ngModel)]="niftySpanmargin">
+                                            </div>
+                                            <div class="co-bo-margin butons w-100">
+                                                <div class="actionBtnnew w-50">
+                                                    <button type="button" class="btn-green btn-buy" (click)="calculateOptionnifty()">CALCULATE</button>
+                                                </div>
+                                                <div class="actionBtnnew w-50">
+                                                    <button type="reset" class="btn-green button3 btn-sell" (click)="reset()">RESET</button>
+                                                </div>
+                                            </div>
+                                            <p style="font-size: 0.85em;">Note: If you want extra exposure, Kindly place the order in CO order</p>
+                                        </div>
+                                    </div>
+                                    <div class="w-50">
+                                        <div class="calculation">
+                                            <h3>MIS Margin</h3>
+                                            <p>Margin Required</p>
+                                            <div class="fl-bx">
+                                                <div class="loop">
+                                                    <h2 class="timer" id="value-trade">
+                                                        <span *ngIf="selectedIndex == 1">
+                                                            {{niftyOptionMarginrequired}}  
+                                                        </span>
+                                                        <span *ngIf="selectedIndex == 2">
+                                                            {{sellmarginRequired}}
+                                                        </span>
+                                                    </h2>
+                                                    <p>Alice Margin</p>
+                                                </div>
+                                                <div class="loop">
+                                                    <h2 class="timer" id="margin">
+                                                        <span *ngIf="selectedIndex == 1">
+                                                            {{niftyOptionAlicemargin}}
+                                                        </span>
+                                                        <span *ngIf="selectedIndex == 2">
+                                                            {{sellAlicemargin}}
+                                                        </span>
+                                                    </h2>
+                                                    <p>Number of Lots</p>
+                                                </div>
+                                                <div class="loop">
+                                                    <h2 class="timer" id="lots">
+                                                        <span *ngIf="selectedIndex == 1">
+                                                            {{niftyOptionNumberoflots}}
+                                                        </span>
+                                                        <span *ngIf="selectedIndex == 2">
+                                                            {{sellNumberoflots}}
+                                                        </span>
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Bank Nifty Calculator">
+                            <div class="bank-nifty">
+                                <div class="fl-bx justify-content-center align-items-center">
+                                   
+                                    <div class="w-50">
+                                        <div class="mc-inr">
+                                            <div class="co-bo-margin w-100">
+                                                <div class="actionBtnnew">
+                                                    <button type="button" class="btn-buy btn-green" [ngClass]="{'btn-green': selectedIndexone == 1}" (click)="setSelected(1)">BUY</button>
+                                                </div>
+                                                <div class="actionBtnnew">
+                                                    <button type="reset" class="btn-sell" [ngClass]="{'btn-green': selectedIndexone == 2}" (click)="setSelected(2)">SELL</button>
+                                                </div>
+                                            </div>
+                                            <div class="co-bo-margin w-50">
+                                                <label>Lot size :</label>
+                                                <input type="tel" [(ngModel)]="niftyBanklotSize">
+                                            </div>
+                                            <div class="co-bo-margin w-50">
+                                                <label>Premium Price :</label>
+                                                <input type="tel" [(ngModel)]="niftyPremiumprice">
+                                            </div>
+                                            <div class="co-bo-margin w-50">
+                                                <label>Margin Available :</label>
+                                                <input type="tel" [(ngModel)]="niftyMarginavailable">
+                                            </div>
+                                            <div class="co-bo-margin w-50">
+                                                <label>Today's Nifty Span Margin :</label>
+                                                <input type="tel" [(ngModel)]="niftySpanmargin">
+                                            </div>
+                                            <div class="co-bo-margin butons w-100">
+                                                <div class="actionBtnnew w-50">
+                                                    <button type="button" class="btn-green btn-buy" (click)="calculateBanknifty()">CALCULATE</button>
+                                                </div>
+                                                <div class="actionBtnnew w-50">
+                                                    <button type="reset" class="btn-green button3 btn-sell" (click)="reset()">RESET</button>
+                                                </div>
+                                            </div>
+                                            <p style="font-size: 0.85em;">Note: If you want extra exposure, Kindly place the order in CO order</p>
+                                        </div>
+                                    </div>
+                                    <div class="w-50">
+                                        <div class="calculation">
+                                            <h3>MIS Margin</h3>
+                                            <p>Margin Required</p>
+                                            <div class="loop">
+                                                <h2 class="timer" id="value-trade">
+                                                    <span *ngIf="selectedIndexone == 1">
+                                                        {{niftyBankMarginrequired}}  
+                                                    </span>
+                                                    <span *ngIf="selectedIndexone == 2">
+                                                        {{sellmarginRequired}}
+                                                    </span>
+                                                </h2>
+                                                <p>Alice Margin</p>
+                                            </div>
+                                            <div class="loop">
+                                                <h2 class="timer" id="margin">
+                                                    <span *ngIf="selectedIndexone == 1">
+                                                        {{niftyBankAlicemargin}}  
+                                                    </span>
+                                                    <span *ngIf="selectedIndexone == 2">
+                                                        {{sellAlicemargin}}
+                                                    </span>
+                                                </h2>
+                                                <p>Number of Lots</p>
+                                            </div>
+                                            <div class="loop">
+                                                <h2 class="timer" id="lots">
+                                                    <span *ngIf="selectedIndexone == 1">
+                                                        {{niftyBankNumberoflots}}  
+                                                    </span>
+                                                    <span *ngIf="selectedIndexone == 2">
+                                                        {{sellNumberoflots}}
+                                                    </span>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="trading-option frame">
+    <div class="image-right-text-left-block">
+        <div class="container container-medium-width">
+            <div class="section-header text-center">
+                <h1>Alice Blue Option Calculator</h1>
+            </div>
+            <div class="image-text-inner fl-bx align-items-center">
+                <div class="image-block w-40">
+                    <img [src]="imgrtxtlcommodity.image" alt="image" class="img-responsive">
+                </div>
+                <div class="text-block w-60">
+                    <div class="content">
+                        <p>{{imgrtxtlcommodity.content}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-trending-tools></app-trending-tools>
+<app-start-trading></app-start-trading>
+
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

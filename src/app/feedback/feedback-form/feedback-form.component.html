@@ -1,0 +1,27 @@
+<div class="blog_detail_view frame feedback_form">
+    <div class="section-header">
+        <h3>{{title}}</h3>
+        <p>{{desc}}</p>
+    </div>
+    <form class="form comment-block" [formGroup]="FeedbackForm">
+        <div class="comment-field">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <textarea formControlName="textarea" matInput placeholder="Write your comment"></textarea>
+            </mat-form-field>
+        </div>
+        <mat-form-field class="formName forminr" appearance="outline">
+            <mat-label>Client Id/Partner Id/Email Id</mat-label>
+            <input type="text" matInput formControlName="email" placeholder="Client/Partner/Email Id">
+            <mat-error>Client Id/Partner Id/Email Id is Required</mat-error>
+        </mat-form-field>
+        <div class="anonymously btn-block fl-bx align-items-center formName ">
+            <div class="or">
+                Or
+            </div>
+            <button class="btn btn-blue" type="submit" [disabled]="FeedbackForm.value.textarea == ''" (click)="onSubmit('anonymous')">Send Anonymously</button>
+        </div>
+        <div class="btn-block">
+            <button class="btn btn-green" type="submit" [disabled]="FeedbackForm.invalid" (click)="onSubmit()">Submit</button>
+        </div>
+    </form>
+</div>

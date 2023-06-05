@@ -1,0 +1,24 @@
+.pot_calc_hdr {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.pot_calc_cont {
+    padding: 10px 15px;
+}
+ul {
+    margin-left: 30px;
+    li {
+        list-style: decimal;
+        li{
+            list-style: circle;
+            li {
+                list-style: decimal;
+            }
+        }
+    }
+}
+@media (max-width: 468px) {
+    ul {
+        margin-left: 15px;
+    }
+}

@@ -1,0 +1,62 @@
+<div class="pop-up">
+    <div class="close-popup" [mat-dialog-close]="true"> <img width="28" height="28" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/svg/cancel.svg" alt="test"> <span class="close">Close</span> </div>
+    <ng-container *ngIf="data.data?.image_url">
+        <mat-dialog-content>
+            <a *ngIf="data.data?.redirect_url == '' ">
+                <div class="modal-content">
+                    <div class="modal-disclaimer">
+                        <img [src]="data.data?.image_url" [alt]="data.data?.pop_up_text" class="img-responsive" width="400" height="225">
+                    </div>
+                </div>
+            </a>
+            <a *ngIf="data.data?.redirect_url != '' " [href]="data.data?.redirect_url" target="_blank">
+                <div class="modal-content">
+                    <div class="modal-disclaimer">
+                        <img [src]="data.data?.image_url" [alt]="data.data?.pop_up_text" class="img-responsive" width="400" height="225">
+                    </div>
+                </div>
+            </a>
+        </mat-dialog-content>
+    </ng-container>
+    <!-- <ng-container *ngIf="!data.data?.image_url">
+        <mat-dialog-content>
+            <div class="modal-content">
+                <div class="modal-disclaimer">
+                    <a href="https://bit.ly/3Jc7n1o" target="_blank"><img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/cms/ebook/1644586787787/quantsapp400-225.png" alt="Quants App" width="400" height="225" class="img-responsive"></a>
+                </div>
+            </div>
+        </mat-dialog-content>
+    </ng-container> -->
+</div>
+
+
+<!-- <div class="pop-up">
+    <div class="close-popup" [mat-dialog-close]="true"> <img width="28" height="28" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/svg/cancel.svg" alt="test"> <span class="close">Close</span> </div>
+    <ng-container *ngIf="data.data?.image_url">
+        <mat-dialog-content>
+            <a *ngIf="data.data?.redirect_url == '' ">
+                <div class="modal-content">
+                    <div class="modal-disclaimer">
+                        <img [src]="data.data?.image_url" alt="mcx" class="img-responsive">
+                    </div>
+                </div>
+            </a>
+            <a *ngIf="data.data?.redirect_url != '' " [href]="data.data?.redirect_url" target="_blank">
+                <div class="modal-content">
+                    <div class="modal-disclaimer">
+                        <img [src]="data.data?.image_url" alt="mcx" class="img-responsive">
+                    </div>
+                </div>
+            </a>
+        </mat-dialog-content>
+    </ng-container>
+    <ng-container *ngIf="!data.data?.image_url">
+        <mat-dialog-content>
+            <div class="modal-content">
+                <div class="modal-disclaimer">
+                    <a href="https://bit.ly/33qTbSO" target="_blank"><img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/cms/ebook/1645092785635/2side-referral-400x225.png" alt="Refer us" width="400" height="225" class="img-responsive"></a>
+                </div>
+            </div>
+        </mat-dialog-content>
+    </ng-container>
+</div> -->

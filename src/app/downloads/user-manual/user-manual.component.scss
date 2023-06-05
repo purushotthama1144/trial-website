@@ -1,0 +1,90 @@
+.download-accordion {
+    .AccWrap {
+        width: 98%;
+        margin: auto;
+        .AccWrapInr {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px 0;
+            .AccHdr {
+                padding: 20px 40px;
+                width: 80%;
+                color: inherit;
+                height: auto;
+                font-weight: normal;
+                font-size: 12pt;
+                text-align: left;
+            }
+            .btn-block {
+                width: 14%;
+                .btn {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+            .AccHdr::after {
+                right: auto;
+                left: 0;
+                display: none;
+            }
+            .AccHdr::before {
+                display: none;
+                width: 2px;
+                min-height: 70px;
+                height: auto;
+                background-color: #cecece;
+                left: 55px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .AccCont {
+                padding: 20px 80px;
+            }
+            .hr {
+                width: 100%;
+                height: 1px;
+                display: block;
+                background-color: #e0e0e0;
+                position: absolute;
+                bottom: -15px;
+            }
+        }
+    }
+}
+@media(max-width : 820px) {
+    .download-accordion {
+        .AccWrap {
+            .AccWrapInr {
+                margin-top: 20px;
+                margin-bottom: 20px;
+              
+                .AccHdr {
+                    padding:10px 20px;
+                    width: 74%;
+                }
+                .btn-block {
+                    width: 24%;
+                }
+            }
+        }
+    }
+}
+@media(max-width : 468px) {
+    
+    .download-accordion {
+        .AccWrap {
+            .AccWrapInr {
+                justify-content: center;
+                .AccHdr {
+                    width: 100%;
+                }
+                .btn-block {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}

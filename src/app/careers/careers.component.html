@@ -1,0 +1,140 @@
+<div class="main-content">
+    <div class="career">
+        <div class="subPageBanner help-desk">
+            <div class="bgImage" style="background-image: url('https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/career.png');"></div>
+            <div class="overlay"></div>
+            <div class="subPage_content">
+                <div class="section-header">
+                    <h1>
+                        Alice Blue Careers
+                    </h1>
+                    <p>Search for job vacancies</p>
+                </div>
+            </div>
+        </div>
+        <div class="career_outer_block">
+            <div class="container container-medium-width">
+                <div class="careerSearchBlock">
+                    <div class="search-form">
+                        <ul class="search-block eq-height ">
+                            <li class="search-list">
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                    <div class="input-search">
+                                        <img src="assets/images/google-icons/edit.svg" alt="edit" width="20" height="20">
+                                        <input type="text" placeholder="Job Title or Key word" name="Title" matInput [(ngModel)]="searchTitleText">
+                                    </div>
+                                </mat-form-field>
+                            </li>
+                            <li class="search-list">
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                    <div class="input-search">
+                                        <img src="assets/images/google-icons/location.svg" alt="edit" width="20" height="20">
+                                        <input type="text" placeholder="Location" aria-label="Location" matInput [(ngModel)]="searchLocationText">
+                                    </div>
+                                </mat-form-field>
+                            </li>
+                            <li class="search-list">
+                                <button type="submit" (click)="findJobs()">
+                                    <img class="img-fluid" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/search-icon.png">FIND JOBS
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="career_data fl-bx align-items-center frame">
+                    <ng-container *ngIf="careerList | filter:searchTitle | filter:searchLocation as result">
+                        <div class="careerList pos-rel" *ngFor="let career of result | paginate: { itemsPerPage: 8 , currentPage: q }" (click)="openCarrerDetail(career)">
+                            <div class="location">
+                                <img src="assets/images/google-icons/location.svg" alt="edit" width="20" height="20"> {{career.location}}
+                            </div>
+                            <div class="position">
+                                {{career.job_title}}
+                            </div>
+                            <div class="expertise">
+                                {{career.experience}}
+                            </div>
+                            <div class="fl-bx">
+                                <div class="grad ">
+                                    <div class="icon">
+                                        <img src="assets/images/google-icons/school.svg" alt="image" width="20" height="20">
+                                    </div> {{career.qualification}}
+                                </div>
+                                <div class="exp grad">
+                                    <div class="icon">
+                                        <img src="assets/images/google-icons/business-center.svg" alt="image" width="20" height="20">
+                                    </div> {{career.experience}}
+                                </div>
+                                <div class="type grad">
+                                    <div class="icon">
+                                        <img src="assets/images/google-icons/schedule.svg" alt="image" width="20" height="20">
+                                    </div>{{career.job_type}}
+                                </div>
+                            </div>
+                            <div class="posted">
+                                {{career.updatedAt | date : 'fullDate' }}
+                            </div>
+                            <div class="apply-btn">
+                                <a class="btn btn-blue" (click)="openCarrerDetail(career)">Apply Now</a>
+                            </div>
+                        </div>
+                        <div class="pagination_block w-100 text-center">
+                            <pagination-controls (pageChange)="q = $event"></pagination-controls>
+                        </div>
+                        <ng-template [ngIf]="result.length == 0">
+                            No Jobs Found
+                        </ng-template>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="container">
+                <div class="workPlace frame">
+                    <div class="section-header">
+                        <h2>Workplace @ Alice Blue</h2>
+                    </div>
+                    <div class="slider">
+                        <owl-carousel-o [options]="customOptions" (dragging)="isDragging = $event.dragging">
+                            <ng-container *ngFor="let item of workData">
+                                <ng-template carouselSlide>
+                                    <div class="single-block">
+                                        <div class="img-block">
+                                            <img [src]="item" [alt]="" class="img-responsive">
+                                        </div>
+                                    </div>
+                                </ng-template>
+                            </ng-container>
+                        </owl-carousel-o>
+                    </div>
+                </div>
+                <div class="workPlace frame">
+                    <div class="section-header">
+                        <h2>Fun @ Alice Blue</h2>
+                    </div>
+                    <div class="slider">
+                        <owl-carousel-o [options]="customOptions" (dragging)="isDragging = $event.dragging">
+                            <ng-container *ngFor="let item of funData">
+                                <ng-template carouselSlide>
+                                    <div class="single-block">
+                                        <div class="img-block">
+                                            <img [src]="item" [alt]="" class="img-responsive">
+                                        </div>
+                                    </div>
+                                </ng-template>
+                            </ng-container>
+                        </owl-carousel-o>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,115 @@
+<div class="footer-disclaimer footer-menus new-footer">
+    <div class="et_pb_row container container-medium-width pos-rel">
+        <div class="et_pb_column pad-right">
+            <div class="et_pb_column_1_7">
+                <div class="col-header">
+                    Company
+                </div>
+                <ul class="footer-menus-list">
+                    <li><a routerLink="/about-us-best-brokerage-firm">About Us</a></li>
+                    <li><a routerLink="/aliceblue-cares">AB Cares</a></li>
+                    <li><a routerLink="/careers">Careers</a></li>
+                    <li><a rel="noreferrer" href="https://hrms.aliceblueonline.com/" target="_blank">HRMS Login</a></li>
+                    <li><a routerLink="/achievements">Achievements</a></li>
+                    <li><a routerLink="/site-map">Site Map</a></li>
+                    <li><a routerLink="/ekyc-guidelines">EKYC Guidelines</a></li>
+                    <li><a routerLink="/annual-returns">Annual Returns</a></li>
+                </ul>
+            </div>
+            <div class="et_pb_column_1_7">
+                <div class="col-header">
+                    Apps & Platforms
+                </div>
+                <ul class="footer-menus-list">
+                    <!-- <li><a routerLink="/ant-desk">ANT Desk</a></li> -->
+                    <li><a routerLink="/ant-web">ANT Web</a></li>
+                    <li><a routerLink="/ant-mobi">ANT Mobi</a></li>
+                    <li><a routerLink="/ant-plus">ANT Plus</a></li>
+                    <li><a rel="noreferrer" href="https://ipo.aliceblueonline.com" target="_blank">IPO</a></li>
+                    <li><a rel="noreferrer" href="https://mutualfunds.aliceblueonline.com/" target="_blank">Mutual Funds</a></li>
+                    <li><a rel="noreferrer" href="https://tradestore.aliceblueonline.com/" target="_blank">Trade Store</a></li>
+                </ul>
+            </div>
+
+            <div class="et_pb_column_1_7">
+                <div class="col-header">
+                    Tools & Calculators
+                </div>
+                <ul class="footer-menus-list">
+                    <li><a routerLink="/brokerage-calculator/equity">Brokerage Calculator</a></li>
+                    <!-- <li><a routerLink="/margin-calculator/commodity">Margin Calculator</a></li>
+                        <li><a routerLink="/margin-calculator/nifty-and-bank-nifty">Options Calculator</a></li> -->
+                        <li><a routerLink="/pivot-points">Pivot points</a></li>
+                        <li><a routerLink="/rms-live-updates">RMS live</a></li>
+                        <li><a routerLink="/trade-link">Trade Link</a></li>
+                        <li><a href="https://wa.me/917795663218" target="_blank">Whatsapp Reports</a></li>
+                </ul>
+            </div>
+
+            <div class="et_pb_column_1_7">
+                <div class="col-header">
+                    Important Links
+                </div>
+                <ul class="footer-menus-list">
+                    <li><a routerLink="/pricing">Pricing</a></li>
+                    <li><a routerLink="/open-account-fill-kyc-request-call-back">Open an Account</a></li>
+                    <li><a target="_blank" rel="noreferrer" href="https://bot.aliceblueonline.com/">BOT Login</a></li>
+                    <li><a target="_blank" rel="noreferrer" href="https://app.aliceblueonline.com/digilink/LeadTracker.aspx">KYC Tracker</a></li>
+                    <li><a target="_blank" rel="noreferrer" href="https://funds.aliceblueonline.com/">Fund My Account</a></li>
+                    <li><a routerLink="/business-partner">Partner</a></li>
+                    <li><a routerLink="/trading-holidays-2022">Trading Holidays</a></li>
+                    <li><a routerLink="/investor-charter">Investor Charter</a></li>
+                    <li><a routerLink="/privacy-policy">Privacy Policy</a></li>
+                    <!-- <li><a routerLink="/economic-calender">Economic Calender</a></li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="bg-light-blue">
+        <div class="container container-medium-width">
+            <div class="fl-bx dropdown-footer">
+                <div class="w-20">
+                    <div class="drop-header" (click)="referDrop = !referDrop;supportDrop = false; educationDrop = false">
+                        Refer & Earn <img style="margin-left: 20px;" width="15" height="15" src="assets/images/arrow-down-white.svg" alt="down-arrow">
+                    </div>
+                    <ul class="footer-menus-list" *ngIf="referDrop">
+                        <li><a routerLink="/refer-us">Refer Us</a></li>
+                        <li><a routerLink="/digilink-client-version">DigiLink for Clients</a></li>
+                        <li><a routerLink="/digilink-for-partner">DigiLink for Partners</a></li>
+                        <li><a routerLink="/digipromo">DigiPromo</a></li>
+                    </ul>
+                </div>
+                <div class="w-20">
+                    <div class="drop-header" (click)="educationDrop = !educationDrop;supportDrop = false;referDrop = false;">
+                        Blogs <img style="margin-left: 20px;" width="15" height="15" src="assets/images/arrow-down-white.svg" alt="down-arrow">
+                    </div>
+                    <ul class="footer-menus-list" *ngIf="educationDrop">
+                        <!-- <li *ngFor="let url of blogUrls"><a [routerLink]="[url.redirect_url]" (click)="redirectBlog(url.redirect_url)">{{url.meta_title}}</a></li> -->
+                        <li><a routerLink="/lic-ipo">LIC IPO</a></li>
+                        <li *ngFor="let url of blogUrls"><a [routerLink]="[url.redirect_url]" (click)="redirectBlog(url.redirect_url)">{{url.meta_title}}</a></li>
+                    </ul>
+                </div>
+                <div class="w-20">
+                    <div class="drop-header" (click)="supportDrop = !supportDrop;referDrop = false; educationDrop = false">
+                        Support <img style="margin-left: 20px;" width="15" height="15" src="assets/images/arrow-down-white.svg" alt="down-arrow">
+                    </div>
+                    <ul class="footer-menus-list" *ngIf="supportDrop">
+                        <li><a routerLink="/contact-us">Contact Us</a></li>
+                        <li><a routerLink="/support">FAQ's</a></li>
+                        <li><a routerLink="/feedback">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="w-20">
+                    <ul class="drop-header">
+                        <li><a routerLink="/downloads">Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="w-20">
+                    <ul class="drop-header">
+                        <li><a routerLink="/circulars">Circulars</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

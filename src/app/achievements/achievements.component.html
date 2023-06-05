@@ -1,0 +1,97 @@
+<div class="help-desk">
+    <div class="subPageBanner pos-rel">
+        <div class="bgImage"
+            style="background-image: url(https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/Achievements.png);">
+        </div>
+        <div class="overlay"></div>
+        <div class="subPage_content">
+            <div class="section-header">
+                <h2>Achievement</h2>
+                <div class="color_text">2021</div>
+            </div>
+        </div>
+    </div>
+    <div class="about-founder pos-rel frame">
+        <div class="container container-medium-width">
+            <div class="fl-bx align-items-center">
+                <div class="w-20">
+                    <div class="logo-block pos-rel">
+                        <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/About+us+/sidha.jpg"
+                            alt="test" class="img-responsive">
+                        <div class="style-background"></div>
+                    </div>
+                </div>
+                <div class="w-80">
+                    <div class="content-text-block">
+                        <div class="title">
+                            Founder's Note :
+                        </div>
+                        <h3>
+                            As a corporation, we have <span>maintained our strength and vitality throughout the years</span>. 
+                            In the previous several months, we have expanded the Alice blue ecosystem by bringing on new branches, 
+                            new clients, and new partners. <span>Our commitment to increasing the value of our clients</span> 
+                            remains at the heart of all we do.
+                            
+                            <!-- We continue to remain strong and vibrant as a company. In last few months, <span>we have
+                                added</span> new branches, new clients and new partners into the Alice blue ecosystem.
+                            Our focus on <span>enhancing client value</span> remains at the core of everything we do. -->
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="few-achievements frame">
+        <div class="container container-medium-width">
+            <div class="section-header">
+                <h3>A few notable highlights from our recent operations:</h3>
+            </div>
+            <ul class="achievement-list">
+                <li *ngFor="let achievement of achievements" [innerHTML]="achievement"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="about-slider frame pos-rel">
+        <div class="triangle triangle-left"></div>
+        <div class="triangle triangle-right"></div>
+        <div class="container container-medium-width">
+            <div class="section-header text-center">
+                <h2>Achievement History</h2>
+            </div>
+            <div class="timeline">
+                <owl-carousel-o [options]="customSlider" (dragging)="isDragging = $event.dragging">
+                    <ng-container *ngFor="let journey of journeyData">
+                        <ng-template carouselSlide>
+                            <div class="timeline-nav">
+                                <div class="timeline-nav__item  bg-box">
+                                    <div class="nav-cnt">
+                                        <img [src]="journey.img" [alt]="journey.title">
+                                    </div>
+                                    <div class="timeline-slide">
+                                        <div class="timeline-slide__content">
+                                            <span>{{journey.year}}</span>
+                                            <br>
+                                            <h4 class="timeline-title">“{{journey.title}}”</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

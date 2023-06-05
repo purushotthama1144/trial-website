@@ -1,0 +1,184 @@
+<div id="content" class="wrapper">
+    <div class="bluebar"></div>
+    <div class="container container-80 animated fadeIn delay-500">
+        <div class="tradelink">
+            <div class="tl_left w-70">
+                <div class="lft_inr">
+                    <div class="formBlk">
+                        <div class="hdng">ORDER GENERATOR</div>
+                        <div class="fl-bx align-items-center">
+                            <div class="fB_inr w-50">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Exchange</mat-label>
+                                    <mat-select>
+                                        <mat-option *ngFor="let exp of selectExchange" [value]="exp">
+                                            {{exp}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="fB_inr w-50">
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                    <mat-label>Enter Company or Symbol</mat-label>
+                                    <span class="google-icon"><img src="assets/images/google-icons/search.svg" alt="download" width="20" height="20"></span>
+                                    <input type="text" placeholder="Enter Company or Symbol" aria-label="Enter Company or Symbol" matInput>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="search">
+                            <div class="search_result fl-bx align-items-center">
+                                <div class="w-50" style="text-align: left;">
+                                    <span class="symHead">AXISBANK-EQ
+                                            <div class="" style="text-align: left;">
+                                                <span class="greyFT">(NSE)</span>
+                                </div>
+                                </span>
+                            </div>
+
+                            <div class="w-50" style="text-align: right;">
+                                <span class="fSize13">
+                                <span class="amount">₹ 478.80</span>
+                                <div class="greyFT">
+                                    0.00 (0%)
+                                </div>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="search_buttons mc-inr tab-content fl-bx align-items-center justify-content-center">
+                            <div class="co-bo-margin">
+                                <div class="actionBtnnew"><button type="button" class="btn-buy btn-blue">BUY</button></div>
+                                <div class="actionBtnnew"><button type="reset" class="btn-sell">SELL</button></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="showOptShow clearfix">
+                        <div class="dispflex justeven w-30 fl-left">
+                            <label class="custmrad">
+                                <input name="position" type="radio" value="mis" checked class="mis">
+                                <span class="checkmark"></span>MIS
+                            </label>
+                            <label class="custmrad">
+                                <input name="position" type="radio" value="cnc" class="cnc">
+                                <span class="checkmark"></span>
+                                CNC
+                            </label>
+                        </div>
+                        <div class="dispflex justodd w-70 fl-left">
+                            <label class="custmrad">
+                                <input name="link" type="radio" value="mis" checked class="lmt">
+                                <span class="checkmark"></span>
+                                LMT
+                            </label>
+                            <label class="custmrad">
+                                <input name="link" type="radio" value="cnc" class="mkt">
+                                <span class="checkmark"></span>
+                                MKT
+                            </label>
+                            <label class="custmrad">
+                                <input name="link" type="radio" value="cnc" class="sl">
+                                <span class="checkmark"></span>
+                                SL
+                            </label>
+                            <label class="custmrad">
+                                <input name="link" type="radio" value="cnc" class="slm">
+                                <span class="checkmark"></span>
+                                SL-M
+                            </label>
+                        </div>
+                        <div class="optBlk  fl-left">
+                            <div class="sltBlk">
+                                <input class="qb qBlk1 act" type="number" placeholder="Qty" name="">
+                            </div>
+                            <div class="sltBlk">
+                                <input class="qb qBlk2 act" type="text" placeholder="Price" name="">
+                            </div>
+                            <div class="sltBlk">
+                                <input class="qb qBlk3" type="text" placeholder="trigger price" name="">
+                            </div>
+                            <div class="sltBlk">
+                                <input class="qb qBlk4" type="text" placeholder="Stoploss" name="">
+                            </div>
+                            <div class="sltBlk">
+                                <input class="qb qBlk5" type="text" placeholder="Target" name="">
+                            </div>
+                            <div class="sltBlk">
+                                <input class="qb qBlk6" type="text" placeholder="trailing Stoploss" name="">
+                            </div>
+                        </div>
+                        <div class="dispflex justodd fl-left w-100">
+                            <label class="custmrad Regular active">
+                                <input name="reg" type="radio" checked value="mis" class="">
+                                <span class="checkmark"></span>
+                                Regular
+                            </label>
+                            <label class="custmrad bo blur">
+                                <input name="reg" type="radio" value="cnc" class="">
+                                <span class="checkmark"></span>
+                                BO
+                            </label>
+                            <label class="custmrad co blur">
+                                <input name="reg" type="radio" value="cnc" class="">
+                                <span class="checkmark"></span>
+                                CO
+                            </label>
+                            <label class="custmrad amo blur">
+                                <input name="reg" type="radio" value="cnc"
+                                    class="ng-untouched ng-pristine ng-valid">
+                                <span class="checkmark"></span>
+                                AMO
+                            </label>
+                        </div>
+                        <div class="search_buttons fl-left w-100 fl-bx align-items-center justify-content-center">
+                            <button class="btn btnBuy btn-blue">BUY</button>
+                            <button class="btn btnSell btn-sell">SELL</button>
+                            <button class="btn btncancel">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tl_rgt w-30">
+            <div class="rgt_inr">
+                <div class="ordrplcd">
+                    <div class="ordHdr">ORDER PLACED</div>
+                    <div class="search_result">
+                        <div class="w-100">
+                            <span class="symHead">AXISBANK-EQ<span class="">(NSE)</span></span>
+                        </div>
+
+                        <div class="w-100 selected">
+                            <div class="w-50 smallcnt">
+                                <span class="mis">MIS-L</span>
+                                <span class="qty">Qty 1</span>
+                                <span class="btn btnSell btn-blue btn-sell" style="min-width:80px;">sell</span>
+                                <span class="btn btnBuy btn-blue" style="min-width:80px;">buy</span>
+                            </div>
+                            <div class="w-50 fSize13">
+                                <span class="amount">₹ 478.80</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ordHdr gnlnk">Generate a link</div>
+                <div class="gnrtdlink">
+                    <div class="Lnk">
+                        https://www.google.com/search?safe=active&client=firefox-b-d&sxsrf=ALeKk03q_
+                    </div>
+                    <div class="cpy pos-rel"><img src="assets/img/copy.png" alt="test" /></div>
+                </div>
+                <div class="shrLnk">
+                    <div class="w-70">Share it through</div>
+                    <div class="w-30">
+                        <div class="imgBk">
+                            <a rel="noreferrer" href=""><img src="assets/img/whatsapp.png" alt="test" />
+                            </a>
+                            <a rel="noreferrer" href=""><img src="assets/img/telegram.png" alt="test" /></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

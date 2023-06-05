@@ -1,0 +1,27 @@
+.bo-co-margin {
+    .scrip {
+        width: 33.33%;
+        padding: 10px 0;
+        border-right: 1px solid #fff;
+    }
+    .serial-number {
+        width: 33.33%;
+    }
+    .description {
+        width: 33.33%;
+    }
+}
+.ban-symbol {
+    .serial-number {
+        width: 20%;
+        padding: 10px 0;
+        border-right: 1px solid #fff;
+    }
+    .description {
+        width: 80%;
+        padding: 10px 0;
+    }
+    .AccWrap:nth-child(even) {
+        background-color: #eeeeee;
+    }
+}

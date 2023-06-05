@@ -1,0 +1,23 @@
+<div class="newsList ban-symbol">
+    <div class="news-list-header">
+        <div class="serial-number">
+            Sl No.
+        </div>
+        <div class="description">
+           RMS Updates
+        </div>
+    </div>
+    <div class="table_cont" *ngFor="let rmsupdate of rmsupdate ; let i=index">
+        <div class="AccWrapInr">
+            <div class="newslistinr fl-bx align-items-center">
+                <div class="serial-number">
+                    {{i+1}}
+                    <!-- {{rmsupdate.segment}} -->
+                </div>
+                <div class="description">
+                    {{rmsupdate.live_updates}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

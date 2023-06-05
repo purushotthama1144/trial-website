@@ -1,0 +1,63 @@
+<div class="contact-us-issue_form rise-ticket" style="padding: 30px 20px;">
+    <div class="icon-close" [mat-dialog-close]="true"> <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/svg/cancel-black.svg" alt="test"> </div>
+    <form class="partner" [formGroup]="riseTicket">
+        <mat-form-field class="formEmail forminr" appearance="outline">
+            <mat-label>I am</mat-label>
+            <select formControlName="identities" matNativeControl name="identities">
+                <option value="" selected></option>
+                <option *ngFor="let identity of identities" [value]="identity.value">
+                    {{identity.viewValue}}
+                </option>
+            </select>
+            <mat-error>Please select the identity</mat-error>
+        </mat-form-field>
+        <div class="fl-bx align-items-center">
+            <div class="w-100" style="padding-left: 0;">
+                <mat-form-field class="formMobile forminr" appearance="outline">
+                    <mat-label>Contact Number</mat-label>
+                    <input (keypress)="keyPress($event)" type="text" matInput id="mobile" minlength="10" maxlength="10" placeholder="Contact Number" formControlName="mobile">
+                    <mat-error>Please enter 10 digit mobile number</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <mat-form-field class="forminr" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="text" matInput formControlName="email" placeholder="Email">
+            <mat-error>Enter valid Email Id</mat-error>
+        </mat-form-field>
+        <mat-form-field class="formEmail forminr" appearance="outline">
+            <mat-label>Issue Type</mat-label>
+            <select formControlName="issue" matNativeControl name="issue">
+                <option value="" selected></option>
+                <option *ngFor="let issue of issues" [value]="issue.value">
+                    {{issue.viewValue}}
+                </option>
+            </select>
+            <mat-error>Please select the issue type</mat-error>
+        </mat-form-field>
+        <mat-form-field class="formEmail forminr" appearance="outline">
+            <mat-label>Supportive Documents if applicable</mat-label>
+            <select formControlName="supportivedocs" matNativeControl name="supportivedocs">
+                <option value="" selected></option>
+                <option *ngFor="let supportivedoc of supportivedocs" [value]="supportivedoc.value">
+                    {{supportivedoc.viewValue}}
+                </option>
+            </select>
+            <mat-error>Please select the issue type</mat-error>
+        </mat-form-field>
+        <mat-form-field class="forminr" appearance="outline">
+            <mat-label>Subject</mat-label>
+            <input type="text" matInput formControlName="subject" placeholder="Subject">
+            <mat-error>Subject is Required</mat-error>
+        </mat-form-field>
+        <div class="btn-block fl-bx align-items-center">
+            <div class="w-50" style="padding-left: 0;">
+                <label for="singleFile">Issue Screenshots</label>
+                <input id="singleFile"accept=".jpg , .png , .jpeg" (change)="pickFiles($event)" type="file" multiple formControlName="fileupload">
+            </div>
+            <div class="w-50 text-right" style="padding-right: 0;">
+                <button class="btn btn-blue" type="submit" (click)="onSubmit()">Send Message</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,78 @@
+::ng-deep .mat-dialog-container {
+    padding: 5px;
+    overflow: hidden;
+    .mat-dialog-content {
+        margin: 0;
+        padding: 0;
+        max-height: 80vh !important;
+    }
+    .mat-slider-horizontal {
+        width: 96%;
+        margin: auto;
+    }
+    .mat-dialog-actions {
+        padding: 0;
+        margin-bottom: 0;
+        min-height: 30px;
+    }
+    .mat-accent .mat-slider-track-fill,
+    .mat-accent .mat-slider-thumb,
+    .mat-accent .mat-slider-thumb-label {
+        background-color: #276bb4;
+    }
+}
+.value {
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+.sub_hdr {
+    margin-left: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    img {
+        width: 11px;
+        height: 11px;
+    }
+}
+
+.pot_calc_hdr {
+    padding: 10px 0;
+    border-radius: 3px;
+    background-color: #276bb4;
+    color: #fff;
+    font-size: 18px;
+}
+
+.pot_cont {
+    margin-top: 10px;
+}
+
+.slidr_bar {
+    text-align: center;
+    width: 96%;
+    margin: auto;
+}
+
+.result {
+    text-align: center;
+    background-color: #cee3f6;
+    padding: 15px 5px;
+    border-radius: 5px;
+    margin: 0 40px;
+    margin-bottom: 10px;
+    p {
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+    .value {
+        font-size: 18px;
+        font-weight: 700;
+    }
+}
+
+.close {
+    color: #fff;
+    background-color: #276bb4;
+    border-radius: 50%;
+    min-width: auto;
+}

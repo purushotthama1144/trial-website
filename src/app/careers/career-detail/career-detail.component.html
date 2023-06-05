@@ -1,0 +1,163 @@
+<div class="main-content">
+    <div class="career-details">
+        <div class="subPageBanner">
+            <div class="bgImage"
+                style="background-image: url('https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/career-detail.png');">
+            </div>
+            <div class="overlay"></div>
+        </div>
+        <div class="career_outer_block">
+            <div class="career-details-list">
+                <div class="container container-medium-width">
+                    <div class="job-details">
+                        <div class="job-title" *ngIf="careerDetail?.job_title">
+                            <h1>{{careerDetail?.job_title}}</h1>
+                            <p>{{careerDetail?.location}} | {{careerDetail?.job_type}}</p>
+                        </div>
+                        <div class="job-detail-inner">
+                            <div class="job-highlights">
+                                <div class="section-header">
+                                    <h2>Job Highlights</h2>
+                                </div>
+                                <div class="fl-bx align-items-center">
+                                    <div class="w-30" *ngIf="careerDetail?.openings">
+                                        <div class="group">
+                                            <div class="group-title">
+                                                <img src="assets/images/google-icons/group.svg" alt="image" width="25" height="25" style="margin-right: 15px;">No. of Openings
+                                            </div>
+                                            <div class="group-cont">
+                                                {{careerDetail?.openings}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w-30" *ngIf="careerDetail?.experience">
+                                        <div class="group">
+                                            <div class="group-title">
+                                                <img src="assets/images/google-icons/business-center.svg" alt="image" width="25" height="25" style="margin-right: 15px;">Job Experience
+                                            </div>
+                                            <div class="group-cont">
+                                                {{careerDetail?.experience}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w-30" *ngIf="careerDetail?.qualification">
+                                        <div class="group">
+                                            <div class="group-title">
+                                                <img src="assets/images/google-icons/bookmarks.svg" alt="image" width="25" height="25" style="margin-right: 15px;">Job Experience Qualification
+                                            </div>
+                                            <div class="group-cont">
+                                                {{careerDetail?.qualification}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w-30" *ngIf="careerDetail?.department">
+                                        <div class="group">
+                                            <div class="group-title">
+                                                <img src="assets/images/google-icons/badge.svg" alt="image" width="25" height="25" style="margin-right: 15px;"> Department
+                                            </div>
+                                            <div class="group-cont">
+                                                {{careerDetail?.department}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w-30" *ngIf="careerDetail?.languages">
+                                        <div class="group">
+                                            <div class="group-title">
+                                                <img src="assets/images/google-icons/language.svg" alt="image" width="25" height="25" style="margin-right: 15px;"> Languages Required
+                                            </div>
+                                            <div class="group-cont">
+                                                {{careerDetail?.languages}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fl-bx frame-top">
+                                <div class="w-60">
+                                    <div class="AccWrap faqs">
+                                        <div class="AccWrapInr" *ngIf="careerDetail?.job_description != ''">
+                                            <div class="AccHdr bg-box-one" (click)="description = !description;qualification = false; about = false">
+                                                Job Description
+                                            </div>
+                                            <div class="AccCont" *ngIf="description" [innerHTML]="careerDetail?.job_description"></div>
+                                        </div>
+                                        <div class="AccWrapInr"  *ngIf="careerDetail?.requirement_qualifications != ''">
+                                            <div class="AccHdr bg-box-one" (click)="about = !about;qualification = false;description = false;">
+                                                Requirement and Qualification
+                                            </div>
+                                            <div class="AccCont" *ngIf="about"  [innerHTML]="careerDetail?.requirement_qualifications"></div>
+                                        </div>
+                                        <div class="AccWrapInr">
+                                            <div class="AccHdr bg-box-one" (click)="qualification = !qualification;description = false; about = false">
+                                                About Alice Blue
+                                            </div>
+                                            <div class="AccCont" *ngIf="qualification">
+                                                We are Alice Blue. We started in 2014 and have grown with the support of
+                                                our clients, partners and employees. It's been an intense journey to
+                                                becoming better and serving our clients best. A journey filled with
+                                                learning, experiences, rewards and relationships. As we stand today, we
+                                                are proud to be South India's largest stock broker serving over 1 lakh
+                                                clients. We operate from 15 branches all across the country. We manage
+                                                over 7000 crore worth of trades every day.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-40">
+                                    <div class="partner_form pos-rel bg-box"
+                                        style="padding:20px 20px;border-radius: 5px;">
+
+                                        <h4 class="form_subhdr_top text-center" style="margin-bottom: 20px;">Fill below
+                                            details to apply</h4>
+
+                                        <form class="partner" [formGroup]="careerForm">
+                                            <mat-form-field class="forminr" appearance="outline">
+                                                <mat-label>Name</mat-label>
+                                                <input type="text" matInput formControlName="name" placeholder="Name">
+                                                <mat-error>Name is Required</mat-error>
+                                            </mat-form-field>
+                                            <mat-form-field class="forminr" appearance="outline">
+                                                <mat-label>Email Id</mat-label>
+                                                <input type="text" matInput formControlName="emailId"
+                                                    placeholder="Email">
+                                                <mat-error>Email Id is Required</mat-error>
+                                            </mat-form-field>
+
+                                            <mat-form-field class="formMobile forminr" appearance="outline">
+                                                <mat-label>Mobile</mat-label>
+                                                <input (keypress)="keyPress($event)" type="text" matInput id="mobile"
+                                                    minlength="10" maxlength="10" placeholder="Mobile"
+                                                    formControlName="Mobile">
+                                                <mat-error>Please enter 10 digit mobile number</mat-error>
+                                            </mat-form-field>
+                                            <mat-form-field class="forminr" appearance="outline">
+                                                <mat-label>Current Salary</mat-label>
+                                                <input type="text" matInput formControlName="currentSalary"
+                                                    placeholder="Email">
+                                                <mat-error>Current Salary is Required</mat-error>
+                                            </mat-form-field>
+
+                                            <div class="formMobile forminr">
+                                                <input type="file" (change)="uploadResume($event)"
+                                                    formControlName="resume">
+                                                <div style="font-size: 12px; margin-bottom: 20px;">
+                                                    Note: <span style="color: firebrick;">File size not to exceed more
+                                                        than 5mb</span>
+                                                </div>
+                                            </div>
+                                            <div class="btn-block">
+                                                <button class="btn btn-green" type="submit"
+                                                    [disabled]="careerForm.invalid" (click)="onSubmit()">Send
+                                                    Application</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

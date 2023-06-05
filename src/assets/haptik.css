@@ -1,0 +1,14 @@
+.minimized-view-unread-count  {
+    display: none !important;
+}
+.minimized-view-text {
+    display: none !important;
+}
+.minimized-view {
+    padding: 10px 10px 10px 10px !important;
+    width: 40px !important;
+    float: right;
+    border-radius: 30px;
+    background-color : #233b78 !important;
+    opacity: 0.7 !important;
+}

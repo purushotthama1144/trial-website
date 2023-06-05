@@ -1,0 +1,42 @@
+<div class="newsList ban-symbol bo-co-margin blocked-scrips tender-period">
+    <div class="news-list-header">
+
+        <div class="description">
+            SEGMENT
+        </div>
+        <div class="description">
+            Scrip
+        </div>
+        <div class="description">
+            RMS SQUARE OFF TIME
+        </div>
+        <div class="description">
+            TENDER PERIOD START DATE
+        </div>
+        <div class="description">
+            CONTRACT EXPIRY DATE
+        </div>
+
+    </div>
+    <div class="table_cont" *ngFor="let tendercontract of tendercontract">
+        <div class="AccWrapInr">
+            <div class="newslistinr fl-bx align-items-center">
+                <div class="description">
+                    {{tendercontract.segment}}
+                </div>
+                <div class="description">
+                    {{tendercontract.script}}
+                </div>
+                <div class="description">
+                    {{tendercontract.off_time}}
+                </div>
+                <div class="description">
+                    {{tendercontract.start_date}}
+                </div>
+                <div class="description">
+                    {{tendercontract.expiry_date}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

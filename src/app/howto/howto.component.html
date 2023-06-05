@@ -1,0 +1,188 @@
+<div class="main-content">
+    <div class="blog_detail_view ebook_podcast help-desk">
+        <div class="subPageBanner pos-rel">
+            <div class="bgImage"
+                style="background-image: url('https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/how+to+videos.png');">
+            </div>
+            <div class="overlay"></div>
+            <div class="subPage_content">
+                <div class="section-header">
+                    <h1>
+                        How To Videos
+                    </h1>
+                    <p>How can we help you today?</p>
+                </div>
+            </div>
+        </div>
+        <div class="ebook_content_block career_outer_block">
+            <div class="container">
+                <div class="careerSearchBlock">
+                    <div class="search-form">
+                        <div class="search-block">
+                            <mat-form-field class="example-full-width" appearance="outline" style="width: 75%;">
+                                <input type="text" placeholder="Search for questions" name="Title" matInput
+                                    [(ngModel)]="searchVideoText">
+                            </mat-form-field>
+                            <div class="search-list" style="width: 25%;">
+                                <button type="submit" (click)="findVideos()">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fl-bx frame-top">
+                    <div class="w-20 left_block">
+                        <div class="filter_block AccWrap">
+                            <mat-accordion>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            Filter by Topic
+                                        </mat-panel-title>
+                                        <mat-panel-description>
+                                            
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <div class="f_c" *ngFor="let topic of filterData.topics">
+                                        <mat-checkbox  [(ngModel)]="topic.checked" class="check" (change)="getTopicCheckboxes()">{{topic.topic}}</mat-checkbox>
+                                    </div>
+                                </mat-expansion-panel>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            Filter by Language
+                                        </mat-panel-title>
+                                        <mat-panel-description>
+                                            
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <div class="f_c" *ngFor="let language of filterData.language">
+                                        <mat-checkbox [(ngModel)]="language.checked" class="check" (change)="getLanguageCheckboxes()">{{language.language}}</mat-checkbox>
+                                    </div>
+                                </mat-expansion-panel>
+                            </mat-accordion>
+                        </div>
+                    </div>
+                    <div class="w-80 right_block" *ngIf="allVideos.length > 0">
+                        <div class="how-category-field fl-bx align-items-center ">
+                            <ng-container *ngIf="filteredVideos | filter : howToVideos as result">
+                                <div class="text-center" *ngIf="result.length == 0">
+                                    <h3>
+                                        No Results Found
+                                    </h3> 
+                                </div>
+                                <div style="min-height:auto;"
+                                    class="ebook-single-block how-single-block pos-rel  bg-box"
+                                    *ngFor="let allvideo of result | paginate: { itemsPerPage: 6 , currentPage: q }">
+                                    <div class="webinar_block">
+                                        <div class="pos-rel webinar-block-inr">
+                                            <div class="img-block-top pos-rel">
+                                                <div class="video-wrap pos-rel">
+                                                    <div class="video-player">
+                                                        <iframe width="100%" height="100%"
+                                                            [src]="allvideo.video_iframe | safe"
+                                                            title="YouTube video player" frameborder="0"
+                                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                            allowfullscreen></iframe>
+                                                    </div>
+                                                    <div class="video_bg"
+                                                        style="background-image:url(https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/Homepage+/watch-15-unmatched-benefits.png);">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="content-block" (click)="openVideoDetail(allvideo)">
+                                                <div class="topic" style="font-weight: 500; font-size: 14px;">
+                                                    {{allvideo.topic}}
+                                                    
+                                                </div>
+                                                <div class="topic">
+                                                    {{allvideo.sub_topic[0]}}
+                                                </div>
+                                                <div class="title">
+                                                    <h3>{{(allvideo.video_title.length>120)? (allvideo.video_title | slice:0:120)+'...':(allvideo.video_title)}}</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pagination_block w-100 text-center">
+                                    <pagination-controls (pageChange)="q = $event"></pagination-controls>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 full_block single-video_block  frame">
+                <div class="executive_block">
+                    <div class="container container-medium-width">
+                        <div class="fl-bx align-items-center justify-content-center">
+                            <div class="single-block pos-rel" *ngFor="let category of objectKeys(categories)">
+                                <div class="content-block bg-box director" (click)="openDialog(category)">
+                                    <span class="offer-title">How To</span>
+                                    <h4 class="offer-para">{{category}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 frame latest-videos">
+                <ng-container *ngIf="allVideos | filter : howToVideos as result ">
+                    <div class="ebook-slider partner-slider about_us frame-medium">
+                        <div class="container container-medium-width">
+                            <div class="section-header">
+                                <h4>Latest How to Videos</h4>
+                            </div>
+                            <owl-carousel-o [options]="customServeOptions"
+                                (dragging)="isDragging = $event.dragging">
+                                <ng-container *ngFor="let item of result | slice:0:5">
+                                    <ng-template carouselSlide>
+                                        <div class="webinar_block bg-box">
+                                            <div class="pos-rel webinar-block-inr">
+                                                <div class="img-block-top pos-rel">
+                                                    <div class="video-wrap pos-rel">
+                                                        <div class="video-player">
+                                                            <iframe width="100%" height="100%"
+                                                                [src]="item.video_iframe | safe"
+                                                                title="YouTube video player" frameborder="0"
+                                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                                allowfullscreen></iframe>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content-block" (click)="openVideoDetail(item)">
+                                                    <div class="topic" *ngIf="item.topic">
+                                                        {{item.topic}}
+                                                    </div>
+                                                    <div class="topic" *ngIf="item.sub_topic">
+                                                        {{item.sub_topic}}
+                                                    </div>
+                                                    <div class="title">
+                                                       <h3>
+                                                           {{(item.video_title.length>120)? (item.video_title | slice:0:120)+'...':(item.video_title)}}
+                                                       </h3> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </ng-container>
+                            </owl-carousel-o>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

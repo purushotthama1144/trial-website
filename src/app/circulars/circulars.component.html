@@ -1,0 +1,45 @@
+<div class="circular_block help-desk">
+    <div class="subPageBanner">
+        <div class="bgImage" style="background-image: url('https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/Circulars+updates.png');"></div>
+        <div class="overlay"></div>
+        <div class="banner-content text-center subPage_content">
+            <div class="section-header">
+                <h1>Circulars</h1>
+                <p>Get your recent updates</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="career_outer_block">
+        <div class="container container-medium-width">
+            <mat-tab-group animationDuration="0ms" class="circ-tab">
+                <mat-tab label="Post Box">
+                    <app-post-box></app-post-box>
+                </mat-tab>
+                <mat-tab label="For Partner">
+                    <app-for-partner></app-for-partner>
+                </mat-tab>
+                <mat-tab label="Exchange">
+                    <app-exchange></app-exchange>
+                </mat-tab>
+                <mat-tab label="Trading Holiday">
+                    <app-trading-holiday></app-trading-holiday>
+                </mat-tab>
+            </mat-tab-group>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="sub_header text-center">
+    <h3>Operations</h3>
+</div>
+<owl-carousel-o [options]="customOperationsOptions" (dragging)="isDragging = $event.dragging">
+    <ng-container *ngFor="let item of operationData">
+        <ng-template carouselSlide>
+            <div class="single-block">
+                <div class="img-block">
+                    <img [src]="item.img" [alt]="item.title" class="img-responsive">
+                </div>
+                <div class="content-block">
+                    <h4>{{item.title}}</h4>
+                    <div class="title">{{item.position}}</div>
+                    <a [href]="item.instaLink">
+                        <img src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/linkdin.png" alt="test">
+                    </a>
+                </div>
+            </div>
+        </ng-template>
+    </ng-container>
+</owl-carousel-o>

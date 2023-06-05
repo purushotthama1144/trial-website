@@ -1,0 +1,23 @@
+<div class="main-content">
+  
+    <div class="margin-calculator">
+        <div class="frame-top">
+            <!-- <a mat-tab-link href="https://ant.aliceblueonline.com/margin-calculator/" target="_blank" [active]="rla.isActive">Derivatives</a> -->
+            <!-- <nav mat-tab-nav-bar>
+                <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
+                    {{link.label}}
+                </a>
+            </nav> -->
+
+            <nav mat-tab-nav-bar>
+                <a mat-tab-link routerLink="./equity" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
+                    Equity
+                </a>
+                <a mat-tab-link href="https://ant.aliceblueonline.com/margin-calculator/" target="_blank">
+                    Derivatives
+                </a>
+            </nav>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

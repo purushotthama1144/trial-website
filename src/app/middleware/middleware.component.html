@@ -1,0 +1,79 @@
+<ng-template [ngIf]="blogData?.banner_image !='' ">
+    <div class="blog_detail_view post-box-circular-block middleware">
+        <div class="post-box-circular">
+            <div class="container container-small-width">
+                <div class="blog_banner_inner">
+                    <div class="fl-bx align-item-center justify-content-center">
+                        <div class="blog_detail_header text-center w-100">
+                            <h1>{{blogData?.title}}</h1>
+                        </div>
+                        <div class="blog_detail_image">
+                            <img [src]="blogData?.banner_image" [alt]="blogData?.alt_text?blogData?.alt_text:''" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame-medium blog_detail_block">
+            <div class="container container-small-width">
+                <div class="fl-bx">
+                    <div class="w-100 left_block">
+                        <div class="blog-detail-left-outer">
+                            <div class="blog-detail-left">
+                                <div class="hdr_cnt_block">
+                                    <div class="cont_cnt_block" [innerHTML]="blogData?.body_text"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="faqs frame" *ngIf="faqs.length > 0">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>FAQs</h2>
+                </div>
+                <div id="accordion" class="accordion">
+                    <div *ngFor="let menu of faqs; let i = index" class="acc_outer" [class.active]="menu.active">
+                        <div class="menu" (click)="toggle(i)">
+                            <span class="before"></span>
+                                {{ menu.question }}
+                            <span class="plus"></span>
+                        </div>
+                        <div class="submenu" #submenu [style.height.px]="menu.active ? submenu.scrollHeight : 0" >
+                            <div class="accContent" [innerHTML]="menu.answer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="share" [ngClass]="{ scrolled : scrolled}">
+            <div class="cs-social-share clearfix">
+                <div class="cs-share-this-product facebook">
+                    <share-button [theme]="'modern-dark'" [button]="'facebook'"></share-button>
+                </div>
+                <div class="cs-share-this-product twitter">
+                    <share-button [theme]="'modern-dark'" [button]="'twitter'"></share-button>
+                </div>
+                <div class="cs-share-this-product linkedin">
+                    <share-button [theme]="'modern-dark'" [button]="'linkedin'"></share-button>
+                </div>
+                <div class="cs-share-this-product whatsapp ">
+                    <share-button [theme]="'modern-dark'" [button]="'whatsapp'"></share-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<div class="loader" *ngIf="pageloader">
+    <div class="loader-inner">
+        <div id="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>

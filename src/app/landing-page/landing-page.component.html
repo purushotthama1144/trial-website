@@ -1,0 +1,54 @@
+<div class="blog_detail_view landing-page">
+    <div class="blog_list_banner bg-grey frame">
+        <div class="container container-medium-width">
+            <div class="blog_banner_inner image-right-text-left-block">
+                <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                    <div class="image-block w-50">
+                        <img alt="image" class="img-responsive" src="https://alicewebsite.s3.ap-south-1.amazonaws.com/cms/ebook/1640157710496/lic.png">
+                    </div>
+                    <div class="text-block w-50">
+                        <div class="section-header">
+                            <h1>LIC IPO: Date, Share Price, & News.</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="frame-medium blog_detail_block">
+        <div class="container container-small-width">
+            <div class="fl-bx">
+                <div class="w-100 left_block">
+                    <div class="blog-detail-left-outer">
+                        <div class="blog-detail-left">
+                            <div class="hdr_cnt_block">
+                                <div class="cont_cnt_block" [innerHTML]="landing_page.html_content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="faqs frame" *ngIf="faqs.length > 0">
+        <div class="container container-medium-width">
+            <div class="section-header text-center">
+                <h2>FAQs</h2>
+            </div>
+            <div id="accordion" class="accordion">
+                <div *ngFor="let menu of faqs; let i = index" class="acc_outer" [class.active]="menu.active">
+                    <div class="menu" (click)="toggle(i)">
+                        <span class="before"></span>
+                            {{ menu.question }}
+                        <span class="plus"></span>
+                    </div>
+                    <div class="submenu" #submenu [style.height.px]="menu.active ? submenu.scrollHeight : 0" >
+                        <div class="accContent" [innerHTML]="menu.answer">
+            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

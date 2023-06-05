@@ -1,0 +1,297 @@
+<div class="main-content">
+
+    <div class="pricing">
+        <div class="subpage-banner  bg-grey">
+            <div class="container subpage-banner-inner">
+                <div class="blog_banner_inner image-right-text-left-block">
+                    <div class="image-text-inner fl-bx align-items-center ">
+                        <div class="image-block w-50">
+                            <img class="img-responsive" [src]="pricingData?.banner_image" alt="alice blue brokerage charges">
+                        </div>
+                        <div class="text-block w-50">
+                            <div class="section-header">
+                                <h1>{{pricingData?.main_heading}}</h1>
+                                <p>{{pricingData?.sub_heading}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="frame simple-heading">
+            <div class="container container-medium-width">
+                <div class="fl-bx align-items-center justify-content-center text-center">
+                    <div class="w-30 priceheader" *ngFor="let pricingDetail of pricingDetails">
+                        <div class="priceInner">
+                            <div class="pricing-title">
+                                ₹ <span class="prices">{{pricingDetail.price}}</span>
+                            </div>
+                            <div class="pricing_name">{{pricingDetail.title}}</div>
+                            <div class="desc">
+                                {{pricingDetail.desc}}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- f15 plan brokerage-->
+        <div class="brokerage-plan frame" *ngIf="f15PlanBrokerage">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Freedom15 (F15) Brokerage Details</h2>
+                    <p>Pay less while you trade more</p>
+                </div>
+                <div class="tab-plans">
+                    <div class="frame-top pricing-table-outer">
+                        <div class="pricing-table-inner">
+                            <div class="pricing-table">
+                                <div class="pricing-header w-50">
+                                    Segments
+                                </div>
+                                <div class="pricing-header w-50">
+                                    Brokerage
+                                </div>
+                            </div>
+                            <div class="pricing-table" *ngFor="let plan of f15PlanBrokerage">
+                                <div class="pricing-cont w-50">
+                                    {{plan.segments}}
+                                </div>
+                                <div class="pricing-cont w-50">
+                                    {{plan.brokerage}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Trade pro Brokerage -->
+        <div class="brokerage-plan frame" *ngIf="tradeProBrokerage">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Trade Pro Brokerage Details</h2>
+                    <p>Pay less while you trade more</p>
+                </div>
+                <div class="tab-plans">
+                    <div class="frame-top pricing-table-outer">
+                        <div class="pricing-table-inner">
+                            <div class="pricing-table">
+                                <div class="pricing-header w-50">
+                                    Segments
+                                </div>
+                                <div class="pricing-header w-50">
+                                    Brokerage
+                                </div>
+                            </div>
+                            <div class="pricing-table" *ngFor="let plan of tradeProBrokerage">
+                                <div class="pricing-cont w-50">
+                                    {{plan.segments}}
+                                </div>
+                                <div class="pricing-cont w-50">
+                                    {{plan.brokerage}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="note text-center">
+            <span style="font-weight: bold;">NOTE*:</span>Bracket Order charges are applicable
+            at Rs. 4+GST on every executed order 
+        </div>
+        <div class="btn-block frame text-center">
+            <a class="btn btn-blue" routerLink="/brokerage-calculator/equity">Calculate Brokerage</a>
+        </div>
+        <!-- F15 margin -->
+        <div class="bg-grey exposure-planes frame" *ngIf="f15PlanMargin">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Freedom15 (F15) Margin Details</h2>
+                    <p>Optimal margin as mandated by SEBI</p>
+                </div>
+                <div class="pricing-table-inner">
+                    <div class="pricing-table">
+                        <div class="pricing-header w-20">
+                            CNC/NRML
+                        </div>
+                        <div class="pricing-header w-20">
+                            MIS Intraday
+                        </div>
+                        <div class="pricing-header w-20">
+                            Cover Order
+                        </div>
+                        <div class="pricing-header w-20">
+                            Bracket Order
+                        </div>
+                        <div class="pricing-header w-20">
+
+                        </div>
+                    </div>
+                    <div class="pricing-table" *ngFor="let plan of f15PlanMargin">
+                        <div class="pricing-cont w-20">
+                            {{split(plan.cnc_nrml)[0]}}
+                            <div>
+                                {{split(plan.cnc_nrml)[1]}}
+                            </div>
+                        </div>
+                        <div class="pricing-cont w-20">
+                            {{split(plan.mis_intraday)[0]}}
+                            <div>{{split(plan.mis_intraday)[1]}}</div>
+                        </div>
+                        <div class="pricing-cont w-20">
+                            {{split(plan.cover_order)[0]}}
+                            <div>{{split(plan.cover_order)[1]}}</div>
+                        </div>
+                        <div class="pricing-cont w-20">
+                            {{split(plan.bracket_order)[0]}}
+                            <div>{{split(plan.bracket_order)[1]}}</div>
+                        </div>
+                        <div class="pricing-cont w-20">
+                            {{split(plan.as_per)[0]}}
+                            <div>{{split(plan.as_per)[1]}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Trade pro brokerage -->
+        <div class="bg-grey exposure-planes frame" *ngIf="tradeProMargin">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2>Trade Pro Margin Details</h2>
+                    <p>Optimal margin as mandated by SEBI</p>
+                </div>
+                <div class="pricing-table-inner">
+                    <div class="pricing-table">
+                        <div class="pricing-header w-20">
+                            CNC/NRML
+                        </div>
+                        <div class="pricing-header w-20">
+                            MIS Intraday
+                        </div>
+                        <div class="pricing-header w-20">
+                            Cover Order
+                        </div>
+                        <div class="pricing-header w-20">
+                            Bracket Order
+                        </div>
+                        <div class="pricing-header w-20">
+
+                        </div>
+                    </div>
+                    <div class="pricing-table" *ngFor="let plan of tradeProMargin">
+                        <div class="pricing-cont w-20">
+                            {{split(plan.cnc_nrml)[0]}}
+                            <div>
+                                {{split(plan.cnc_nrml)[1]}}
+                            </div>
+                        </div>
+                        <div class="pricing-cont w-20">
+                            {{split(plan.mis_intraday)[0]}}
+                            <div>{{split(plan.mis_intraday)[1]}}</div>
+                        </div>
+                        <div class="pricing-cont w-20">
+                            {{split(plan.cover_order)[0]}}
+                            <div>{{split(plan.cover_order)[1]}}</div>
+                        </div>
+                        <div class="pricing-cont w-20">
+                            {{split(plan.bracket_order)[0]}}
+                            <div>{{split(plan.bracket_order)[1]}}</div>
+                        </div>
+                        <div class="pricing-cont w-20">
+                            {{split(plan.as_per)[0]}}
+                            <div>{{split(plan.as_per)[1]}}</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="btn-block frame text-center">
+            <!-- <a class="btn btn-blue" routerLink="/margin-calculator/commodity">Calculate Margin</a> -->
+            <a class="btn btn-blue" href="https://ant.aliceblueonline.com/margin-calculator/" target="_blank">Calculate Margin</a>
+        </div>
+        <div class="faqs frame" *ngIf="faqs.length > 0">
+            <div class="container container-medium-width">
+                <div class="section-header text-center">
+                    <h2> FAQs</h2>
+                </div>
+                <div id="accordion" class="accordion">
+                    <div *ngFor="let menu of faqs; let i = index" class="acc_outer" [class.active]="menu.active">
+                        <div class="menu" (click)="toggle(i)">
+                            <span class="before"></span>
+                                {{ menu.question }}
+                            <span class="plus"></span>
+                        </div>
+                        <div class="submenu" #submenu [style.height.px]="menu.active ? submenu.scrollHeight : 0" >
+                            <div class="accContent" [innerHTML]="menu.answer">
+                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="fl-bx align-items-center">
+                    <div class="AccWrap" *ngFor="let faq of faqs">
+                        <div class="AccWrapInr">
+                            <div class="AccHdr bg-box-one">
+                                {{faq.question}}
+                            </div>
+                            <div class="AccCont" [innerHTML]="faq.answer"></div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="view_more">
+                    More Questions? <span routerLink="/support" style="color:#276ba4;cursor: pointer;">Visit our support center</span>
+                </div>
+            </div>
+        </div>
+        <div class="frame bg-light-blue">
+            <div class="container container-medium-width">
+                <div class="fl-bx align-items-center fl-jst-center">
+                    <div class="w-100">
+                        <div class="common-gap left">
+                            <div class="section-header text-center">
+                                <h2>More Than 1,00,000 Investors and Traders
+                                    Across India Use Alice Blue Platforms</h2>
+                            </div>
+                            <div class="benefits">
+                                <div class="social-icon-links">
+                                    <a class="s-icn" target="_blank"
+                                        rel="noreferrer" href="https://apps.apple.com/in/app/ant-aliceblue/id1450075732"><img
+                                            src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/svg/ios.png"
+                                            class="img-responsive" alt="App Store - Alice Blue"></a>
+                                    <a class="s-icn" target="_blank"
+                                        rel="noreferrer" href="https://play.google.com/store/apps/details?id=in.aliceblue.ant&hl=en"><img
+                                            src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/Homepage+/android.webp"
+                                            class="img-responsive" alt="Google Play Store - Alice Blue"></a>
+                                    <a class="s-icn " target="_blank" rel="noreferrer" href="https://ant.aliceblueonline.com"><img
+                                            src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/antweb.png"
+                                            alt="Ant Web" class="img-responsive"></a>
+                                    <a class="s-icn" target="_blank"
+                                        rel="noreferrer" href="https://play.google.com/store/apps/details?id=com.aliceblueonline.mutualfund.alpha&hl=en"><img
+                                            src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/svg/mf.png"
+                                            alt="Aliceblue Mutualfunds" class="img-responsive"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loader" *ngIf="pageloader">
+        <div class="loader-inner">
+            <div id="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        </div>
+    </div>

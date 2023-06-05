@@ -1,0 +1,261 @@
+<div class="main-content">
+    <div class="blog-list blog_detail_view blog_category pos-rel" id="reading_time">
+
+        <!-- <div class="blog_list_banner bg-grey frame">
+            <div class="container container-medium-width">
+                <div class="blog_banner_inner image-right-text-left-block">
+                    <div class="image-text-inner fl-bx align-items-center justify-content-center">
+                        <div class="image-block w-50">
+                            <img alt="ANT IQ Blogs" class="img-responsive"
+                                src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/ANTIQ+Blog/Parent+page(ANT+IQ+Blogs+Banner)/ant-iq-blogs.png">
+                        </div>
+                        <div class="text-block w-50">
+                            <div class="section-header">
+                                <h1>ANT IQ Blogs</h1>
+                                <p>Collect our daily updates here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="frame bg-green blog-list-simple-desc-block">
+            <div class="blog-list-simple-desc-block-inr">
+                <div class="careerSearchBlock ">
+                    <div class="fl-bx align-items-center text-center justify-content-center">
+                        <div class="section-header text-center w-100">
+                            <h1>ANT IQ Blogs</h1>
+                            <p>Collect our daily updates here</p>
+                        </div>
+                        <div class="text-block w-50">
+                            Analyze and Trade Intelligence Quotient is
+                            <span class="green">Alice Blue’s Blog section</span>.
+                        </div>
+
+                        <div class="text-block w-50">
+                            Subscribe & stay up to date on
+                            <span class="green">trading & investing tips, strategies and guides</span>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blog_detail_block">
+            <div class="explore-more frame">
+                <div class="container container-medium-width">
+                    <div class="section-header text-center">
+                        <h2>Explore More Topics</h2>
+                        <p>Ready to hone your skills & knowledge on trading & investing? You’re at the right place!</p>
+                    </div>
+                    <div class="fl-bx align-items-center justify-content-center explore-more-links">
+                        <a [routerLink]="['category',subcategory.redirect_link]" class="explore-links"
+                            *ngFor="let subcategory of subcategories">
+                            <div class="link-base">{{subcategory.sub_category}}
+                               <img width="15" height="15" src="assets/images/google-icons/chevron-right.svg" alt="arrow right">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="fl-bx pos-rel">
+                    <div class="search-block">
+                        <mat-form-field appearance="outline">
+                            <div class="search-field">
+                                <div class="google-icon">
+                                    <img src="assets/images/google-icons/search.svg" alt="download" width="20" height="20">
+                                </div>
+                                <div class="search-input">
+                                    <input type="text" placeholder="Blog Search" name="Title" matInput [(ngModel)]="blogCategory">
+                                </div>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <div class="w-70 left_block pos-rel">
+                        
+                        <div class="blog-readtime-field fl-bx align-items-center " *ngIf="blogData.length == 0">
+                            No Blogs Found
+                        </div>
+                        <div class="blog-readtime-field fl-bx align-items-center " *ngIf="blogData.length > 0">
+                            <ng-container *ngIf="blogData | searchFilter: blogCategory as result">
+                                <ng-container *ngIf="result.length > 0">
+                                    <div class="blog-cat-single-block pos-rel  bg-box"
+                                        *ngFor="let user of result | paginate: { itemsPerPage: 9 , currentPage: q }">
+                                        <div class="blog-cat-inner" style="cursor: pointer;"
+                                            (click)="openBlogDetail(user)">
+                                            <div class="blog-title">
+                                                <h3>{{ (user.title.length>50)? (user.title |
+                                                    slice:0:50)+'..':(user.title) }}</h3>
+                                                <div class="fl-bx blog-cat-readtime-block">
+                                                    <div class="blog-readtime blog-category">
+                                                        {{user.sub_category | titlecase}}
+                                                    </div>
+                                                    <div class="blog-readtime">
+                                                        {{user.date | date : 'fullDate'}}
+                                                        <!-- {{user.date |date : 'medium'}} -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="img-block">
+                                                <img title="" alt="image" class="img-responsive"
+                                                    [src]="user.banner_image">
+                                            </div>
+                                            <div class="blog-desc pos-rel">
+                                                <!-- {{user.meta_description}} -->
+                                                {{ (user.meta_description.length>120)? (user.meta_description | slice:0:120)+'..':(user.meta_description) }}
+                                                <!-- {{ (user.short_description.length>100)? (user.short_description | slice:0:100)+'..':(user.short_description) }} -->
+                                                <div class="fl-bx align-items-center link_read_text">
+                                                    <!-- <div class="read_time">
+                                                        {{calculateReadTime(user.body_text)}} Min Read
+                                                    </div> -->
+                                                    <div class="text-left">
+                                                        <a class="link" style="cursor:pointer" (click)="openBlogDetail(user)">Read more >></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pagination_block w-100 text-center">
+                                        <pagination-controls (pageChange)="q = $event"></pagination-controls>
+                                    </div>
+                                </ng-container>
+                                <ng-container *ngIf="result.length == 0">
+                                    No Results Found
+                                </ng-container>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="w-30 right_block pos-rel">
+                        <div class="open-account-block">
+                            <app-blog-right-block></app-blog-right-block>
+                        </div>
+                        <div class="blog-list-describe">
+                            <div class="section-header">
+                                <div class="t_b_t">
+                                    Trending Blogs
+                                </div>
+                            </div>
+                            <div *ngIf="trendingBloglist.length == 0">
+                                No Trending Blogs
+                            </div>
+                            <ng-template [ngIf]="trendingBloglist.length > 0">
+                                <ng-container *ngIf="trendingBloglist | searchFilter: blogCategory as trendingBlogs">
+                                    <ng-container *ngIf="trendingBlogs.length > 0">
+                                        <div class="blog-title bg-grey" *ngFor="let user of trendingBlogs | slice:0:5">
+                                            <a class="link" style="cursor:pointer" (click)="openBlogDetail(user)">
+                                                <div class="hdr_5">{{user.title}}</div>
+                                                <div class="fl-bx blog-cat-readtime-block">
+                                                    <div class="blog-readtime blog-category">
+                                                        {{user.sub_category | titlecase}}
+                                                    </div>
+                                                    <div class="blog-readtime">
+                                                        {{user.date |date : 'medium'}}
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </ng-container>
+                                    <ng-container *ngIf="trendingBlogs.length == 0">
+                                        No Results Found
+                                    </ng-container>
+                                </ng-container>
+                            </ng-template>
+                        </div>
+                        <div class="blog-list-describe">
+                            <div class="section-header">
+                                <div class="t_b_t">
+                                    Latest Blogs
+                                </div>
+                            </div>
+                            <div *ngIf="latestBloglist.length == 0">
+                                No Latest Blogs
+                            </div>
+                            <ng-template [ngIf]="latestBloglist.length > 0">
+                                <ng-container *ngIf="latestBloglist | searchFilter: blogCategory as latestBlogs">
+                                    <ng-container *ngIf="latestBlogs.length > 0">
+                                        <div class="blog-title bg-grey" *ngFor="let user of  latestBlogs|  slice:0:5">
+                                            <a class="link" style="cursor:pointer" target="_blank" (click)="openBlogDetail(user)">
+                                                <div class="hdr_5">{{user.title}}</div>
+                                                <div class="fl-bx blog-cat-readtime-block">
+                                                    <div class="blog-readtime blog-category">
+                                                        {{user.sub_category | titlecase}}
+                                                    </div>
+                                                    <div class="blog-readtime">
+                                                        {{user.date |date : 'fullDate'}}
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </ng-container>
+                                    <ng-container *ngIf="latestBlogs.length == 0">
+                                        No Results Found
+                                    </ng-container>
+                                </ng-container>
+                            </ng-template>
+                        </div>
+                        <app-subscribe></app-subscribe>
+                    </div>
+                </div>
+            </div>
+            <div class="image-right-text-left-block frame">
+                <div class="container container-medium-width">
+                    <div class="image-text-inner bg-grey fl-bx align-items-center justify-content-center">
+                        <div class="image-block w-50 product">
+                            <div class="img__wrap dashboard">
+                                <img alt="image"
+                                    src="https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/blog-cat-3.png"
+                                    class="img__img img-responsive">
+                                <div class="img__description_layer">
+                                    <div class="img__description text-center">
+                                        <h3 style="color: #fff; margin-bottom: 0;">Visit Alice Blue’s EBooks</h3>
+                                        <a style="color: #fff;border-bottom: 1px solid #fff;" rel="noreferrer" href="">Explore E-books &
+                                            Guides >> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-block w-50 text-center" style="font-size: 30px; font-weight: 500;">
+                            "Begin your <span class="green">Trading Investment Journey with Alice Blue</span>"
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-us frame bg-light-blue share_link">
+                <div class="container container-medium-width">
+                    <div class="fl-bx align-items-center">
+                        <div class="w-50">
+                            <div class="installs text-center">
+                                <div class="install_title ">
+                                    "<span class="yellow">10 LAKH+</span> <br> Installs"
+                                </div>
+                                <div class="link_mobile">
+                                    <div class="wrap">
+                                        <div class="offer">
+                                            Enjoy Lifetime Free Delivery Trade
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-50">
+                            <div class="installs text-center download-app">
+                                <app-download-app></app-download-app>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="loader" *ngIf="pageloader">
+            <div class="loader-inner">
+                <div id="spinner">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                    <div class="rect4"></div>
+                    <div class="rect5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

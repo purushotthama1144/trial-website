@@ -1,0 +1,19 @@
+<div class="main-content" *ngIf="legalDoc">
+    <div class="privacy-policy help-desk legal-documentation">
+        <div class="subPageBanner">
+            <div class="back" routerLink="/legal-documentation"><< Back to Legal Documentaion</div>
+            <div class="bgImage" style="background-image: url('https://alicewebsite.s3.ap-south-1.amazonaws.com/website/img-v2/legal+document.png');"></div>
+            <div class="overlay"></div>
+            <div class="banner-content text-center subPage_content">
+                <div class="section-header">
+                    <h1>{{legalDoc.question}}</h1>
+                </div>
+            </div>
+        </div>
+        <div class="faq-list faq">
+            <div class="download-accordion container container-medium-width frame-top">
+                <div class="cont-block" [innerHTML]="legalDoc.answer"></div>
+            </div>
+        </div>
+    </div>
+</div>
